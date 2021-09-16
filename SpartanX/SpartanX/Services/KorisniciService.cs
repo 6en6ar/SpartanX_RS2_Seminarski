@@ -7,18 +7,13 @@ using System.Threading.Tasks;
 
 namespace SpartanX.Services
 {
-    public class KorisniciService : IKorisniciService
+    public class KorisniciService : BaseReadService<Model.Korisnici, Database.Korisnici, object>, IKorisniciService
     {
-        public SpartanXContext context { get; set; }
-        protected readonly IMapper mapper;
-        public KorisniciService(SpartanXContext _context, IMapper _mapper)
+      
+        public KorisniciService(SpartanXContext _context, IMapper _mapper): base(_context, _mapper)
         {
-            context = _context;
-            mapper = _mapper;
+          
         }
-        public IList<Model.Korisnici> Get()
-        {
-            return context.Korisnicis.ToList().Select(x => mapper.Map<Model.Korisnici>(x)).ToList();
-        }
+        
     }
 }

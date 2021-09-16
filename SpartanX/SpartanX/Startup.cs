@@ -33,6 +33,7 @@ namespace SpartanX
             services.AddAutoMapper(typeof(Startup));
             services.AddTransient<IProizvodiService, ProizvodiService>();
             services.AddTransient<IKorisniciService, KorisniciService>();
+            services.AddTransient<ISkladistaService, SkladistaService>();
             services.AddDbContext<SpartanXContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }

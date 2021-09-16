@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SpartanX.Database;
 using SpartanX.Services;
 using System;
 using System.Collections.Generic;
@@ -10,11 +9,11 @@ namespace SpartanX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class KorisniciController : BaseReadController<Model.Korisnici, object>
-    { 
-        public KorisniciController(IKorisniciService _service) : base(_service)
+    public class SkladistaController : BaseReadController<Model.Skladista, object>
+    {
+        public SkladistaController(ISkladistaService _service) : base(_service)
         {
-          
+
         }
     }
 }

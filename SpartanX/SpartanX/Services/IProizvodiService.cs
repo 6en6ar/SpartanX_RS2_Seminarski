@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace SpartanX.Services
 {
-    public interface IProizvodiService//<T> where T:class
+    public interface IProizvodiService : IReadService<Model.Proizvodi, Model.Search.ProizvodiSearchObject>
     {
-        IEnumerable<Proizvod> Get();
-        public Proizvod GetById(int id);
-        public Proizvod Insert(Proizvod proizvod);
-        public Proizvod Update(int id, Proizvod proizvod);
-        IEnumerable<Proizvod> Delete(int id);
+      
     }
 }

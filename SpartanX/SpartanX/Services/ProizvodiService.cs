@@ -1,4 +1,7 @@
-﻿using SpartanX.Models;
+﻿using AutoMapper;
+using SpartanX.Database;
+using SpartanX.Model.Search;
+using SpartanX.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,52 +9,25 @@ using System.Threading.Tasks;
 
 namespace SpartanX.Services
 {
-    public class ProizvodiService : IProizvodiService
+    public class ProizvodiService : BaseReadService<Model.Proizvodi, Database.Proizvodi,Model.Search.ProizvodiSearchObject>, IProizvodiService
     {
-        private static List<Proizvod> proizvodi;
-        static ProizvodiService()
+        public ProizvodiService(SpartanXContext _context, IMapper _mapper)
+            : base(_context, _mapper)
         {
-            proizvodi = new List<Proizvod>()
-            {
-                new Proizvod()
-                {
-                    Id = 0,
-                    Naziv = "Protein"
-                },
-                new Proizvod()
-                {
-                    Id= 1,
-                    Naziv = "BCAA"
-                }
 
-            };
         }
-        public IEnumerable<Proizvod> Get()
+        public override IEnumerable<Model.Proizvodi> Get(ProizvodiSearchObject search = null)
         {
-            return proizvodi;
+            var DBset = context.Set<Database.Proizvodi>();
+            if (!string.IsNullOrWhiteSpace(search?.Naziv))
+            {
+                var pro = DBset.Where(x => x.Naziv.Contains(search.Naziv));
+            }
+            // if ..
+
+            var modeli = mapper.Map<List<Model.Proizvodi>>(DBset);
+            return modeli;
         }
-        public Proizvod GetById(int id)
-        {
-            var pro = proizvodi.FirstOrDefault(x=>x.Id == id);
-            return pro;
-        }
-        public Proizvod Insert(Proizvod proizvod)
-        {
-            proizvodi.Add(proizvod);
-            return proizvod;
-            
-        }
-        public Proizvod Update(int id, Proizvod proizvod)
-        {
-            var pro = proizvodi.Find(x=>x.Id == id);
-            pro.Naziv = proizvod.Naziv;
-            return pro;
-        }
-        public IEnumerable<Proizvod> Delete(int id)
-        {
-            var pro = proizvodi.Find(x => x.Id == id);
-            proizvodi.Remove(pro);
-            return proizvodi;
-        }
+
     }
 }
