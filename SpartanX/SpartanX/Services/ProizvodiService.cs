@@ -18,13 +18,14 @@ namespace SpartanX.Services
         }
         public override IEnumerable<Model.Proizvodi> Get(ProizvodiSearchObject search = null)
         {
-            var DBset = context.Set<Database.Proizvodi>();
+            var DBset = context.Set<Database.Proizvodi>().AsQueryable();
             if (!string.IsNullOrWhiteSpace(search?.Naziv))
             {
-                var pro = DBset.Where(x => x.Naziv.Contains(search.Naziv));
+                DBset = DBset.Where(x => x.Naziv.Contains(search.Naziv));
             }
             // if ..
 
+            var lista = DBset.ToList();
             var modeli = mapper.Map<List<Model.Proizvodi>>(DBset);
             return modeli;
         }
