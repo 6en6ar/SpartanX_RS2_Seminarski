@@ -19,8 +19,12 @@ namespace SpartanX.Database
         public DateTime DatumNarudzbe { get; set; }
         public bool Status { get; set; }
         public bool? Otkazano { get; set; }
+        public decimal IznosBezPdv { get; set; }
+        public decimal IznosSaPdv { get; set; }
+        public int SkladisteId { get; set; }
 
         public virtual Kupci Kupac { get; set; }
+        public virtual Skladistum Skladiste { get; set; }
         public virtual ICollection<NarudzbaStavke> NarudzbaStavkes { get; set; }
         public virtual ICollection<Racun> Racuns { get; set; }
     }

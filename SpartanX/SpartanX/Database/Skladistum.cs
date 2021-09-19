@@ -10,6 +10,7 @@ namespace SpartanX.Database
         public Skladistum()
         {
             Nabavkas = new HashSet<Nabavka>();
+            Narudzbes = new HashSet<Narudzbe>();
         }
 
         public int SkladisteId { get; set; }
@@ -18,5 +19,6 @@ namespace SpartanX.Database
         public string Opis { get; set; }
 
         public virtual ICollection<Nabavka> Nabavkas { get; set; }
+        public virtual ICollection<Narudzbe> Narudzbes { get; set; }
     }
 }

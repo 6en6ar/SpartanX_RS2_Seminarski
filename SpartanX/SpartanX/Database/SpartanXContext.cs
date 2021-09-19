@@ -330,13 +330,25 @@ namespace SpartanX.Database
 
                 entity.Property(e => e.DatumNarudzbe).HasColumnType("datetime");
 
+                entity.Property(e => e.IznosBezPdv).HasColumnType("decimal(18, 0)");
+
+                entity.Property(e => e.IznosSaPdv).HasColumnType("decimal(18, 0)");
+
                 entity.Property(e => e.KupacId).HasColumnName("KupacID");
+
+                entity.Property(e => e.SkladisteId).HasColumnName("SkladisteID");
 
                 entity.HasOne(d => d.Kupac)
                     .WithMany(p => p.Narudzbes)
                     .HasForeignKey(d => d.KupacId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Narudzbe_Kupac");
+
+                entity.HasOne(d => d.Skladiste)
+                    .WithMany(p => p.Narudzbes)
+                    .HasForeignKey(d => d.SkladisteId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Narudzbe_Skladista");
             });
 
             modelBuilder.Entity<Proizvodi>(entity =>
