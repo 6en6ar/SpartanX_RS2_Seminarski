@@ -9,5 +9,5 @@ namespace SpartanX.Services
     {
         T Insert(TInsert insertReq);
         T Update(int id, TUpdate updateReq);
-    }
+    } 
 }

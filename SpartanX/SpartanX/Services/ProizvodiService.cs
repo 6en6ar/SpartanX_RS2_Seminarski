@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using SpartanX.Database;
+using SpartanX.Model.Requests;
 using SpartanX.Model.Search;
 using SpartanX.Models;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SpartanX.Services
 {
-    public class ProizvodiService : BaseReadService<Model.Proizvodi, Database.Proizvodi,Model.Search.ProizvodiSearchObject>, IProizvodiService
+    public class ProizvodiService : BaseCRUDService<Model.Proizvodi, Database.Proizvodi,Model.Search.ProizvodiSearchObject, ProizvodiInsertRequest, ProizvodiUpdateRequest>, IProizvodiService
     {
         public ProizvodiService(SpartanXContext _context, IMapper _mapper)
             : base(_context, _mapper)

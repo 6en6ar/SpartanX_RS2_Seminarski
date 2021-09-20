@@ -21,7 +21,7 @@ namespace SpartanX.Controllers
             return _service.Insert(req);
         }
         [HttpPut("{id}")]
-        public T Update([FromBody] int id, TUpdate req)
+        public T Update(int id, [FromBody] TUpdate req)
         {
             return _service.Update(id,req);
         }
