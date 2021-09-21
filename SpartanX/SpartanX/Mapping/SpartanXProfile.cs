@@ -10,7 +10,7 @@ namespace SpartanX.Mapping
     {
         public SpartanXProfile()
         {
-            CreateMap<Database.Korisnici, Model.Korisnici>();
+            CreateMap<Database.Korisnici, Model.Korisnici>().ReverseMap();
             CreateMap<Database.Proizvodi, Model.Proizvodi>();
             CreateMap<Database.Skladistum, Model.Skladista>();
             CreateMap<Database.VrstaProizvodum, Model.VrstaProizvoda>();

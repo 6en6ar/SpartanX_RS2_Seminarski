@@ -32,8 +32,9 @@ namespace SpartanX.WinUI.Korisnici
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvKorisniciPrikaz = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnPrikaziKorisnike = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisniciPrikaz)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -44,7 +45,7 @@ namespace SpartanX.WinUI.Korisnici
             this.groupBox1.Controls.Add(this.dgvKorisniciPrikaz);
             this.groupBox1.Location = new System.Drawing.Point(12, 166);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1255, 319);
+            this.groupBox1.Size = new System.Drawing.Size(1317, 366);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "KorisniciGB";
@@ -60,42 +61,52 @@ namespace SpartanX.WinUI.Korisnici
             this.dgvKorisniciPrikaz.ReadOnly = true;
             this.dgvKorisniciPrikaz.RowHeadersWidth = 82;
             this.dgvKorisniciPrikaz.RowTemplate.Height = 41;
-            this.dgvKorisniciPrikaz.Size = new System.Drawing.Size(1249, 281);
+            this.dgvKorisniciPrikaz.Size = new System.Drawing.Size(1311, 328);
             this.dgvKorisniciPrikaz.TabIndex = 0;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.btnPrikaziKorisnike);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1253, 148);
+            this.groupBox2.Size = new System.Drawing.Size(1314, 148);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PretragaKorisnika";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(16, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(497, 39);
-            this.textBox1.TabIndex = 0;
-            // 
             // btnPrikaziKorisnike
             // 
-            this.btnPrikaziKorisnike.Location = new System.Drawing.Point(948, 65);
+            this.btnPrikaziKorisnike.Location = new System.Drawing.Point(973, 105);
             this.btnPrikaziKorisnike.Name = "btnPrikaziKorisnike";
-            this.btnPrikaziKorisnike.Size = new System.Drawing.Size(239, 46);
+            this.btnPrikaziKorisnike.Size = new System.Drawing.Size(344, 46);
             this.btnPrikaziKorisnike.TabIndex = 1;
             this.btnPrikaziKorisnike.Text = "Prikazi";
             this.btnPrikaziKorisnike.UseVisualStyleBackColor = true;
             this.btnPrikaziKorisnike.Click += new System.EventHandler(this.button1_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 109);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(897, 39);
+            this.textBox1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 74);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 32);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Ime";
+            // 
             // frmKorisniciPrikaz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1277, 491);
+            this.ClientSize = new System.Drawing.Size(1341, 544);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmKorisniciPrikaz";
@@ -115,5 +126,6 @@ namespace SpartanX.WinUI.Korisnici
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnPrikaziKorisnike;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

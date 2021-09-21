@@ -10,14 +10,15 @@ namespace SpartanX.WinUI.Korisnici
 {
     public partial class frmKorisniciPrikaz : Form
     {
+        APIService _apiservice = new APIService("Korisnici");
         public frmKorisniciPrikaz()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-
+            dgvKorisniciPrikaz.DataSource = await _apiservice.Get<List<Model.Korisnici>>();
         }
     }
 }
