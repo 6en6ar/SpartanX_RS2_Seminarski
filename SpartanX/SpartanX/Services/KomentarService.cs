@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SpartanX.Services
 {
-    public class KomentarService : BaseReadService<Model.Komentar, Database.Komentar, object>, IKomentarService
+    public class KomentarService : BaseCRUDService<Model.Komentar, Database.Komentar, object>, IKomentarService
     {
         public KomentarService(SpartanXContext _context, IMapper _mapper) : base(_context, _mapper)
         {

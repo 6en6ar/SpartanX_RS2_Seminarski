@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SpartanX.Services
 {
-    public class BaseCRUDService<T, TDb, TSearch, TInsert, TUpdate> : BaseReadService<T, TDb, TSearch>, ICRUDService<T, TSearch, TInsert, TUpdate> where T : class where TSearch : class where TDb : class where TInsert : class where TUpdate : class
+    public class BaseCRUDService<T, TDb, TSearch, TInsert, TUpdate> : BaseCRUDService<T, TDb, TSearch>, ICRUDService<T, TSearch, TInsert, TUpdate> where T : class where TSearch : class where TDb : class where TInsert : class where TUpdate : class
     {
         public BaseCRUDService(SpartanXContext _context, IMapper _mapper) : base(_context, _mapper)
         {

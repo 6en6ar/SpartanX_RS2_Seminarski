@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SpartanX.Model.Requests;
+using SpartanX.Model.Search;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +20,17 @@ namespace SpartanX.WinUI.Korisnici
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            dgvKorisniciPrikaz.DataSource = await _apiservice.Get<List<Model.Korisnici>>();
+            KorisniciSearchObject req = new KorisniciSearchObject()
+            {
+                Ime = txtIme.Text
+            };
+            dgvKorisniciPrikaz.DataSource = await _apiservice.Get<List<Model.Korisnici>>(req);
+
+        }
+
+        private async void frmKorisniciPrikaz_Load(object sender, EventArgs e)
+        {
+            dgvKorisniciPrikaz.DataSource = await _apiservice.Get<List<Model.Korisnici>>(null);
         }
     }
 }

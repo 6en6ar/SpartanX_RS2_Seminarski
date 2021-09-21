@@ -17,7 +17,7 @@ namespace SpartanX.WinUI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Korisnici.frmKorisniciPrikaz());
+            Application.Run(new PocetnaForma());
         }
     }
 }

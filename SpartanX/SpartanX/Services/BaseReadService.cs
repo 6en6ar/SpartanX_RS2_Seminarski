@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace SpartanX.Services
 {
-    public class BaseReadService<T, TDb, TSearch> : IReadService<T, TSearch> where T:class where TDb: class where TSearch: class
+    public class BaseCRUDService<T, TDb, TSearch> : IReadService<T, TSearch> where T:class where TDb: class where TSearch: class
     {
         public SpartanXContext context { get; set; }
         protected readonly IMapper mapper;
-        public BaseReadService(SpartanXContext _context, IMapper _mapper)
+        public BaseCRUDService(SpartanXContext _context, IMapper _mapper)
         {
             context = _context;
             mapper = _mapper;

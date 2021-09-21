@@ -10,7 +10,7 @@ namespace SpartanX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class KorisniciController : BaseReadController<Model.Korisnici, object>
+    public class KorisniciController : BaseCRUDController<Model.Korisnici, Model.Search.KorisniciSearchObject, object, object>
     { 
         public KorisniciController(IKorisniciService _service) : base(_service)
         {

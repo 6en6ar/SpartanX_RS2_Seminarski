@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpartanX.Services
 {
-    public interface IKorisniciService : IReadService<Model.Korisnici, object>
+    public interface IKorisniciService : ICRUDService<Model.Korisnici, Model.Search.KorisniciSearchObject, object, object>
     {
 
     }
