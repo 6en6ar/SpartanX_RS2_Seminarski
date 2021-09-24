@@ -16,6 +16,7 @@ namespace SpartanX.Mapping
             CreateMap<Database.VrstaProizvodum, Model.VrstaProizvoda>();
             CreateMap<Database.Proizvodjaci, Model.Proizvodjaci>();
             CreateMap<Database.Komentar, Model.Komentar>();
+            CreateMap<Database.Uloge, Model.Uloge>();
             CreateMap<Model.Requests.ProizvodiUpdateRequest, Database.Proizvodi>();
             CreateMap<Model.Requests.ProizvodiInsertRequest, Database.Proizvodi>();
         }
