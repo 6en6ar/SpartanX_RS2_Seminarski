@@ -108,5 +108,10 @@ namespace SpartanX.WinUI
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void klijentiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

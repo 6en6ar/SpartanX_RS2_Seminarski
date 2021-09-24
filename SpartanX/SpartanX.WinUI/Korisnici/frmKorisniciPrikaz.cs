@@ -32,5 +32,23 @@ namespace SpartanX.WinUI.Korisnici
         {
             dgvKorisniciPrikaz.DataSource = await _apiservice.Get<List<Model.Korisnici>>(null);
         }
+
+        private void dgvKorisniciPrikaz_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var korisnik = dgvKorisniciPrikaz.SelectedRows[0].DataBoundItem;// grab a user
+            KorisnikDetalji forma = new KorisnikDetalji(korisnik as Model.Korisnici);
+            forma.ShowDialog();
+        }
+
+        private void Dodajbutton_Click(object sender, EventArgs e)
+        {
+            KorisnikDetalji forma = new KorisnikDetalji();
+            forma.ShowDialog();
+        }
+
+        private void dgvKorisniciPrikaz_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

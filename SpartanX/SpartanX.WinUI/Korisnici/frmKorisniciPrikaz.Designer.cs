@@ -35,6 +35,7 @@ namespace SpartanX.WinUI.Korisnici
             this.label1 = new System.Windows.Forms.Label();
             this.btnPrikaziKorisnike = new System.Windows.Forms.Button();
             this.txtIme = new System.Windows.Forms.TextBox();
+            this.Dodajbutton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisniciPrikaz)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -61,8 +62,11 @@ namespace SpartanX.WinUI.Korisnici
             this.dgvKorisniciPrikaz.ReadOnly = true;
             this.dgvKorisniciPrikaz.RowHeadersWidth = 82;
             this.dgvKorisniciPrikaz.RowTemplate.Height = 41;
+            this.dgvKorisniciPrikaz.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKorisniciPrikaz.Size = new System.Drawing.Size(1311, 328);
             this.dgvKorisniciPrikaz.TabIndex = 0;
+            this.dgvKorisniciPrikaz.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKorisniciPrikaz_CellContentClick);
+            this.dgvKorisniciPrikaz.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKorisniciPrikaz_CellDoubleClick);
             // 
             // groupBox2
             // 
@@ -102,11 +106,25 @@ namespace SpartanX.WinUI.Korisnici
             this.txtIme.Size = new System.Drawing.Size(897, 39);
             this.txtIme.TabIndex = 0;
             // 
+            // Dodajbutton
+            // 
+            this.Dodajbutton.BackColor = System.Drawing.Color.Black;
+            this.Dodajbutton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Dodajbutton.Location = new System.Drawing.Point(982, 557);
+            this.Dodajbutton.Name = "Dodajbutton";
+            this.Dodajbutton.Size = new System.Drawing.Size(344, 46);
+            this.Dodajbutton.TabIndex = 2;
+            this.Dodajbutton.Text = "Dodaj novog";
+            this.Dodajbutton.UseVisualStyleBackColor = false;
+            this.Dodajbutton.Click += new System.EventHandler(this.Dodajbutton_Click);
+            // 
             // frmKorisniciPrikaz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1341, 544);
+            this.BackColor = System.Drawing.Color.Snow;
+            this.ClientSize = new System.Drawing.Size(1341, 615);
+            this.Controls.Add(this.Dodajbutton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmKorisniciPrikaz";
@@ -128,5 +146,6 @@ namespace SpartanX.WinUI.Korisnici
         private System.Windows.Forms.Button btnPrikaziKorisnike;
         private System.Windows.Forms.TextBox txtIme;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button Dodajbutton;
     }
 }

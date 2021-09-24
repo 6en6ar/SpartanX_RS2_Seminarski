@@ -18,7 +18,7 @@ namespace SpartanX.Model
         public string Email { get; set; }
         public string Telefon { get; set; }
         public string KorisnickoIme { get; set; }
-        public bool Status { get; set; }
+        public bool? Status { get; set; }
 
        // public virtual ICollection<KorisnikUloge> KorisnikUloges { get; set; }
  
