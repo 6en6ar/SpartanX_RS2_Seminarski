@@ -9,5 +9,6 @@ namespace SpartanX.Model
         public int UlogaId { get; set; }
         public string Naziv { get; set; }
         public string Opis { get; set; }
+        public List<int> listauloga { get; set; } = new List<int>();
     }
 }

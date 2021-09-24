@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -78,8 +79,8 @@ namespace SpartanX.WinUI.Korisnici
 
         private async void button2_Click(object sender, EventArgs e)
         {
-            
-            if(_korisnik != null)
+            var listauloga = clbUloge.CheckedItems.Cast<Model.Uloge>().Select(x => x.UlogaId).ToList();
+            if (_korisnik != null)
             {
                 KorisniciInsertRequest req = new KorisniciInsertRequest()
                 {
@@ -89,7 +90,8 @@ namespace SpartanX.WinUI.Korisnici
                     Password = txtPassword.Text,
                     PasswordPotvrda =txtPotvrdiPass.Text,
                     Email  = txtEmail.Text,
-                    Status  =cbStatus.Checked
+                    Status  =cbStatus.Checked,
+                    Uloge = listauloga
                     
                     //dodati telefon
                     //Telefon = txtTelefon.Text

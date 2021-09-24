@@ -65,9 +65,9 @@ namespace SpartanX.WinUI.Korisnici
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(23, 62);
+            this.groupBox1.Location = new System.Drawing.Point(4, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(912, 442);
+            this.groupBox1.Size = new System.Drawing.Size(908, 450);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Podaci o korisniku";
