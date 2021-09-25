@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace SpartanX.Services
 {
-    public interface IKorisniciService : ICRUDService<Model.Korisnici, Model.Search.KorisniciSearchObject, object, object>
+    public interface IKorisniciService
     {
+        List<Model.Korisnici> Get(Model.Search.KorisniciSearchObject request);
+
+        Model.Korisnici GetById(int id);
+
+        Model.Korisnici Insert(Model.Requests.KorisniciInsertRequest request);
+
+        Model.Korisnici Update(int id, Model.Requests.KorisniciInsertRequest request);
 
     }
 }

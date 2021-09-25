@@ -38,7 +38,7 @@ namespace SpartanX.WinUI
         public async Task<T> Insert<T>(object req)
         {
             var url = $"{ Properties.Settings.Default.APIUrl}/{ _controllerRoute}";
-            var result = await url.PutJsonAsync(req).ReceiveJson<T>();
+            var result = await url.PostJsonAsync(req).ReceiveJson<T>();
             return result;
 
         }

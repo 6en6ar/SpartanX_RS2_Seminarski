@@ -80,7 +80,7 @@ namespace SpartanX.WinUI.Korisnici
         private async void button2_Click(object sender, EventArgs e)
         {
             var listauloga = clbUloge.CheckedItems.Cast<Model.Uloge>().Select(x => x.UlogaId).ToList();
-            if (_korisnik != null)
+            if (_korisnik == null)
             {
                 KorisniciInsertRequest req = new KorisniciInsertRequest()
                 {

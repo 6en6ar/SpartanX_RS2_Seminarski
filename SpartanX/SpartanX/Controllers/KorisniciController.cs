@@ -10,11 +10,32 @@ namespace SpartanX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class KorisniciController : BaseCRUDController<Model.Korisnici, Model.Search.KorisniciSearchObject, object, object>
-    { 
-        public KorisniciController(IKorisniciService _service) : base(_service)
+    public class KorisniciController : ControllerBase
+    {
+        private readonly IKorisniciService _service;
+        public KorisniciController(IKorisniciService service)
         {
-          
+            _service = service;
+        }
+        [HttpGet]
+        public List<Model.Korisnici> Get([FromQuery] Model.Search.KorisniciSearchObject request)
+        {
+            return _service.Get(request);
+        }
+        [HttpGet("{id}")]
+        public Model.Korisnici GetById(int id)
+        {
+            return _service.GetById(id);
+        }
+        [HttpPost]
+        public Model.Korisnici Insert(Model.Requests.KorisniciInsertRequest request)
+        {
+            return _service.Insert(request);
+        }
+        [HttpPut("{id}")]
+        public Model.Korisnici Update(int id, [FromBody] Model.Requests.KorisniciInsertRequest request)
+        {
+            return _service.Update(id, request);
         }
     }
 }
