@@ -132,5 +132,12 @@ namespace SpartanX.WinUI
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void prikazDobavljacaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Dobavljaci.DobavljacIPrikazfrm frm = new Dobavljaci.DobavljacIPrikazfrm();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

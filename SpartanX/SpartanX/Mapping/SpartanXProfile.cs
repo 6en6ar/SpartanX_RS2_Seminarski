@@ -15,6 +15,7 @@ namespace SpartanX.Mapping
             CreateMap<Database.Korisnici, Model.Requests.KorisniciUpdateRequest>().ReverseMap();
             CreateMap<Database.Proizvodi, Model.Proizvodi>();
             CreateMap<Database.Skladistum, Model.Skladista>();
+            CreateMap<Database.Dobavljaci, Model.Dobavljaci>();
             CreateMap<Database.VrstaProizvodum, Model.VrstaProizvoda>();
             CreateMap<Database.Proizvodjaci, Model.Proizvodjaci>();
             CreateMap<Database.Komentar, Model.Komentar>();

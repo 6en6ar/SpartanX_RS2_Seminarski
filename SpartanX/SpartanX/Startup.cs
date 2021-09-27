@@ -37,6 +37,8 @@ namespace SpartanX
             services.AddTransient<IProizvodjaciService, ProizvodjaciService>();
             services.AddTransient<IKomentarService, KomentarService>();
             services.AddTransient<IUlogeService, UlogeService>();
+            services.AddTransient<IDobavljaciService, DobavljaciService>();
+            services.AddTransient<ISkladistaService, SkladistaService>();
             services.AddTransient<IVrsteProizvodaService, VrsteProizvodaService>();
             services.AddDbContext<SpartanXContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));

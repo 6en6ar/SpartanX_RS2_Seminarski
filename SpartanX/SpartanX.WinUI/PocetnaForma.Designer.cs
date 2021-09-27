@@ -45,8 +45,6 @@ namespace SpartanX.WinUI
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.prikazProizvodaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.prikazProizvodaToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -108,9 +106,7 @@ namespace SpartanX.WinUI
             // skladistaToolStripMenuItem
             // 
             this.skladistaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.prikazProizvodaToolStripMenuItem1,
-            this.prikazProizvodaToolStripMenuItem2,
-            this.prikazProizvodaToolStripMenuItem3});
+            this.prikazProizvodaToolStripMenuItem1});
             this.skladistaToolStripMenuItem.Name = "skladistaToolStripMenuItem";
             this.skladistaToolStripMenuItem.Size = new System.Drawing.Size(127, 38);
             this.skladistaToolStripMenuItem.Text = "Skladista";
@@ -118,7 +114,7 @@ namespace SpartanX.WinUI
             // prikazProizvodaToolStripMenuItem1
             // 
             this.prikazProizvodaToolStripMenuItem1.Name = "prikazProizvodaToolStripMenuItem1";
-            this.prikazProizvodaToolStripMenuItem1.Size = new System.Drawing.Size(359, 44);
+            this.prikazProizvodaToolStripMenuItem1.Size = new System.Drawing.Size(306, 44);
             this.prikazProizvodaToolStripMenuItem1.Text = "Prikaz skladista";
             this.prikazProizvodaToolStripMenuItem1.Click += new System.EventHandler(this.prikazProizvodaToolStripMenuItem1_Click);
             // 
@@ -133,8 +129,9 @@ namespace SpartanX.WinUI
             // prikazDobavljacaToolStripMenuItem
             // 
             this.prikazDobavljacaToolStripMenuItem.Name = "prikazDobavljacaToolStripMenuItem";
-            this.prikazDobavljacaToolStripMenuItem.Size = new System.Drawing.Size(329, 44);
+            this.prikazDobavljacaToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.prikazDobavljacaToolStripMenuItem.Text = "Prikaz dobavljaca";
+            this.prikazDobavljacaToolStripMenuItem.Click += new System.EventHandler(this.prikazDobavljacaToolStripMenuItem_Click);
             // 
             // klijentiToolStripMenuItem
             // 
@@ -168,18 +165,6 @@ namespace SpartanX.WinUI
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(78, 32);
             this.toolStripStatusLabel.Text = "Status";
-            // 
-            // prikazProizvodaToolStripMenuItem2
-            // 
-            this.prikazProizvodaToolStripMenuItem2.Name = "prikazProizvodaToolStripMenuItem2";
-            this.prikazProizvodaToolStripMenuItem2.Size = new System.Drawing.Size(359, 44);
-            this.prikazProizvodaToolStripMenuItem2.Text = "Prikaz proizvoda";
-            // 
-            // prikazProizvodaToolStripMenuItem3
-            // 
-            this.prikazProizvodaToolStripMenuItem3.Name = "prikazProizvodaToolStripMenuItem3";
-            this.prikazProizvodaToolStripMenuItem3.Size = new System.Drawing.Size(359, 44);
-            this.prikazProizvodaToolStripMenuItem3.Text = "Prikaz proizvoda";
             // 
             // PocetnaForma
             // 
@@ -221,8 +206,6 @@ namespace SpartanX.WinUI
         private System.Windows.Forms.ToolStripMenuItem prikazDobavljacaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prikazKupacaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajNovogKorisnikaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem prikazProizvodaToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem prikazProizvodaToolStripMenuItem3;
     }
 }
 

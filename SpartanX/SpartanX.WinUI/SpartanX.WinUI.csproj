@@ -42,7 +42,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dobavljaci\" />
     <Folder Include="Kupci\" />
     <Folder Include="Proizvodi\" />
   </ItemGroup>
