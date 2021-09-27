@@ -9,7 +9,7 @@ namespace SpartanX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class SkladistaController : BaseReadController<Model.Skladista, object>
+    public class SkladistaController : BaseReadController<Model.Skladista, Model.Search.SkladistaSearchObject>
     {
         public SkladistaController(ISkladistaService _service) : base(_service)
         {
