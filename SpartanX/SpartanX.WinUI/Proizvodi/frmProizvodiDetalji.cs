@@ -32,6 +32,7 @@ namespace SpartanX.WinUI.Proizvodi
         private async Task LoadProizvodjace()
         {
             var result = await _proizvodjaci.Get<List<Model.Proizvodjaci>>(null);
+            result.Insert(0, new Model.Proizvodjaci());
             cmbProizvodjaci.DataSource = result;
             cmbProizvodjaci.DisplayMember = "Naziv";
             cmbProizvodjaci.ValueMember = "ProizvodjacId";
@@ -39,6 +40,7 @@ namespace SpartanX.WinUI.Proizvodi
         private async Task LoadVrsteProizvoda()
         {
             var result = await _proizvodjaci.Get<List<Model.VrstaProizvoda>>(null);
+            result.Insert(0, new Model.VrstaProizvoda());
             cmbVrsta.DataSource = result;
             cmbVrsta.DisplayMember = "Naziv";
             cmbVrsta.ValueMember = "VrstaId";
