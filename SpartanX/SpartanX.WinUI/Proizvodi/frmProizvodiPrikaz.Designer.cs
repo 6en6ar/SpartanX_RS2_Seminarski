@@ -77,6 +77,7 @@ namespace SpartanX.WinUI.Proizvodi
             this.btnProizvodi.TabIndex = 2;
             this.btnProizvodi.Text = "Prikazi";
             this.btnProizvodi.UseVisualStyleBackColor = true;
+            this.btnProizvodi.Click += new System.EventHandler(this.btnProizvodi_Click);
             // 
             // cmbvrsta
             // 
@@ -85,6 +86,7 @@ namespace SpartanX.WinUI.Proizvodi
             this.cmbvrsta.Name = "cmbvrsta";
             this.cmbvrsta.Size = new System.Drawing.Size(242, 40);
             this.cmbvrsta.TabIndex = 3;
+            this.cmbvrsta.SelectedIndexChanged += new System.EventHandler(this.cmbvrsta_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -113,6 +115,7 @@ namespace SpartanX.WinUI.Proizvodi
             this.btnNoviPro.TabIndex = 6;
             this.btnNoviPro.Text = "Novi proizvod";
             this.btnNoviPro.UseVisualStyleBackColor = true;
+            this.btnNoviPro.Click += new System.EventHandler(this.btnNoviPro_Click);
             // 
             // frmProizvodiPrikaz
             // 

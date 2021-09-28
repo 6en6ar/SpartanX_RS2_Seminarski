@@ -25,6 +25,10 @@ namespace SpartanX.Services
                 DBset = DBset.Where(x => x.Naziv.Contains(search.Naziv));
             }
             // if ..
+            if (search.Id.HasValue)
+            {
+                DBset = DBset.Where(x => x.VrstaId == search.Id);
+            }
 
             var lista = DBset.ToList();
             var modeli = mapper.Map<List<Model.Proizvodi>>(DBset);

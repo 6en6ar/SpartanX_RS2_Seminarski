@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpartanX.Model.Search;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,7 +12,7 @@ namespace SpartanX.WinUI.Proizvodi
 {
     public partial class frmProizvodiPrikaz : Form
     {
-        APIService _vrstaPro = new APIService("VrstaProizvoda");
+        APIService _vrstaPro = new APIService("VrsteProizvoda");
         APIService _proizvodi = new APIService("Proizvodi");
         public frmProizvodiPrikaz()
         {
@@ -30,8 +31,15 @@ namespace SpartanX.WinUI.Proizvodi
            
         }
 
-        private async Task LoadProizvodi()
+        private async Task LoadProizvodi(int VrstaProId = 0)
         {
+            ProizvodiSearchObject req = new ProizvodiSearchObject();
+            if(VrstaProId != 0)
+            {
+                req.Id = VrstaProId;
+            }
+            
+            dgvProizvodi.DataSource = await _proizvodi.Get<List<Model.Proizvodi>>(req);
             var result = await _vrstaPro.Get<List<Model.Proizvodi>>(null);
             dgvProizvodi.DataSource = result;
         }
@@ -43,6 +51,31 @@ namespace SpartanX.WinUI.Proizvodi
             cmbvrsta.DataSource = result;
             cmbvrsta.DisplayMember = "Naziv";
             cmbvrsta.ValueMember = "VrstaId";
+        }
+
+        private async void btnProizvodi_Click(object sender, EventArgs e)
+        {
+            ProizvodiSearchObject req = new ProizvodiSearchObject()
+            {
+                Naziv = txtProizvodi.Text
+            };
+            dgvProizvodi.DataSource = await _proizvodi.Get<List<Model.Proizvodi>>(req);
+        }
+
+        private void btnNoviPro_Click(object sender, EventArgs e)
+        {
+            frmProizvodiDetalji form = new frmProizvodiDetalji();
+            form.ShowDialog();
+        }
+
+        private async void cmbvrsta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var value = cmbvrsta.SelectedValue;
+            if(int.TryParse(value.ToString(), out int id))
+            {
+                await LoadProizvodi(id);
+            }
+
         }
     }
 }
