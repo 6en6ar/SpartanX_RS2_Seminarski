@@ -30,10 +30,10 @@ namespace SpartanX.WinUI.Proizvodi
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvProizvodi = new System.Windows.Forms.DataGridView();
             this.txtProizvodi = new System.Windows.Forms.TextBox();
             this.btnProizvodi = new System.Windows.Forms.Button();
-            this.dgvProizvodi = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbvrsta = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnNoviPro = new System.Windows.Forms.Button();
@@ -51,6 +51,17 @@ namespace SpartanX.WinUI.Proizvodi
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ProizvodiPrikaz";
             // 
+            // dgvProizvodi
+            // 
+            this.dgvProizvodi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProizvodi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvProizvodi.Location = new System.Drawing.Point(3, 35);
+            this.dgvProizvodi.Name = "dgvProizvodi";
+            this.dgvProizvodi.RowHeadersWidth = 82;
+            this.dgvProizvodi.RowTemplate.Height = 41;
+            this.dgvProizvodi.Size = new System.Drawing.Size(1271, 341);
+            this.dgvProizvodi.TabIndex = 0;
+            // 
             // txtProizvodi
             // 
             this.txtProizvodi.Location = new System.Drawing.Point(139, 51);
@@ -67,24 +78,13 @@ namespace SpartanX.WinUI.Proizvodi
             this.btnProizvodi.Text = "Prikazi";
             this.btnProizvodi.UseVisualStyleBackColor = true;
             // 
-            // dgvProizvodi
+            // cmbvrsta
             // 
-            this.dgvProizvodi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProizvodi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvProizvodi.Location = new System.Drawing.Point(3, 35);
-            this.dgvProizvodi.Name = "dgvProizvodi";
-            this.dgvProizvodi.RowHeadersWidth = 82;
-            this.dgvProizvodi.RowTemplate.Height = 41;
-            this.dgvProizvodi.Size = new System.Drawing.Size(1271, 341);
-            this.dgvProizvodi.TabIndex = 0;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(815, 54);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(242, 40);
-            this.comboBox1.TabIndex = 3;
+            this.cmbvrsta.FormattingEnabled = true;
+            this.cmbvrsta.Location = new System.Drawing.Point(815, 54);
+            this.cmbvrsta.Name = "cmbvrsta";
+            this.cmbvrsta.Size = new System.Drawing.Size(242, 40);
+            this.cmbvrsta.TabIndex = 3;
             // 
             // label1
             // 
@@ -122,12 +122,13 @@ namespace SpartanX.WinUI.Proizvodi
             this.Controls.Add(this.btnNoviPro);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbvrsta);
             this.Controls.Add(this.btnProizvodi);
             this.Controls.Add(this.txtProizvodi);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmProizvodiPrikaz";
             this.Text = "frmProizvodiPrikaz";
+            this.Load += new System.EventHandler(this.frmProizvodiPrikaz_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProizvodi)).EndInit();
             this.ResumeLayout(false);
@@ -141,7 +142,7 @@ namespace SpartanX.WinUI.Proizvodi
         private System.Windows.Forms.DataGridView dgvProizvodi;
         private System.Windows.Forms.TextBox txtProizvodi;
         private System.Windows.Forms.Button btnProizvodi;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbvrsta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnNoviPro;

@@ -139,5 +139,19 @@ namespace SpartanX.WinUI
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void prikazProizvodaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Proizvodi.frmProizvodiPrikaz frm = new Proizvodi.frmProizvodiPrikaz();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void dodajNoviProizvodToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Proizvodi.frmProizvodiDetalji frm = new Proizvodi.frmProizvodiDetalji();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

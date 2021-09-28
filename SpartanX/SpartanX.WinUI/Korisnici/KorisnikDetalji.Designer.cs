@@ -32,7 +32,6 @@ namespace SpartanX.WinUI.Korisnici
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtPotvrdiPass = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPrezime = new System.Windows.Forms.TextBox();
@@ -54,7 +53,6 @@ namespace SpartanX.WinUI.Korisnici
             // 
             this.groupBox1.Controls.Add(this.txtPotvrdiPass);
             this.groupBox1.Controls.Add(this.txtPassword);
-            this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.txtUsername);
             this.groupBox1.Controls.Add(this.txtEmail);
             this.groupBox1.Controls.Add(this.txtPrezime);
@@ -87,14 +85,6 @@ namespace SpartanX.WinUI.Korisnici
             this.txtPassword.Size = new System.Drawing.Size(549, 39);
             this.txtPassword.TabIndex = 11;
             this.txtPassword.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(330, 519);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(549, 39);
-            this.textBox5.TabIndex = 10;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // txtUsername
             // 
@@ -250,7 +240,6 @@ namespace SpartanX.WinUI.Korisnici
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtIme;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPrezime;

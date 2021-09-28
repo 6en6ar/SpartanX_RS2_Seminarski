@@ -45,6 +45,7 @@ namespace SpartanX.WinUI
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.dodajNoviProizvodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -92,7 +93,8 @@ namespace SpartanX.WinUI
             // proizvodiToolStripMenuItem
             // 
             this.proizvodiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.prikazProizvodaToolStripMenuItem});
+            this.prikazProizvodaToolStripMenuItem,
+            this.dodajNoviProizvodToolStripMenuItem});
             this.proizvodiToolStripMenuItem.Name = "proizvodiToolStripMenuItem";
             this.proizvodiToolStripMenuItem.Size = new System.Drawing.Size(132, 38);
             this.proizvodiToolStripMenuItem.Text = "Proizvodi";
@@ -100,8 +102,9 @@ namespace SpartanX.WinUI
             // prikazProizvodaToolStripMenuItem
             // 
             this.prikazProizvodaToolStripMenuItem.Name = "prikazProizvodaToolStripMenuItem";
-            this.prikazProizvodaToolStripMenuItem.Size = new System.Drawing.Size(321, 44);
+            this.prikazProizvodaToolStripMenuItem.Size = new System.Drawing.Size(363, 44);
             this.prikazProizvodaToolStripMenuItem.Text = "Prikaz proizvoda";
+            this.prikazProizvodaToolStripMenuItem.Click += new System.EventHandler(this.prikazProizvodaToolStripMenuItem_Click);
             // 
             // skladistaToolStripMenuItem
             // 
@@ -129,7 +132,7 @@ namespace SpartanX.WinUI
             // prikazDobavljacaToolStripMenuItem
             // 
             this.prikazDobavljacaToolStripMenuItem.Name = "prikazDobavljacaToolStripMenuItem";
-            this.prikazDobavljacaToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.prikazDobavljacaToolStripMenuItem.Size = new System.Drawing.Size(329, 44);
             this.prikazDobavljacaToolStripMenuItem.Text = "Prikaz dobavljaca";
             this.prikazDobavljacaToolStripMenuItem.Click += new System.EventHandler(this.prikazDobavljacaToolStripMenuItem_Click);
             // 
@@ -165,6 +168,13 @@ namespace SpartanX.WinUI
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(78, 32);
             this.toolStripStatusLabel.Text = "Status";
+            // 
+            // dodajNoviProizvodToolStripMenuItem
+            // 
+            this.dodajNoviProizvodToolStripMenuItem.Name = "dodajNoviProizvodToolStripMenuItem";
+            this.dodajNoviProizvodToolStripMenuItem.Size = new System.Drawing.Size(363, 44);
+            this.dodajNoviProizvodToolStripMenuItem.Text = "Dodaj novi proizvod";
+            this.dodajNoviProizvodToolStripMenuItem.Click += new System.EventHandler(this.dodajNoviProizvodToolStripMenuItem_Click);
             // 
             // PocetnaForma
             // 
@@ -206,6 +216,7 @@ namespace SpartanX.WinUI
         private System.Windows.Forms.ToolStripMenuItem prikazDobavljacaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prikazKupacaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajNovogKorisnikaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dodajNoviProizvodToolStripMenuItem;
     }
 }
 

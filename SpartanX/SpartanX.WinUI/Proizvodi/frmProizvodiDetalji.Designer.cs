@@ -213,6 +213,7 @@ namespace SpartanX.WinUI.Proizvodi
             this.Controls.Add(this.cmbVrsta);
             this.Name = "frmProizvodiDetalji";
             this.Text = "frmProizvodiDetalji";
+            this.Load += new System.EventHandler(this.frmProizvodiDetalji_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbSlika)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
