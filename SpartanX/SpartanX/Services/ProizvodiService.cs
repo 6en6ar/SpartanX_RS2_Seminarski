@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using SpartanX.Database;
 using SpartanX.Model.Requests;
 using SpartanX.Model.Search;
@@ -28,6 +29,13 @@ namespace SpartanX.Services
             if (search.Id.HasValue)
             {
                 DBset = DBset.Where(x => x.VrstaId == search.Id);
+            }
+            if(search?.IncludeList?.Length > 0)
+            {
+                foreach (var item in search.IncludeList)
+                {
+                    DBset = DBset.Include(item);
+                }
             }
 
             var lista = DBset.ToList();

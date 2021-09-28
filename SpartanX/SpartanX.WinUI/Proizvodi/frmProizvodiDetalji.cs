@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -44,6 +45,18 @@ namespace SpartanX.WinUI.Proizvodi
             cmbVrsta.DataSource = result;
             cmbVrsta.DisplayMember = "Naziv";
             cmbVrsta.ValueMember = "VrstaId";
+        }
+
+        private void btnFile_Click(object sender, EventArgs e)
+        {
+            var slika = ofdSlika.ShowDialog();
+            if(slika == DialogResult.OK)
+            {
+                var fname = ofdSlika.FileName;
+                var file = File.ReadAllBytes(fname); 
+                txtSlika.Text = fname;
+                pbSlika.Image = Image.FromFile(fname);
+            }
         }
     }
 }

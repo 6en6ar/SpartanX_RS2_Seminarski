@@ -34,6 +34,11 @@ namespace SpartanX.WinUI.Proizvodi
         private async Task LoadProizvodi(int VrstaProId = 0)
         {
             ProizvodiSearchObject req = new ProizvodiSearchObject();
+            req.IncludeList = new string[]
+            {
+                "Proizvodjaci",
+                "VrstaProizvoda"
+            };
             if(VrstaProId != 0)
             {
                 req.Id = VrstaProId;

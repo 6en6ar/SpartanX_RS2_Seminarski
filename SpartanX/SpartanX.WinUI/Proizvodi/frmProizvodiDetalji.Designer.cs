@@ -46,6 +46,7 @@ namespace SpartanX.WinUI.Proizvodi
             this.btnSave = new System.Windows.Forms.Button();
             this.cmbProizvodjaci = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.ofdSlika = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pbSlika)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,6 +155,7 @@ namespace SpartanX.WinUI.Proizvodi
             this.btnFile.TabIndex = 12;
             this.btnFile.Text = "...";
             this.btnFile.UseVisualStyleBackColor = true;
+            this.btnFile.Click += new System.EventHandler(this.btnFile_Click);
             // 
             // pbSlika
             // 
@@ -188,6 +190,10 @@ namespace SpartanX.WinUI.Proizvodi
             this.label7.Size = new System.Drawing.Size(140, 32);
             this.label7.TabIndex = 16;
             this.label7.Text = "Proizvodjac:";
+            // 
+            // ofdSlika
+            // 
+            this.ofdSlika.FileName = "openFileDialog1";
             // 
             // frmProizvodiDetalji
             // 
@@ -239,5 +245,6 @@ namespace SpartanX.WinUI.Proizvodi
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cmbProizvodjaci;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.OpenFileDialog ofdSlika;
     }
 }
