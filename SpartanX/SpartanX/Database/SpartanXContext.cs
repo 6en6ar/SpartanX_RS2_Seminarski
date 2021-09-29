@@ -357,9 +357,7 @@ namespace SpartanX.Database
 
                 entity.ToTable("Proizvodi");
 
-                entity.Property(e => e.ProizvodId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("ProizvodID");
+                entity.Property(e => e.ProizvodId).HasColumnName("ProizvodID");
 
                 entity.Property(e => e.Cijena).HasColumnType("decimal(18, 2)");
 
@@ -395,9 +393,7 @@ namespace SpartanX.Database
 
                 entity.ToTable("Proizvodjaci");
 
-                entity.Property(e => e.ProizvodjacId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("ProizvodjacID");
+                entity.Property(e => e.ProizvodjacId).HasColumnName("ProizvodjacID");
 
                 entity.Property(e => e.Naziv)
                     .IsRequired()
@@ -480,9 +476,7 @@ namespace SpartanX.Database
             {
                 entity.HasKey(e => e.VrstaId);
 
-                entity.Property(e => e.VrstaId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("VrstaID");
+                entity.Property(e => e.VrstaId).HasColumnName("VrstaID");
 
                 entity.Property(e => e.Naziv)
                     .IsRequired()

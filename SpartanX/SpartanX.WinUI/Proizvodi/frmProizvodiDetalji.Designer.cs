@@ -173,6 +173,7 @@ namespace SpartanX.WinUI.Proizvodi
             this.btnSave.TabIndex = 14;
             this.btnSave.Text = "Spasi";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cmbProizvodjaci
             // 

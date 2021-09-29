@@ -34,18 +34,18 @@ namespace SpartanX.WinUI.Proizvodi
         private async Task LoadProizvodi(int VrstaProId = 0)
         {
             ProizvodiSearchObject req = new ProizvodiSearchObject();
-            req.IncludeList = new string[]
-            {
-                "Proizvodjaci",
-                "VrstaProizvoda"
-            };
+            //req.IncludeList = new string[]
+            //{
+              //  "Proizvodjaci",
+              //  "VrstaProizvoda"
+            //};
             if(VrstaProId != 0)
             {
                 req.Id = VrstaProId;
             }
             
-            dgvProizvodi.DataSource = await _proizvodi.Get<List<Model.Proizvodi>>(req);
-            var result = await _vrstaPro.Get<List<Model.Proizvodi>>(null);
+            //dgvProizvodi.DataSource = await _proizvodi.Get<List<Model.Proizvodi>>(req);
+            var result = await _proizvodi.Get<List<Model.Proizvodi>>(null);
             dgvProizvodi.DataSource = result;
         }
 
@@ -81,6 +81,13 @@ namespace SpartanX.WinUI.Proizvodi
                 await LoadProizvodi(id);
             }
 
+        }
+
+        private void dgvProizvodi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var proizvod = dgvProizvodi.SelectedRows[0].DataBoundItem as Model.Proizvodi;// grab a user
+            frmProizvodiDetalji forma = new frmProizvodiDetalji(proizvod);
+            forma.ShowDialog();
         }
     }
 }
