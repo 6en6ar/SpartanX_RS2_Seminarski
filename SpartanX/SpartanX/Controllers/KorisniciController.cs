@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SpartanX.Database;
 using SpartanX.Services;
 using System;
@@ -10,6 +11,7 @@ namespace SpartanX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class KorisniciController : ControllerBase
     {
         private readonly IKorisniciService _service;

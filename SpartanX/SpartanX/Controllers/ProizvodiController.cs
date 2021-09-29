@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SpartanX.Model.Requests;
 using SpartanX.Models;
 using SpartanX.Services;
@@ -11,6 +12,8 @@ namespace SpartanX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
+    
     public class ProizvodiController : BaseCRUDController<Model.Proizvodi, Model.Search.ProizvodiSearchObject, ProizvodiInsertRequest, ProizvodiUpdateRequest>
     {
         public ProizvodiController(IProizvodiService  _service) : base(_service)

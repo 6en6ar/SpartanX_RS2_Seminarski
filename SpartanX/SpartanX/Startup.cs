@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
+using SpartanX.Authentication;
 using SpartanX.Database;
 using SpartanX.Services;
 using System;
@@ -29,7 +32,27 @@ namespace SpartanX
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SpartanX API", Version = "v1" });
+                c.AddSecurityDefinition("basicAuth", new OpenApiSecurityScheme()
+                {
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "basic"
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference{Type=ReferenceType.SecurityScheme, Id = "basicAuth"}
+                        },
+                        new string[]{}
+                    }
+                });
+            });
+           
+ 
             services.AddAutoMapper(typeof(Startup));
             services.AddTransient<IProizvodiService, ProizvodiService>();
             services.AddTransient<IKorisniciService, KorisniciService>();
@@ -39,6 +62,10 @@ namespace SpartanX
             services.AddTransient<IDobavljaciService, DobavljaciService>();
             services.AddTransient<ISkladistaService, SkladistaService>();
             services.AddTransient<IVrsteProizvodaService, VrsteProizvodaService>();
+
+            services.AddAuthentication("BasicAuthentication")
+               .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+
             services.AddDbContext<SpartanXContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }

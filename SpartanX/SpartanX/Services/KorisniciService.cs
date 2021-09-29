@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using SpartanX.Database;
 using SpartanX.Model.Requests;
 using SpartanX.Model.Search;
@@ -96,5 +97,22 @@ namespace SpartanX.Services
             byte[] inArray = algorithm.ComputeHash(dst);
             return Convert.ToBase64String(inArray);
         }
+
+        public async Task<Model.Korisnici> Authenticate(string username, string password)
+        {
+            var kor = await _context.Korisnicis.Include("KorisnikUloges.Uloga").FirstOrDefaultAsync(x => x.KorisnickoIme == username);
+            if(kor == null)
+            {
+                throw new Exception("Pogresan username ili password!");
+            }
+            //generate hash
+            var hash = GenerateHash(kor.LozinkaSalt, password);
+            if (hash != kor.LozinkaHash)
+            {
+                throw new Exception("Pogresan username ili password!");
+            }
+            return _mapper.Map<Model.Korisnici>(kor);
+        }
+
     }
 }
