@@ -30,11 +30,13 @@ namespace SpartanX.Controllers
             return _service.GetById(id);
         }
         [HttpPost]
+        [Authorize(Roles ="Administrator")]
         public Model.Korisnici Insert(Model.Requests.KorisniciInsertRequest request)
         {
             return _service.Insert(request);
         }
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrator")]
         public Model.Korisnici Update(int id, [FromBody] Model.Requests.KorisniciInsertRequest request)
         {
             return _service.Update(id, request);
