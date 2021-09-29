@@ -33,6 +33,7 @@ namespace SpartanX.WinUI.Skladista
             this.dgvSkladista = new System.Windows.Forms.DataGridView();
             this.btnPrikaziSkl = new System.Windows.Forms.Button();
             this.txtSkladista = new System.Windows.Forms.TextBox();
+            this.btnNovoSkladiste = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladista)).BeginInit();
             this.SuspendLayout();
@@ -55,8 +56,10 @@ namespace SpartanX.WinUI.Skladista
             this.dgvSkladista.Name = "dgvSkladista";
             this.dgvSkladista.RowHeadersWidth = 82;
             this.dgvSkladista.RowTemplate.Height = 41;
+            this.dgvSkladista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSkladista.Size = new System.Drawing.Size(1268, 280);
             this.dgvSkladista.TabIndex = 0;
+            this.dgvSkladista.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSkladista_CellDoubleClick);
             // 
             // btnPrikaziSkl
             // 
@@ -75,11 +78,22 @@ namespace SpartanX.WinUI.Skladista
             this.txtSkladista.Size = new System.Drawing.Size(933, 39);
             this.txtSkladista.TabIndex = 2;
             // 
+            // btnNovoSkladiste
+            // 
+            this.btnNovoSkladiste.Location = new System.Drawing.Point(966, 544);
+            this.btnNovoSkladiste.Name = "btnNovoSkladiste";
+            this.btnNovoSkladiste.Size = new System.Drawing.Size(321, 46);
+            this.btnNovoSkladiste.TabIndex = 3;
+            this.btnNovoSkladiste.Text = "Novo skladiste";
+            this.btnNovoSkladiste.UseVisualStyleBackColor = true;
+            this.btnNovoSkladiste.Click += new System.EventHandler(this.button1_Click);
+            // 
             // SkladistaPrikaz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1299, 532);
+            this.ClientSize = new System.Drawing.Size(1302, 602);
+            this.Controls.Add(this.btnNovoSkladiste);
             this.Controls.Add(this.txtSkladista);
             this.Controls.Add(this.btnPrikaziSkl);
             this.Controls.Add(this.groupBox1);
@@ -99,5 +113,6 @@ namespace SpartanX.WinUI.Skladista
         private System.Windows.Forms.DataGridView dgvSkladista;
         private System.Windows.Forms.Button btnPrikaziSkl;
         private System.Windows.Forms.TextBox txtSkladista;
+        private System.Windows.Forms.Button btnNovoSkladiste;
     }
 }

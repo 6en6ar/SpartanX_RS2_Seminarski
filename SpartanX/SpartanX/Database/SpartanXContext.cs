@@ -448,9 +448,7 @@ namespace SpartanX.Database
             {
                 entity.HasKey(e => e.SkladisteId);
 
-                entity.Property(e => e.SkladisteId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("SkladisteID");
+                entity.Property(e => e.SkladisteId).HasColumnName("SkladisteID");
 
                 entity.Property(e => e.Adresa).HasMaxLength(150);
 

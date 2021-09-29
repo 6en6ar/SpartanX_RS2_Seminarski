@@ -14,7 +14,10 @@ namespace SpartanX.Mapping
             CreateMap<Database.Korisnici, Model.Requests.KorisniciInsertRequest>().ReverseMap();
             CreateMap<Database.Korisnici, Model.Requests.KorisniciUpdateRequest>().ReverseMap();
             CreateMap<Database.Proizvodi, Model.Proizvodi>();
-            CreateMap<Database.Skladistum, Model.Skladista>();
+            CreateMap<Database.Skladistum, Model.Skladista>().ReverseMap();
+            CreateMap<Database.Skladistum,Model.Requests.SkladisteInsertRequest>().ReverseMap();
+            CreateMap<Database.Skladistum,Model.Requests.SkladisteUpdateRequest>().ReverseMap();
+
             CreateMap<Database.Dobavljaci, Model.Dobavljaci>();
             CreateMap<Database.VrstaProizvodum, Model.VrstaProizvoda>();
             CreateMap<Database.Proizvodjaci, Model.Proizvodjaci>();

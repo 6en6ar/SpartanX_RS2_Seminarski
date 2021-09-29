@@ -153,5 +153,12 @@ namespace SpartanX.WinUI
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void dodajSkladisteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Skladista.frmSkladisteDetalji frm = new Skladista.frmSkladisteDetalji();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

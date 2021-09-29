@@ -9,11 +9,32 @@ namespace SpartanX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class SkladistaController : BaseReadController<Model.Skladista, Model.Search.SkladistaSearchObject>
+    public class SkladistaController :ControllerBase
     {
-        public SkladistaController(ISkladistaService _service) : base(_service)
+        private readonly ISkladistaService _service;
+        public SkladistaController(ISkladistaService service)
         {
-
+            _service = service;
+        }
+        [HttpGet]
+        public List<Model.Skladista> Get([FromQuery] Model.Search.SkladistaSearchObject request)
+        {
+            return _service.Get(request);
+        }
+        [HttpGet("{id}")]
+        public Model.Skladista GetById(int id)
+        {
+            return _service.GetById(id);
+        }
+        [HttpPost]
+        public void Insert(Model.Requests.SkladisteInsertRequest request)
+        {
+            _service.Insert(request);
+        }
+        [HttpPut("{id}")]
+        public Model.Skladista Update(int id, [FromBody] Model.Requests.SkladisteUpdateRequest request)
+        {
+            return _service.Update(id, request);
         }
     }
 }

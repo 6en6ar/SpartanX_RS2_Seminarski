@@ -33,7 +33,6 @@ namespace SpartanX
             services.AddAutoMapper(typeof(Startup));
             services.AddTransient<IProizvodiService, ProizvodiService>();
             services.AddTransient<IKorisniciService, KorisniciService>();
-            services.AddTransient<ISkladistaService, SkladistaService>();
             services.AddTransient<IProizvodjaciService, ProizvodjaciService>();
             services.AddTransient<IKomentarService, KomentarService>();
             services.AddTransient<IUlogeService, UlogeService>();
