@@ -22,7 +22,14 @@ namespace SpartanX.WinUI.Proizvodi
             InitializeComponent();
             _proizvod = proizvod;
         }
-
+        public Image byteArrayToImage(byte[] bytesArr)
+        {
+            using (MemoryStream memstr = new MemoryStream(bytesArr))
+            {
+                Image img = Image.FromStream(memstr);
+                return img;
+            }
+        }
         private async void frmProizvodiDetalji_Load(object sender, EventArgs e)
         {
             await LoadData();
@@ -34,6 +41,9 @@ namespace SpartanX.WinUI.Proizvodi
                 txtKod.Text = _proizvod.Kod;
                 txtKod.Text = _proizvod.Kod.ToString();
                 txtCijena.Text = _proizvod.Cijena.ToString();
+                cmbProizvodjaci.SelectedIndex = _proizvod.VrstaId;
+                cmbVrsta.SelectedIndex = _proizvod.ProizvodjacId;
+                pbSlika.Image = byteArrayToImage(_proizvod.SlikaThumb);
 
             }
         }
@@ -108,10 +118,7 @@ namespace SpartanX.WinUI.Proizvodi
                 {
                     Image i = pbSlika.Image;
                     insertPro.Slika = ImageToByteArray(i);
-
                     Image thumb = i.GetThumbnailImage(120, 120, () => false, IntPtr.Zero);
-
-
                     insertPro.SlikaThumb = ImageToByteArray(thumb);
 
                 }

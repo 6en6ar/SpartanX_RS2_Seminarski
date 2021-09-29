@@ -62,6 +62,7 @@ namespace SpartanX.WinUI.Proizvodi
             this.dgvProizvodi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProizvodi.Size = new System.Drawing.Size(1271, 341);
             this.dgvProizvodi.TabIndex = 0;
+            this.dgvProizvodi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProizvodi_CellContentClick);
             this.dgvProizvodi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProizvodi_CellDoubleClick);
             // 
             // txtProizvodi

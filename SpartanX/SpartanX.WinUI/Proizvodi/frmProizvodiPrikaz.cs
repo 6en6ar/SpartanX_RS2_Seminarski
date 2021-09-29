@@ -89,5 +89,10 @@ namespace SpartanX.WinUI.Proizvodi
             frmProizvodiDetalji forma = new frmProizvodiDetalji(proizvod);
             forma.ShowDialog();
         }
+
+        private void dgvProizvodi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
