@@ -9,7 +9,7 @@ namespace SpartanX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class DobavljaciController : BaseReadController<Model.Dobavljaci, object>
+    public class DobavljaciController : BaseCRUDController<Model.Dobavljaci, Model.Search.DobavljaciSearchObject, Model.Requests.DobavljaciInsertRequest, object>
     {
         public DobavljaciController(IDobavljaciService _service) : base(_service)
         {

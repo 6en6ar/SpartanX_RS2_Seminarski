@@ -29,63 +29,63 @@ namespace SpartanX.WinUI.Dobavljaci
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtNaziv = new System.Windows.Forms.TextBox();
+            this.txtKontakt = new System.Windows.Forms.TextBox();
+            this.txtFax = new System.Windows.Forms.TextBox();
+            this.txtAdresa = new System.Windows.Forms.TextBox();
+            this.txtTelefon = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtWeb = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtZiro = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.txtNapomena = new System.Windows.Forms.TextBox();
+            this.cbAktivan = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btnSpasi = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtNaziv
             // 
-            this.textBox1.Location = new System.Drawing.Point(211, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(495, 39);
-            this.textBox1.TabIndex = 0;
+            this.txtNaziv.Location = new System.Drawing.Point(211, 46);
+            this.txtNaziv.Name = "txtNaziv";
+            this.txtNaziv.Size = new System.Drawing.Size(495, 39);
+            this.txtNaziv.TabIndex = 0;
             // 
-            // textBox2
+            // txtKontakt
             // 
-            this.textBox2.Location = new System.Drawing.Point(211, 130);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(495, 39);
-            this.textBox2.TabIndex = 1;
+            this.txtKontakt.Location = new System.Drawing.Point(211, 130);
+            this.txtKontakt.Name = "txtKontakt";
+            this.txtKontakt.Size = new System.Drawing.Size(495, 39);
+            this.txtKontakt.TabIndex = 1;
             // 
-            // textBox3
+            // txtFax
             // 
-            this.textBox3.Location = new System.Drawing.Point(211, 377);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(495, 39);
-            this.textBox3.TabIndex = 2;
+            this.txtFax.Location = new System.Drawing.Point(211, 377);
+            this.txtFax.Name = "txtFax";
+            this.txtFax.Size = new System.Drawing.Size(495, 39);
+            this.txtFax.TabIndex = 2;
             // 
-            // textBox4
+            // txtAdresa
             // 
-            this.textBox4.Location = new System.Drawing.Point(211, 212);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(495, 39);
-            this.textBox4.TabIndex = 3;
+            this.txtAdresa.Location = new System.Drawing.Point(211, 212);
+            this.txtAdresa.Name = "txtAdresa";
+            this.txtAdresa.Size = new System.Drawing.Size(495, 39);
+            this.txtAdresa.TabIndex = 3;
             // 
-            // textBox5
+            // txtTelefon
             // 
-            this.textBox5.Location = new System.Drawing.Point(211, 294);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(495, 39);
-            this.textBox5.TabIndex = 4;
+            this.txtTelefon.Location = new System.Drawing.Point(211, 294);
+            this.txtTelefon.Name = "txtTelefon";
+            this.txtTelefon.Size = new System.Drawing.Size(495, 39);
+            this.txtTelefon.TabIndex = 4;
             // 
             // label1
             // 
@@ -141,12 +141,12 @@ namespace SpartanX.WinUI.Dobavljaci
             this.label6.TabIndex = 11;
             this.label6.Text = "Web:";
             // 
-            // textBox6
+            // txtWeb
             // 
-            this.textBox6.Location = new System.Drawing.Point(211, 468);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(495, 39);
-            this.textBox6.TabIndex = 10;
+            this.txtWeb.Location = new System.Drawing.Point(211, 468);
+            this.txtWeb.Name = "txtWeb";
+            this.txtWeb.Size = new System.Drawing.Size(495, 39);
+            this.txtWeb.TabIndex = 10;
             // 
             // label7
             // 
@@ -158,12 +158,12 @@ namespace SpartanX.WinUI.Dobavljaci
             this.label7.Text = "Email:";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // textBox7
+            // txtEmail
             // 
-            this.textBox7.Location = new System.Drawing.Point(211, 562);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(495, 39);
-            this.textBox7.TabIndex = 12;
+            this.txtEmail.Location = new System.Drawing.Point(211, 562);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(495, 39);
+            this.txtEmail.TabIndex = 12;
             // 
             // label8
             // 
@@ -174,12 +174,12 @@ namespace SpartanX.WinUI.Dobavljaci
             this.label8.TabIndex = 15;
             this.label8.Text = "Ziro racun:";
             // 
-            // textBox8
+            // txtZiro
             // 
-            this.textBox8.Location = new System.Drawing.Point(211, 656);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(495, 39);
-            this.textBox8.TabIndex = 14;
+            this.txtZiro.Location = new System.Drawing.Point(211, 656);
+            this.txtZiro.Name = "txtZiro";
+            this.txtZiro.Size = new System.Drawing.Size(495, 39);
+            this.txtZiro.TabIndex = 14;
             // 
             // label9
             // 
@@ -190,22 +190,22 @@ namespace SpartanX.WinUI.Dobavljaci
             this.label9.TabIndex = 17;
             this.label9.Text = "Napomena:";
             // 
-            // textBox9
+            // txtNapomena
             // 
-            this.textBox9.Location = new System.Drawing.Point(211, 743);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(495, 39);
-            this.textBox9.TabIndex = 16;
+            this.txtNapomena.Location = new System.Drawing.Point(211, 743);
+            this.txtNapomena.Name = "txtNapomena";
+            this.txtNapomena.Size = new System.Drawing.Size(495, 39);
+            this.txtNapomena.TabIndex = 16;
             // 
-            // checkBox1
+            // cbAktivan
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(211, 826);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(125, 36);
-            this.checkBox1.TabIndex = 18;
-            this.checkBox1.Text = "Aktivan";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbAktivan.AutoSize = true;
+            this.cbAktivan.Location = new System.Drawing.Point(211, 826);
+            this.cbAktivan.Name = "cbAktivan";
+            this.cbAktivan.Size = new System.Drawing.Size(125, 36);
+            this.cbAktivan.TabIndex = 18;
+            this.cbAktivan.Text = "Aktivan";
+            this.cbAktivan.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -224,6 +224,7 @@ namespace SpartanX.WinUI.Dobavljaci
             this.btnSpasi.TabIndex = 20;
             this.btnSpasi.Text = "Spasi";
             this.btnSpasi.UseVisualStyleBackColor = true;
+            this.btnSpasi.Click += new System.EventHandler(this.btnSpasi_Click);
             // 
             // DodajDobavljace
             // 
@@ -232,25 +233,25 @@ namespace SpartanX.WinUI.Dobavljaci
             this.ClientSize = new System.Drawing.Size(767, 994);
             this.Controls.Add(this.btnSpasi);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.cbAktivan);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.txtNapomena);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.txtZiro);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtWeb);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTelefon);
+            this.Controls.Add(this.txtAdresa);
+            this.Controls.Add(this.txtFax);
+            this.Controls.Add(this.txtKontakt);
+            this.Controls.Add(this.txtNaziv);
             this.Name = "DodajDobavljace";
             this.Text = "DodajDobavljace";
             this.ResumeLayout(false);
@@ -260,25 +261,25 @@ namespace SpartanX.WinUI.Dobavljaci
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtNaziv;
+        private System.Windows.Forms.TextBox txtKontakt;
+        private System.Windows.Forms.TextBox txtFax;
+        private System.Windows.Forms.TextBox txtAdresa;
+        private System.Windows.Forms.TextBox txtTelefon;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtWeb;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtZiro;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox txtNapomena;
+        private System.Windows.Forms.CheckBox cbAktivan;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnSpasi;
     }

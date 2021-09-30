@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpartanX.Model.Search;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +26,15 @@ namespace SpartanX.WinUI.Dobavljaci
         {
             DodajDobavljace frm = new DodajDobavljace();
             frm.Show();
+        }
+
+        private async void btnPrikaziDob_Click(object sender, EventArgs e)
+        {
+            DobavljaciSearchObject req = new DobavljaciSearchObject()
+            {
+                Naziv = txtDobavljaci.Text
+            };
+            dgvDobavljaci.DataSource = await _apiservice.Get<List<Model.Dobavljaci>>(req);
         }
     }
 }

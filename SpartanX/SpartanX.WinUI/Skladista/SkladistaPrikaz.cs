@@ -20,7 +20,14 @@ namespace SpartanX.WinUI.Skladista
 
         private async void SkladistaPrikaz_Load(object sender, EventArgs e)
         {
-            dgvSkladista.DataSource = await _apiservice.Get<List<Model.Skladista>>(null);
+            try
+            {
+                dgvSkladista.DataSource = await _apiservice.Get<List<Model.Skladista>>(null);
+            }
+            catch
+            {
+                throw new Exception();
+            }
         }
 
         private async void btnPrikaziSkl_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpartanX.Model.Requests;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,7 @@ namespace SpartanX.WinUI.Dobavljaci
 {
     public partial class DodajDobavljace : Form
     {
+        APIService _dobavljaci = new APIService("Dobavljaci");
         public DodajDobavljace()
         {
             InitializeComponent();
@@ -17,6 +19,35 @@ namespace SpartanX.WinUI.Dobavljaci
 
         private void label7_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private async void btnSpasi_Click(object sender, EventArgs e)
+        {
+            DobavljaciInsertRequest req = new DobavljaciInsertRequest()
+            {
+                Telefon = txtTelefon.Text,
+                Adresa = txtAdresa.Text,
+                Naziv = txtNaziv.Text,
+                Napomena = txtNapomena.Text,
+                Status = cbAktivan.Checked,
+                Email = txtEmail.Text,
+                Fax = txtFax.Text,
+                KontaktOsoba = txtKontakt.Text,
+                Web = txtWeb.Text,
+                ZiroRacuni = txtZiro.Text
+
+
+            };
+            try
+            {
+                var res = await _dobavljaci.Insert<Model.Dobavljaci>(req);
+                MessageBox.Show("Dobavljac uspjesno dodat");
+            }
+            catch
+            {
+                throw new Exception();
+            }
 
         }
     }

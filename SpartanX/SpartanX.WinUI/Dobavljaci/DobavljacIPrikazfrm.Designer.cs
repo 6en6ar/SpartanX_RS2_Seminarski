@@ -74,6 +74,7 @@ namespace SpartanX.WinUI.Dobavljaci
             this.btnPrikaziDob.TabIndex = 2;
             this.btnPrikaziDob.Text = "Prikazi";
             this.btnPrikaziDob.UseVisualStyleBackColor = true;
+            this.btnPrikaziDob.Click += new System.EventHandler(this.btnPrikaziDob_Click);
             // 
             // btnDodajDob
             // 
