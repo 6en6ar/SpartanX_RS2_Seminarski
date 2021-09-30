@@ -30,7 +30,7 @@ namespace SpartanX.Services
             {
                 DBset = DBset.Where(x => x.VrstaId == search.Id);
             }
-            if(search?.IncludeList?.Length > 0)
+            if (search?.IncludeList.Length > 0)
             {
                 foreach (var item in search.IncludeList)
                 {
@@ -39,7 +39,7 @@ namespace SpartanX.Services
             }
 
             var lista = DBset.ToList();
-            var modeli = mapper.Map<List<Model.Proizvodi>>(DBset);
+            var modeli = mapper.Map<List<Model.Proizvodi>>(lista);
             return modeli;
         }
 

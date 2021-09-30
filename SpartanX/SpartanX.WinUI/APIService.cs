@@ -12,6 +12,8 @@ namespace SpartanX.WinUI
     public class APIService
     {
         private string _controllerRoute = null;
+        public static string username { get; set; }
+        public static string password { get; set; }
         public APIService(string ControllerRoute)
         {
             _controllerRoute = ControllerRoute;
@@ -25,27 +27,27 @@ namespace SpartanX.WinUI
                 url += "?";
                 url += await search.ToQueryString();
             }
-            var result = await url.GetJsonAsync<T>();
+            var result = await url.WithBasicAuth(username,password).GetJsonAsync<T>();
             return result;
 
         }
         public async Task<T> GetById<T>(object id)
         {
-            var url = await $"{ Properties.Settings.Default.APIUrl}/{ _controllerRoute}/{id}".GetJsonAsync<T>();
+            var url = await $"{ Properties.Settings.Default.APIUrl}/{ _controllerRoute}/{id}".WithBasicAuth(username, password).GetJsonAsync<T>();
             return url;
 
         }
         public async Task<T> Insert<T>(object req)
         {
             var url = $"{ Properties.Settings.Default.APIUrl}/{ _controllerRoute}";
-            var result = await url.PostJsonAsync(req).ReceiveJson<T>();
+            var result = await url.WithBasicAuth(username, password).PostJsonAsync(req).ReceiveJson<T>();
             return result;
 
         }
         public async Task<T> Update<T>(object id, object req)
         {
             var url = $"{ Properties.Settings.Default.APIUrl}/{ _controllerRoute}/{id}";
-            var result = await url.PutJsonAsync(req).ReceiveJson<T>();
+            var result = await url.WithBasicAuth(username, password).PutJsonAsync(req).ReceiveJson<T>();
             return result;
 
         }
@@ -53,7 +55,7 @@ namespace SpartanX.WinUI
         {
             //provjeriti delete
             var url = $"{ Properties.Settings.Default.APIUrl}/{ _controllerRoute}/{id}";
-            var result = await url.DeleteAsync();
+            var result = await url.WithBasicAuth(username, password).DeleteAsync();
             return (T)result;
    
 

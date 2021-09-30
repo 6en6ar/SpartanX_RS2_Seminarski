@@ -33,6 +33,7 @@ namespace SpartanX.WinUI.Dobavljaci
             this.dgvDobavljaci = new System.Windows.Forms.DataGridView();
             this.txtDobavljaci = new System.Windows.Forms.TextBox();
             this.btnPrikaziDob = new System.Windows.Forms.Button();
+            this.btnDodajDob = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDobavljaci)).BeginInit();
             this.SuspendLayout();
@@ -40,7 +41,7 @@ namespace SpartanX.WinUI.Dobavljaci
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvDobavljaci);
-            this.groupBox1.Location = new System.Drawing.Point(12, 228);
+            this.groupBox1.Location = new System.Drawing.Point(9, 137);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1224, 324);
             this.groupBox1.TabIndex = 0;
@@ -60,25 +61,36 @@ namespace SpartanX.WinUI.Dobavljaci
             // 
             // txtDobavljaci
             // 
-            this.txtDobavljaci.Location = new System.Drawing.Point(15, 157);
+            this.txtDobavljaci.Location = new System.Drawing.Point(12, 66);
             this.txtDobavljaci.Name = "txtDobavljaci";
             this.txtDobavljaci.Size = new System.Drawing.Size(986, 39);
             this.txtDobavljaci.TabIndex = 1;
             // 
             // btnPrikaziDob
             // 
-            this.btnPrikaziDob.Location = new System.Drawing.Point(1028, 157);
+            this.btnPrikaziDob.Location = new System.Drawing.Point(1025, 66);
             this.btnPrikaziDob.Name = "btnPrikaziDob";
             this.btnPrikaziDob.Size = new System.Drawing.Size(205, 46);
             this.btnPrikaziDob.TabIndex = 2;
             this.btnPrikaziDob.Text = "Prikazi";
             this.btnPrikaziDob.UseVisualStyleBackColor = true;
             // 
+            // btnDodajDob
+            // 
+            this.btnDodajDob.Location = new System.Drawing.Point(1025, 506);
+            this.btnDodajDob.Name = "btnDodajDob";
+            this.btnDodajDob.Size = new System.Drawing.Size(205, 46);
+            this.btnDodajDob.TabIndex = 3;
+            this.btnDodajDob.Text = "Dodaj novog";
+            this.btnDodajDob.UseVisualStyleBackColor = true;
+            this.btnDodajDob.Click += new System.EventHandler(this.button1_Click);
+            // 
             // DobavljacIPrikazfrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 564);
+            this.ClientSize = new System.Drawing.Size(1263, 586);
+            this.Controls.Add(this.btnDodajDob);
             this.Controls.Add(this.btnPrikaziDob);
             this.Controls.Add(this.txtDobavljaci);
             this.Controls.Add(this.groupBox1);
@@ -98,5 +110,6 @@ namespace SpartanX.WinUI.Dobavljaci
         private System.Windows.Forms.DataGridView dgvDobavljaci;
         private System.Windows.Forms.TextBox txtDobavljaci;
         private System.Windows.Forms.Button btnPrikaziDob;
+        private System.Windows.Forms.Button btnDodajDob;
     }
 }

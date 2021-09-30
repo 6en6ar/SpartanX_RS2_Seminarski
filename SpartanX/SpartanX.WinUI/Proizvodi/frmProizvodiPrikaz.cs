@@ -17,6 +17,7 @@ namespace SpartanX.WinUI.Proizvodi
         public frmProizvodiPrikaz()
         {
             InitializeComponent();
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -34,19 +35,20 @@ namespace SpartanX.WinUI.Proizvodi
         private async Task LoadProizvodi(int VrstaProId = 0)
         {
             ProizvodiSearchObject req = new ProizvodiSearchObject();
-            //req.IncludeList = new string[]
-            //{
-              //  "Proizvodjaci",
-              //  "VrstaProizvoda"
-            //};
-            if(VrstaProId != 0)
+            req.IncludeList = new string[]
+            {
+                "Proizvodjac",
+                "Vrsta"
+            };
+            if (VrstaProId != 0)
             {
                 req.Id = VrstaProId;
             }
+            //dgvProizvodi.AutoGenerateColumns = false;
             
-            //dgvProizvodi.DataSource = await _proizvodi.Get<List<Model.Proizvodi>>(req);
-            var result = await _proizvodi.Get<List<Model.Proizvodi>>(null);
-            dgvProizvodi.DataSource = result;
+            dgvProizvodi.DataSource = await _proizvodi.Get<List<Model.Proizvodi>>(req);
+            //var result = await _proizvodi.Get<List<Model.Proizvodi>>(null);
+            //dgvProizvodi.DataSource = result;
         }
 
         private async Task LoadVrstaProizvoda()

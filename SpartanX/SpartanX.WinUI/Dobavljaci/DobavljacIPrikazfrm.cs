@@ -20,5 +20,11 @@ namespace SpartanX.WinUI.Dobavljaci
         {
             dgvDobavljaci.DataSource = await _apiservice.Get<List<Model.Dobavljaci>>(null);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DodajDobavljace frm = new DodajDobavljace();
+            frm.Show();
+        }
     }
 }

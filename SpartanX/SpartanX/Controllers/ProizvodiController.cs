@@ -12,8 +12,7 @@ namespace SpartanX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [Authorize]
-    
+    //[Authorize]
     public class ProizvodiController : BaseCRUDController<Model.Proizvodi, Model.Search.ProizvodiSearchObject, ProizvodiInsertRequest, ProizvodiUpdateRequest>
     {
         public ProizvodiController(IProizvodiService  _service) : base(_service)

@@ -21,6 +21,7 @@ namespace SpartanX.Model
         public virtual Proizvodjaci Proizvodjac { get; set; }
         public virtual VrstaProizvoda Vrsta { get; set; }
         public string VrstaNaziv => Vrsta?.Naziv;
+        public string ProizvodjacNaziv => Proizvodjac?.Naziv;
         //public virtual ICollection<Komentar> Komentars { get; set; }
         //public virtual ICollection<NabavkaStavke> NabavkaStavkes { get; set; }
         //public virtual ICollection<NarudzbaStavke> NarudzbaStavkes { get; set; }
