@@ -19,6 +19,11 @@ namespace SpartanX.Controllers
         {
 
         }
+        [HttpGet("Recmmend/{id}")]
+        public List<Model.Proizvodi> Recommend(int id)
+        {
+            return (_service as IProizvodiService).Recommend(id);
+        }
 
     }
 }

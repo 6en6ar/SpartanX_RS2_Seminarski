@@ -9,6 +9,6 @@ namespace SpartanX.Services
 {
     public interface IProizvodiService : ICRUDService<Model.Proizvodi, Model.Search.ProizvodiSearchObject, ProizvodiInsertRequest, ProizvodiUpdateRequest>
     {
-      
+        public List<Model.Proizvodi> Recommend(int id);
     }
 }
