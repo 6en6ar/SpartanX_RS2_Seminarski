@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:SpartanX.MobileApp.ViewModels"
+             x:Class="SpartanX.MobileApp.Views.Kontakt"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:KontaktViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="1">
+                <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                    <Label Text="Contact Page" FontSize="Title"/>
+                    <Label Text="If your food becomes an after thought, your body starts looking like an after thought! " FontSize="16" Padding="0,0,0,0"/>
+                    <Label FontSize="16" Padding="0,24,0,0">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Contact us at "/>
+                                    <Span Text="https://6en6ar.github.io/" FontAttributes="Bold"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label  FontSize="15" Grid.Column="0" Grid.Row="0">Telefon:</Label>
+                    <Label  Grid.Column="1" Grid.Row="0"
+            Text="(444) 444 666"/>
+                    <Label  FontSize="15" Grid.Column="0" Grid.Row="1">Email:</Label>
+
+                    <Label Grid.Column="1" Grid.Row="1"
+            Text="info@spartanx.com"/>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
