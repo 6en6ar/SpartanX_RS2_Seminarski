@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModels="clr-namespace:SpartanX.MobileApp.ViewModels"
+             mc:Ignorable="d"
+             x:Class="SpartanX.MobileApp.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.BindingContext>
+        <viewModels:LoginPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
+            <Label Padding="5" Text="Korisnicko ime:" />
+            <Entry  Text="{Binding Username}" Placeholder="Username" BackgroundColor="DarkGray"></Entry>
+            <Label Padding="5" Text="Lozinka:"/>
+            <Entry Text="{Binding Password}" Placeholder="Lozinka" BackgroundColor="DarkGray"></Entry>
+            <Button Command="{Binding LoginCommand}" Margin="15" Padding="5" CornerRadius="15" Text="Login" BackgroundColor="Red"></Button>
+        </StackLayout>  
+    </ContentPage.Content>
+</ContentPage>
