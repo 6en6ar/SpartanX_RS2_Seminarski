@@ -38,7 +38,7 @@ namespace SpartanX.MobileApp.ViewModels
             try
             {
                 await service.Get<dynamic>(null);
-                App.Current.MainPage = new AboutPage();
+                App.Current.MainPage = new AppShell();
 
             }
             catch (Exception ex)

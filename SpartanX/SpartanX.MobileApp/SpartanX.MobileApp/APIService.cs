@@ -37,9 +37,12 @@ namespace SpartanX.MobileApp
                 var result = await url.WithBasicAuth(username, password).GetJsonAsync<T>();
                 return result;
             }
-            catch
+            catch(FlurlHttpException ex)
             {
-                await App.Current.MainPage.DisplayAlert("Greska","Username ili lozinka nisu validni!","OK");
+                if(ex.Call.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    await App.Current.MainPage.DisplayAlert("Greska", "Username ili lozinka nisu validni!", "OK");
+                }
                 throw;
             }
 

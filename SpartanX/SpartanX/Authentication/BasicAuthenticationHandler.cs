@@ -25,7 +25,7 @@ namespace SpartanX.Authentication
             if (!Request.Headers.ContainsKey("Authorization"))
                 return AuthenticateResult.Fail("Authorization Header missing");
 
-            ModelSpartanX.Korisnici korisnik = null;
+            ModelSpartanX.Korisnici korisnik;
             try
             {
                 var authHeader = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
@@ -33,6 +33,7 @@ namespace SpartanX.Authentication
                 var credentials = Encoding.UTF8.GetString(credentialBytes).Split(':');
                 var username = credentials[0];
                 var password = credentials[1];
+
                 korisnik = await _korisniciSer.Authenticate(username, password);
             }
             catch

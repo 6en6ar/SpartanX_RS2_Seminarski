@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Flurl;
 using System.Threading.Tasks;
-using SpartanX.Model;
+using ModelSpartanX;
 
 namespace SpartanX.WinUI
 {

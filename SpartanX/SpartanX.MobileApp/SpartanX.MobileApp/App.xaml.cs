@@ -14,7 +14,7 @@ namespace SpartanX.MobileApp
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new Kontakt();
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()

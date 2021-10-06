@@ -120,9 +120,7 @@ namespace SpartanX.Database
 
                 entity.ToTable("Korisnici");
 
-                entity.Property(e => e.KorisnikId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("KorisnikID");
+                entity.Property(e => e.KorisnikId).HasColumnName("KorisnikID");
 
                 entity.Property(e => e.Email).HasMaxLength(100);
 
@@ -155,9 +153,7 @@ namespace SpartanX.Database
 
                 entity.ToTable("KorisnikUloge");
 
-                entity.Property(e => e.KorisnikUlogaId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("KorisnikUlogaID");
+                entity.Property(e => e.KorisnikUlogaId).HasColumnName("KorisnikUlogaID");
 
                 entity.Property(e => e.Datum).HasColumnType("datetime");
 
@@ -320,9 +316,7 @@ namespace SpartanX.Database
 
                 entity.ToTable("Narudzbe");
 
-                entity.Property(e => e.NarudzbaId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("NarudzbaID");
+                entity.Property(e => e.NarudzbaId).HasColumnName("NarudzbaID");
 
                 entity.Property(e => e.BrojNarudzbe)
                     .IsRequired()
@@ -461,9 +455,7 @@ namespace SpartanX.Database
 
                 entity.ToTable("Uloge");
 
-                entity.Property(e => e.UlogaId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("UlogaID");
+                entity.Property(e => e.UlogaId).HasColumnName("UlogaID");
 
                 entity.Property(e => e.Naziv)
                     .IsRequired()
