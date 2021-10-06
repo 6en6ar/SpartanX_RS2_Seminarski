@@ -8,14 +8,14 @@ namespace SpartanX.Services
 {
     public interface IKorisniciService
     {
-        List<Model.Korisnici> Get(Model.Search.KorisniciSearchObject request);
+        List<ModelSpartanX.Korisnici> Get(ModelSpartanX.Search.KorisniciSearchObject request);
 
-        Model.Korisnici GetById(int id);
+        ModelSpartanX.Korisnici GetById(int id);
 
-        Model.Korisnici Insert(Model.Requests.KorisniciInsertRequest request);
+        ModelSpartanX.Korisnici Insert(ModelSpartanX.Requests.KorisniciInsertRequest request);
 
-        Model.Korisnici Update(int id, Model.Requests.KorisniciInsertRequest request);
-        public Task<Model.Korisnici> Authenticate(string username, string password);
+        ModelSpartanX.Korisnici Update(int id, ModelSpartanX.Requests.KorisniciInsertRequest request);
+        public Task<ModelSpartanX.Korisnici> Authenticate(string username, string password);
 
     }
 }

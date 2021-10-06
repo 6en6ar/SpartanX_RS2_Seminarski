@@ -7,12 +7,12 @@ namespace SpartanX.Services
 {
     public interface ISkladistaService 
     {
-        List<Model.Skladista> Get(Model.Search.SkladistaSearchObject request);
+        List<ModelSpartanX.Skladista> Get(ModelSpartanX.Search.SkladistaSearchObject request);
 
-        Model.Skladista GetById(int id);
+        ModelSpartanX.Skladista GetById(int id);
 
-        void Insert(Model.Requests.SkladisteInsertRequest request);
+        void Insert(ModelSpartanX.Requests.SkladisteInsertRequest request);
 
-        Model.Skladista Update(int id, Model.Requests.SkladisteUpdateRequest request);
+        ModelSpartanX.Skladista Update(int id, ModelSpartanX.Requests.SkladisteUpdateRequest request);
     }
 }

@@ -22,7 +22,7 @@ namespace SpartanX.WinUI
             APIService.password = txtPassword.Text;
             try
             {
-                var auth =  await _service.Get<List<Model.Korisnici>>(null);
+                var auth =  await _service.Get<List<ModelSpartanX.Korisnici>>(null);
 
                 PocetnaForma frm = new PocetnaForma();
                 frm.Show();
@@ -31,6 +31,11 @@ namespace SpartanX.WinUI
             {
                 MessageBox.Show("Pogresan username ili password");
             }
+        }
+
+        private void LoginForma_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

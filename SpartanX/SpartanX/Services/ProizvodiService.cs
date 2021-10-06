@@ -14,14 +14,14 @@ using System.Threading.Tasks;
 
 namespace SpartanX.Services
 {
-    public class ProizvodiService : BaseCRUDService<Model.Proizvodi, Database.Proizvodi,Model.Search.ProizvodiSearchObject, ProizvodiInsertRequest, ProizvodiUpdateRequest>, IProizvodiService
+    public class ProizvodiService : BaseCRUDService<ModelSpartanX.Proizvodi, Database.Proizvodi, ModelSpartanX.Search.ProizvodiSearchObject, ModelSpartanX.Requests.ProizvodiInsertRequest, ModelSpartanX.Requests.ProizvodiUpdateRequest>, IProizvodiService
     {
         public ProizvodiService(SpartanXContext _context, IMapper _mapper)
             : base(_context, _mapper)
         {
 
         }
-        public override IEnumerable<Model.Proizvodi> Get(ProizvodiSearchObject search = null)
+        public override IEnumerable<ModelSpartanX.Proizvodi> Get(ModelSpartanX.Search.ProizvodiSearchObject search = null)
         {
             var DBset = context.Set<Database.Proizvodi>().AsQueryable();
             if (!string.IsNullOrWhiteSpace(search?.Naziv))
@@ -33,7 +33,7 @@ namespace SpartanX.Services
             {
                 DBset = DBset.Where(x => x.VrstaId == search.Id);
             }
-            if (search?.IncludeList.Length > 0)
+            if (search?.IncludeList?.Length > 0)
             {
                 foreach (var item in search.IncludeList)
                 {
@@ -42,7 +42,7 @@ namespace SpartanX.Services
             }
 
             var lista = DBset.ToList();
-            var modeli = mapper.Map<List<Model.Proizvodi>>(lista);
+            var modeli = mapper.Map<List<ModelSpartanX.Proizvodi>>(lista);
             return modeli;
         }
         public class Copurchase_prediction
@@ -61,7 +61,7 @@ namespace SpartanX.Services
         }
         private static MLContext _MLcontext = null;
         private static ITransformer model;
-        public List<Model.Proizvodi> Recommend(int id)
+        public List<ModelSpartanX.Proizvodi> Recommend(int id)
         {
             if(_MLcontext == null)
             {
@@ -126,7 +126,7 @@ namespace SpartanX.Services
             }
 
             var final = predictionResult.OrderByDescending(x => x.Item2).Select(x => x.Item1).Take(3).ToList();
-            return mapper.Map<List<Model.Proizvodi>>(final);
+            return mapper.Map<List<ModelSpartanX.Proizvodi>>(final);
         }
 
     }

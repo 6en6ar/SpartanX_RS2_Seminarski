@@ -9,7 +9,7 @@ namespace SpartanX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UlogeController : BaseReadController<Model.Uloge, object>
+    public class UlogeController : BaseReadController<ModelSpartanX.Uloge, object>
     {
         public UlogeController(IUlogeService _service) : base(_service)
         {

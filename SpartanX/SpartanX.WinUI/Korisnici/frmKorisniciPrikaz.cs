@@ -20,23 +20,23 @@ namespace SpartanX.WinUI.Korisnici
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            KorisniciSearchObject req = new KorisniciSearchObject()
+            ModelSpartanX.Search.KorisniciSearchObject req = new ModelSpartanX.Search.KorisniciSearchObject()
             {
                 Ime = txtIme.Text
             };
-            dgvKorisniciPrikaz.DataSource = await _apiservice.Get<List<Model.Korisnici>>(req);
+            dgvKorisniciPrikaz.DataSource = await _apiservice.Get<List<ModelSpartanX.Korisnici>>(req);
 
         }
 
         private async void frmKorisniciPrikaz_Load(object sender, EventArgs e)
         {
-            dgvKorisniciPrikaz.DataSource = await _apiservice.Get<List<Model.Korisnici>>(null);
+            dgvKorisniciPrikaz.DataSource = await _apiservice.Get<List<ModelSpartanX.Korisnici>>(null);
         }
 
         private void dgvKorisniciPrikaz_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var korisnik = dgvKorisniciPrikaz.SelectedRows[0].DataBoundItem;// grab a user
-            KorisnikDetalji forma = new KorisnikDetalji(korisnik as Model.Korisnici);
+            KorisnikDetalji forma = new KorisnikDetalji(korisnik as ModelSpartanX.Korisnici);
             forma.ShowDialog();
         }
 

@@ -19,7 +19,7 @@ namespace SpartanX.WinUI.Dobavljaci
 
         private async void DobavljacIPrikazfrm_Load(object sender, EventArgs e)
         {
-            dgvDobavljaci.DataSource = await _apiservice.Get<List<Model.Dobavljaci>>(null);
+            dgvDobavljaci.DataSource = await _apiservice.Get<List<ModelSpartanX.Dobavljaci>>(null);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,11 +30,11 @@ namespace SpartanX.WinUI.Dobavljaci
 
         private async void btnPrikaziDob_Click(object sender, EventArgs e)
         {
-            DobavljaciSearchObject req = new DobavljaciSearchObject()
+            ModelSpartanX.Search.DobavljaciSearchObject req = new ModelSpartanX.Search.DobavljaciSearchObject()
             {
                 Naziv = txtDobavljaci.Text
             };
-            dgvDobavljaci.DataSource = await _apiservice.Get<List<Model.Dobavljaci>>(req);
+            dgvDobavljaci.DataSource = await _apiservice.Get<List<ModelSpartanX.Dobavljaci>>(req);
         }
     }
 }

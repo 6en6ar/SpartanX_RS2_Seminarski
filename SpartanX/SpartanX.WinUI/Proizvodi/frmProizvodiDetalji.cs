@@ -16,8 +16,8 @@ namespace SpartanX.WinUI.Proizvodi
         APIService _proizvodjaci = new APIService("Proizvodjaci");
         APIService _vrste = new APIService("VrsteProizvoda");
         APIService _servicePro = new APIService("Proizvodi");
-        private Model.Proizvodi _proizvod;
-        public frmProizvodiDetalji(Model.Proizvodi proizvod = null)
+        private ModelSpartanX.Proizvodi _proizvod;
+        public frmProizvodiDetalji(ModelSpartanX.Proizvodi proizvod = null)
         {
             InitializeComponent();
             _proizvod = proizvod;
@@ -57,16 +57,16 @@ namespace SpartanX.WinUI.Proizvodi
         }
         private async Task LoadProizvodjace()
         {
-            var result = await _proizvodjaci.Get<List<Model.Proizvodjaci>>(null);
-            result.Insert(0, new Model.Proizvodjaci());
+            var result = await _proizvodjaci.Get<List<ModelSpartanX.Proizvodjaci>>(null);
+            result.Insert(0, new ModelSpartanX.Proizvodjaci());
             cmbProizvodjaci.DataSource = result;
             cmbProizvodjaci.DisplayMember = "Naziv";
             cmbProizvodjaci.ValueMember = "ProizvodjacId";
         }
         private async Task LoadVrsteProizvoda()
         {
-            var result = await _vrste.Get<List<Model.VrstaProizvoda>>(null);
-            result.Insert(0, new Model.VrstaProizvoda());
+            var result = await _vrste.Get<List<ModelSpartanX.VrstaProizvoda>>(null);
+            result.Insert(0, new ModelSpartanX.VrstaProizvoda());
             cmbVrsta.DataSource = result;
             cmbVrsta.DisplayMember = "Naziv";
             cmbVrsta.ValueMember = "VrstaId";
@@ -83,8 +83,8 @@ namespace SpartanX.WinUI.Proizvodi
                 pbSlika.Image = Image.FromFile(fname);
             }
         }
-        ProizvodiInsertRequest insertPro = new ProizvodiInsertRequest();
-        ProizvodiUpdateRequest updatePro = new ProizvodiUpdateRequest();
+        ModelSpartanX.Requests.ProizvodiInsertRequest insertPro = new ModelSpartanX.Requests.ProizvodiInsertRequest();
+        ModelSpartanX.Requests.ProizvodiUpdateRequest updatePro = new ModelSpartanX.Requests.ProizvodiUpdateRequest();
 
         public static byte[] ImageToByteArray(Image x)
         {
@@ -122,7 +122,7 @@ namespace SpartanX.WinUI.Proizvodi
                     insertPro.SlikaThumb = ImageToByteArray(thumb);
 
                 }
-                await _servicePro.Insert<Model.Proizvodi>(insertPro);
+                await _servicePro.Insert<ModelSpartanX.Proizvodi>(insertPro);
             }
             else
             {
@@ -142,7 +142,7 @@ namespace SpartanX.WinUI.Proizvodi
                 {
                     updatePro.Cijena = cijena;
                 }
-                await _servicePro.Insert<Model.Proizvodi>(updatePro);
+                await _servicePro.Insert<ModelSpartanX.Proizvodi>(updatePro);
             }
         }
     }

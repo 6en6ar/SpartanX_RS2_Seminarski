@@ -34,7 +34,7 @@ namespace SpartanX.WinUI.Proizvodi
 
         private async Task LoadProizvodi(int VrstaProId = 0)
         {
-            ProizvodiSearchObject req = new ProizvodiSearchObject();
+            ModelSpartanX.Search.ProizvodiSearchObject req = new ModelSpartanX.Search.ProizvodiSearchObject();
             req.IncludeList = new string[]
             {
                 "Proizvodjac",
@@ -46,15 +46,15 @@ namespace SpartanX.WinUI.Proizvodi
             }
             //dgvProizvodi.AutoGenerateColumns = false;
             
-            dgvProizvodi.DataSource = await _proizvodi.Get<List<Model.Proizvodi>>(req);
+            dgvProizvodi.DataSource = await _proizvodi.Get<List<ModelSpartanX.Proizvodi>>(req);
             //var result = await _proizvodi.Get<List<Model.Proizvodi>>(null);
             //dgvProizvodi.DataSource = result;
         }
 
         private async Task LoadVrstaProizvoda()
         {
-            var result = await _vrstaPro.Get<List<Model.VrstaProizvoda>>(null);
-            result.Insert(0, new Model.VrstaProizvoda());
+            var result = await _vrstaPro.Get<List<ModelSpartanX.VrstaProizvoda>>(null);
+            result.Insert(0, new ModelSpartanX.VrstaProizvoda());
             cmbvrsta.DataSource = result;
             cmbvrsta.DisplayMember = "Naziv";
             cmbvrsta.ValueMember = "VrstaId";
@@ -62,11 +62,11 @@ namespace SpartanX.WinUI.Proizvodi
 
         private async void btnProizvodi_Click(object sender, EventArgs e)
         {
-            ProizvodiSearchObject req = new ProizvodiSearchObject()
+            ModelSpartanX.Search.ProizvodiSearchObject req = new ModelSpartanX.Search.ProizvodiSearchObject()
             {
                 Naziv = txtProizvodi.Text
             };
-            dgvProizvodi.DataSource = await _proizvodi.Get<List<Model.Proizvodi>>(req);
+            dgvProizvodi.DataSource = await _proizvodi.Get<List<ModelSpartanX.Proizvodi>>(req);
         }
 
         private void btnNoviPro_Click(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace SpartanX.WinUI.Proizvodi
 
         private void dgvProizvodi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var proizvod = dgvProizvodi.SelectedRows[0].DataBoundItem as Model.Proizvodi;// grab a user
+            var proizvod = dgvProizvodi.SelectedRows[0].DataBoundItem as ModelSpartanX.Proizvodi;// grab a user
             frmProizvodiDetalji forma = new frmProizvodiDetalji(proizvod);
             forma.ShowDialog();
         }

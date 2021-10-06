@@ -12,8 +12,8 @@ namespace SpartanX.WinUI.Skladista
     public partial class frmSkladisteDetalji : Form
     {
         APIService _skladisteService = new APIService("Skladista");
-        private Model.Skladista _skladiste;
-        public frmSkladisteDetalji(Model.Skladista skladiste = null)
+        private ModelSpartanX.Skladista _skladiste;
+        public frmSkladisteDetalji(ModelSpartanX.Skladista skladiste = null)
         {
             InitializeComponent();
             _skladiste = skladiste;
@@ -33,23 +33,23 @@ namespace SpartanX.WinUI.Skladista
         {
             if (_skladiste == null)
             {
-                SkladisteInsertRequest req = new SkladisteInsertRequest()
+                ModelSpartanX.Requests.SkladisteInsertRequest req = new ModelSpartanX.Requests.SkladisteInsertRequest()
                 {
                    Naziv = txtNaziv.Text,
                    Adresa = txtAdresa.Text,
                    Opis = txtOpis.Text
                 };
-                var result = await _skladisteService.Insert<Model.Skladista>(req);
+                var result = await _skladisteService.Insert<ModelSpartanX.Skladista>(req);
             }
             else
             {
-                SkladisteUpdateRequest req = new SkladisteUpdateRequest()
+                ModelSpartanX.Requests.SkladisteUpdateRequest req = new ModelSpartanX.Requests.SkladisteUpdateRequest()
                 {
                     Naziv = txtNaziv.Text,
                     Adresa = txtAdresa.Text,
                     Opis = txtOpis.Text
                 };
-                var result = await _skladisteService.Update<Model.Skladista>(_skladiste.SkladisteId, req);
+                var result = await _skladisteService.Update<ModelSpartanX.Skladista>(_skladiste.SkladisteId, req);
             }
         }
     }

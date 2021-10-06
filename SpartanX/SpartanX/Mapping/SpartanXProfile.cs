@@ -10,22 +10,22 @@ namespace SpartanX.Mapping
     {
         public SpartanXProfile()
         {
-            CreateMap<Database.Korisnici, Model.Korisnici>().ReverseMap();
-            CreateMap<Database.Korisnici, Model.Requests.KorisniciInsertRequest>().ReverseMap();
-            CreateMap<Database.Korisnici, Model.Requests.KorisniciUpdateRequest>().ReverseMap();
-            CreateMap<Database.Proizvodi, Model.Proizvodi>();
-            CreateMap<Database.Skladistum, Model.Skladista>().ReverseMap();
-            CreateMap<Database.Skladistum,Model.Requests.SkladisteInsertRequest>().ReverseMap();
-            CreateMap<Database.Skladistum,Model.Requests.SkladisteUpdateRequest>().ReverseMap();
-            CreateMap<Database.Dobavljaci, Model.Dobavljaci>();
-            CreateMap<Database.VrstaProizvodum, Model.VrstaProizvoda>();
-            CreateMap<Database.Proizvodjaci, Model.Proizvodjaci>();
-            CreateMap<Database.Komentar, Model.Komentar>();
-            CreateMap<Database.Uloge, Model.Uloge>();
-            CreateMap<Database.KorisnikUloge, Model.KorisniciUloge>();
-            CreateMap<Model.Requests.ProizvodiUpdateRequest, Database.Proizvodi>();
-            CreateMap<Model.Requests.ProizvodiInsertRequest, Database.Proizvodi>();
-            CreateMap<Model.Requests.DobavljaciInsertRequest, Database.Dobavljaci>();
+            CreateMap<Database.Korisnici, ModelSpartanX.Korisnici>().ReverseMap();
+            CreateMap<Database.Korisnici, ModelSpartanX.Requests.KorisniciInsertRequest>().ReverseMap();
+            CreateMap<Database.Korisnici, ModelSpartanX.Requests.KorisniciUpdateRequest>().ReverseMap();
+            CreateMap<Database.Proizvodi, ModelSpartanX.Proizvodi>();
+            CreateMap<Database.Skladistum, ModelSpartanX.Skladista>().ReverseMap();
+            CreateMap<Database.Skladistum, ModelSpartanX.Requests.SkladisteInsertRequest>().ReverseMap();
+            CreateMap<Database.Skladistum, ModelSpartanX.Requests.SkladisteUpdateRequest>().ReverseMap();
+            CreateMap<Database.Dobavljaci, ModelSpartanX.Dobavljaci>();
+            CreateMap<Database.VrstaProizvodum, ModelSpartanX.VrstaProizvoda>();
+            CreateMap<Database.Proizvodjaci, ModelSpartanX.Proizvodjaci>();
+            CreateMap<Database.Komentar, ModelSpartanX.Komentar>();
+            CreateMap<Database.Uloge, ModelSpartanX.Uloge>();
+            CreateMap<Database.KorisnikUloge, ModelSpartanX.KorisniciUloge>();
+            CreateMap<ModelSpartanX.Requests.ProizvodiUpdateRequest, Database.Proizvodi>();
+            CreateMap<ModelSpartanX.Requests.ProizvodiInsertRequest, Database.Proizvodi>();
+            CreateMap<ModelSpartanX.Requests.DobavljaciInsertRequest, Database.Dobavljaci>();
         }
     }
 }

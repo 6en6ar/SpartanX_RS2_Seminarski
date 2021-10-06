@@ -9,7 +9,7 @@ namespace SpartanX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class KomentarController : BaseReadController<Model.Komentar, object>
+    public class KomentarController : BaseReadController<ModelSpartanX.Komentar, object>
     {
         public KomentarController(IKomentarService _service) : base(_service)
         {

@@ -17,7 +17,7 @@ namespace SpartanX.Services
             _mapper = mapper;
         }
 
-        public List<Model.Skladista> Get(Model.Search.SkladistaSearchObject search = null)
+        public List<ModelSpartanX.Skladista> Get(ModelSpartanX.Search.SkladistaSearchObject search = null)
         {
             var DBset = _context.Set<Database.Skladistum>().AsQueryable();
             if (!string.IsNullOrWhiteSpace(search?.Naziv))
@@ -27,17 +27,17 @@ namespace SpartanX.Services
             // if ..
 
             var lista = DBset.ToList();
-            var modeli = _mapper.Map<List<Model.Skladista>>(DBset);
+            var modeli = _mapper.Map<List<ModelSpartanX.Skladista>>(DBset);
             return modeli;
         }
-        public Model.Skladista GetById(int id)
+        public ModelSpartanX.Skladista GetById(int id)
         {
             var entity = _context.Skladista.Find(id);
 
-            return _mapper.Map<Model.Skladista>(entity);
+            return _mapper.Map<ModelSpartanX.Skladista>(entity);
 
         }
-        public void Insert(Model.Requests.SkladisteInsertRequest request)
+        public void Insert(ModelSpartanX.Requests.SkladisteInsertRequest request)
         {
             var skladiste = _mapper.Map<Database.Skladistum>(request);
 
@@ -45,12 +45,12 @@ namespace SpartanX.Services
             _context.SaveChanges();
 
         }
-        public Model.Skladista Update(int id, Model.Requests.SkladisteUpdateRequest request)
+        public ModelSpartanX.Skladista Update(int id, ModelSpartanX.Requests.SkladisteUpdateRequest request)
         {
             var skladiste = _context.Skladista.Find(id);
             _mapper.Map(request, skladiste);
             _context.SaveChanges();
-            return _mapper.Map<Model.Skladista>(skladiste);
+            return _mapper.Map<ModelSpartanX.Skladista>(skladiste);
 
         }
     }

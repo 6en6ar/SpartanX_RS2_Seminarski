@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SpartanX.Services
 {
-    public class VrsteProizvodaService : BaseCRUDService<Model.VrstaProizvoda, Database.VrstaProizvodum, object>, IVrsteProizvodaService
+    public class VrsteProizvodaService : BaseCRUDService<ModelSpartanX.VrstaProizvoda, Database.VrstaProizvodum, object>, IVrsteProizvodaService
     {
         public VrsteProizvodaService(SpartanXContext _context, IMapper _mapper)
            : base(_context, _mapper)

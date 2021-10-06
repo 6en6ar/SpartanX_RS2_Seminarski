@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace SpartanX.Services
 {
-    public interface IProizvodiService : ICRUDService<Model.Proizvodi, Model.Search.ProizvodiSearchObject, ProizvodiInsertRequest, ProizvodiUpdateRequest>
+    public interface IProizvodiService : ICRUDService<ModelSpartanX.Proizvodi, ModelSpartanX.Search.ProizvodiSearchObject, ModelSpartanX.Requests.ProizvodiInsertRequest, ModelSpartanX.Requests.ProizvodiUpdateRequest>
     {
-        public List<Model.Proizvodi> Recommend(int id);
+        public List<ModelSpartanX.Proizvodi> Recommend(int id);
     }
 }

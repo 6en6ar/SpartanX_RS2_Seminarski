@@ -10,7 +10,7 @@ namespace SpartanX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class VrsteProizvodaController : BaseReadController<Model.VrstaProizvoda, object>
+    public class VrsteProizvodaController : BaseReadController<ModelSpartanX.VrstaProizvoda, object>
     {
         public VrsteProizvodaController(IVrsteProizvodaService _service) : base(_service)
         {

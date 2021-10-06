@@ -102,6 +102,7 @@ namespace SpartanX.WinUI
             this.Controls.Add(this.txtUsername);
             this.Name = "LoginForma";
             this.Text = "LoginForma";
+            this.Load += new System.EventHandler(this.LoginForma_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

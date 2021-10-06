@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SpartanX.Services
 {
-    public interface IUlogeService : IReadService<Model.Uloge, object>
+    public interface IUlogeService : IReadService<ModelSpartanX.Uloge, object>
     {
     }
 }

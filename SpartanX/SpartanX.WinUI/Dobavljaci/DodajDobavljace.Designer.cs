@@ -254,6 +254,7 @@ namespace SpartanX.WinUI.Dobavljaci
             this.Controls.Add(this.txtNaziv);
             this.Name = "DodajDobavljace";
             this.Text = "DodajDobavljace";
+            this.Load += new System.EventHandler(this.DodajDobavljace_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

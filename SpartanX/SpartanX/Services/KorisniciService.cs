@@ -22,7 +22,7 @@ namespace SpartanX.Services
             _mapper = mapper;
         }
 
-        public List<Model.Korisnici> Get(KorisniciSearchObject request)
+        public List<ModelSpartanX.Korisnici> Get(ModelSpartanX.Search.KorisniciSearchObject request)
         {
             var query = _context.Korisnicis.AsQueryable();
 
@@ -33,17 +33,17 @@ namespace SpartanX.Services
 
             var list = query.ToList();
 
-            return _mapper.Map<List<Model.Korisnici>>(list);
+            return _mapper.Map<List<ModelSpartanX.Korisnici>>(list);
         }
 
-        public Model.Korisnici GetById(int id)
+        public ModelSpartanX.Korisnici GetById(int id)
         {
             var entity = _context.Korisnicis.Find(id);
 
-            return _mapper.Map<Model.Korisnici>(entity);
+            return _mapper.Map<ModelSpartanX.Korisnici>(entity);
         }
 
-        public Model.Korisnici Insert(KorisniciInsertRequest req)
+        public ModelSpartanX.Korisnici Insert(ModelSpartanX.Requests.KorisniciInsertRequest req)
         {
             var korisnik = _mapper.Map<Database.Korisnici>(req);
 
@@ -67,15 +67,15 @@ namespace SpartanX.Services
             }
             _context.SaveChanges();
 
-            return _mapper.Map<Model.Korisnici>(korisnik);
+            return _mapper.Map<ModelSpartanX.Korisnici>(korisnik);
         }
 
-        public Model.Korisnici Update(int id, KorisniciInsertRequest req)
+        public ModelSpartanX.Korisnici Update(int id, ModelSpartanX.Requests.KorisniciInsertRequest req)
         {
             var korisnik = _context.Korisnicis.Find(id);
             _mapper.Map(req, korisnik);
             _context.SaveChanges();
-            return _mapper.Map<Model.Korisnici>(korisnik);
+            return _mapper.Map<ModelSpartanX.Korisnici>(korisnik);
         }
         public static string GenerateSalt()
         {
@@ -98,7 +98,7 @@ namespace SpartanX.Services
             return Convert.ToBase64String(inArray);
         }
 
-        public async Task<Model.Korisnici> Authenticate(string username, string password)
+        public async Task<ModelSpartanX.Korisnici> Authenticate(string username, string password)
         {
             var kor = await _context.Korisnicis.Include("KorisnikUloges.Uloga").FirstOrDefaultAsync(x => x.KorisnickoIme == username);
             if(kor == null)
@@ -111,7 +111,7 @@ namespace SpartanX.Services
             {
                 throw new Exception("Pogresan username ili password!");
             }
-            return _mapper.Map<Model.Korisnici>(kor);
+            return _mapper.Map<ModelSpartanX.Korisnici>(kor);
         }
 
     }

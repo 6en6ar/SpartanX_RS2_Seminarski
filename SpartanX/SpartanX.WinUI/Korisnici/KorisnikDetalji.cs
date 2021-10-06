@@ -15,15 +15,15 @@ namespace SpartanX.WinUI.Korisnici
     {
         APIService service = new APIService("Korisnici");
         APIService Ulservice = new APIService("Uloge");
-        private Model.Korisnici _korisnik;
-        public KorisnikDetalji(Model.Korisnici korisnik = null)
+        private ModelSpartanX.Korisnici _korisnik;
+        public KorisnikDetalji(ModelSpartanX.Korisnici korisnik = null)
         {
             InitializeComponent();
             _korisnik = korisnik;
         }
         public async Task LoadUloge()
         {
-            var ulogeList = await Ulservice.Get<List<Model.Uloge>>(null);
+            var ulogeList = await Ulservice.Get<List<ModelSpartanX.Uloge>>(null);
 
             clbUloge.DataSource = ulogeList;
             clbUloge.DisplayMember = "Naziv";
@@ -79,10 +79,10 @@ namespace SpartanX.WinUI.Korisnici
 
         private async void button2_Click(object sender, EventArgs e)
         {
-            var listauloga = clbUloge.CheckedItems.Cast<Model.Uloge>().Select(x => x.UlogaId).ToList();
+            var listauloga = clbUloge.CheckedItems.Cast<ModelSpartanX.Uloge>().Select(x => x.UlogaId).ToList();
             if (_korisnik == null)
             {
-                KorisniciInsertRequest req = new KorisniciInsertRequest()
+                ModelSpartanX.Requests.KorisniciInsertRequest req = new ModelSpartanX.Requests.KorisniciInsertRequest()
                 {
                     Ime = txtIme.Text,
                     Prezime = txtPrezime.Text,
@@ -96,18 +96,18 @@ namespace SpartanX.WinUI.Korisnici
                     //dodati telefon
                     //Telefon = txtTelefon.Text
                 };
-                var result = await service.Insert<Model.Korisnici>(req);
+                var result = await service.Insert<ModelSpartanX.Korisnici>(req);
             }
             else
             {
-                KorisniciUpdateRequest req = new KorisniciUpdateRequest()
+                ModelSpartanX.Requests.KorisniciUpdateRequest req = new ModelSpartanX.Requests.KorisniciUpdateRequest()
                 {
                     Ime = txtIme.Text,
                     Prezime = txtPrezime.Text,
                     Status=cbStatus.Checked,
                     KorisnickoIme = txtUsername.Text
                 };
-                var result = await service.Update<Model.Korisnici>(_korisnik.KorisnikId,req);
+                var result = await service.Update<ModelSpartanX.Korisnici>(_korisnik.KorisnikId,req);
             }
         }
 

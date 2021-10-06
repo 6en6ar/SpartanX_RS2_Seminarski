@@ -22,7 +22,7 @@ namespace SpartanX.WinUI.Skladista
         {
             try
             {
-                dgvSkladista.DataSource = await _apiservice.Get<List<Model.Skladista>>(null);
+                dgvSkladista.DataSource = await _apiservice.Get<List<ModelSpartanX.Skladista>>(null);
             }
             catch
             {
@@ -32,11 +32,11 @@ namespace SpartanX.WinUI.Skladista
 
         private async void btnPrikaziSkl_Click(object sender, EventArgs e)
         {
-            SkladistaSearchObject req = new SkladistaSearchObject()
+            ModelSpartanX.Search.SkladistaSearchObject req = new ModelSpartanX.Search.SkladistaSearchObject()
             {
                 Naziv = txtSkladista.Text
             };
-            dgvSkladista.DataSource = await _apiservice.Get<List<Model.Skladista>>(req);
+            dgvSkladista.DataSource = await _apiservice.Get<List<ModelSpartanX.Skladista>>(req);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -48,8 +48,7 @@ namespace SpartanX.WinUI.Skladista
         private void dgvSkladista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var skladiste = dgvSkladista.SelectedRows[0].DataBoundItem;// grab a user
-            frmSkladisteDetalji forma = new frmSkladisteDetalji(skladiste as Model.
-                Skladista);
+            frmSkladisteDetalji forma = new frmSkladisteDetalji(skladiste as ModelSpartanX.Skladista);
             forma.ShowDialog();
         }
     }

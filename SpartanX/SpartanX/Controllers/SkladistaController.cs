@@ -10,7 +10,7 @@ namespace SpartanX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [Authorize]
+    //[Authorize]
     public class SkladistaController :ControllerBase
     {
         private readonly ISkladistaService _service;
@@ -19,22 +19,22 @@ namespace SpartanX.Controllers
             _service = service;
         }
         [HttpGet]
-        public List<Model.Skladista> Get([FromQuery] Model.Search.SkladistaSearchObject request)
+        public List<ModelSpartanX.Skladista> Get([FromQuery] ModelSpartanX.Search.SkladistaSearchObject request)
         {
             return _service.Get(request);
         }
         [HttpGet("{id}")]
-        public Model.Skladista GetById(int id)
+        public ModelSpartanX.Skladista GetById(int id)
         {
             return _service.GetById(id);
         }
         [HttpPost]
-        public void Insert(Model.Requests.SkladisteInsertRequest request)
+        public void Insert(ModelSpartanX.Requests.SkladisteInsertRequest request)
         {
             _service.Insert(request);
         }
         [HttpPut("{id}")]
-        public Model.Skladista Update(int id, [FromBody] Model.Requests.SkladisteUpdateRequest request)
+        public ModelSpartanX.Skladista Update(int id, [FromBody] ModelSpartanX.Requests.SkladisteUpdateRequest request)
         {
             return _service.Update(id, request);
         }

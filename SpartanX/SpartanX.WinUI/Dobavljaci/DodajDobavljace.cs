@@ -24,7 +24,7 @@ namespace SpartanX.WinUI.Dobavljaci
 
         private async void btnSpasi_Click(object sender, EventArgs e)
         {
-            DobavljaciInsertRequest req = new DobavljaciInsertRequest()
+            ModelSpartanX.Requests.DobavljaciInsertRequest req = new ModelSpartanX.Requests.DobavljaciInsertRequest()
             {
                 Telefon = txtTelefon.Text,
                 Adresa = txtAdresa.Text,
@@ -41,13 +41,18 @@ namespace SpartanX.WinUI.Dobavljaci
             };
             try
             {
-                var res = await _dobavljaci.Insert<Model.Dobavljaci>(req);
+                var res = await _dobavljaci.Insert<ModelSpartanX.Dobavljaci>(req);
                 MessageBox.Show("Dobavljac uspjesno dodat");
             }
             catch
             {
                 throw new Exception();
             }
+
+        }
+
+        private void DodajDobavljace_Load(object sender, EventArgs e)
+        {
 
         }
     }

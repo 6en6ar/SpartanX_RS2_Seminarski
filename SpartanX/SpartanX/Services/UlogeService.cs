@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SpartanX.Services
 {
-    public class UlogeService : BaseCRUDService<Model.Uloge, Database.Uloge, object>, IUlogeService
+    public class UlogeService : BaseCRUDService<ModelSpartanX.Uloge, Database.Uloge, object>, IUlogeService
     {
         public UlogeService(SpartanXContext _context, IMapper _mapper) : base(_context, _mapper)
         {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SpartanX.Services
 {
-    public interface IVrsteProizvodaService : IReadService<Model.VrstaProizvoda, object>
+    public interface IVrsteProizvodaService : IReadService<ModelSpartanX.VrstaProizvoda, object>
     {
     }
 }

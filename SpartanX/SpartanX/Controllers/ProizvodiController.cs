@@ -13,14 +13,14 @@ namespace SpartanX.Controllers
     [ApiController]
     [Route("[controller]")]
     //[Authorize]
-    public class ProizvodiController : BaseCRUDController<Model.Proizvodi, Model.Search.ProizvodiSearchObject, ProizvodiInsertRequest, ProizvodiUpdateRequest>
+    public class ProizvodiController : BaseCRUDController<ModelSpartanX.Proizvodi, ModelSpartanX.Search.ProizvodiSearchObject, ModelSpartanX.Requests.ProizvodiInsertRequest, ModelSpartanX.Requests.ProizvodiUpdateRequest>
     {
         public ProizvodiController(IProizvodiService  _service) : base(_service)
         {
 
         }
-        [HttpGet("Recmmend/{id}")]
-        public List<Model.Proizvodi> Recommend(int id)
+        [HttpGet("Recommend/{id}")]
+        public List<ModelSpartanX.Proizvodi> Recommend(int id)
         {
             return (_service as IProizvodiService).Recommend(id);
         }

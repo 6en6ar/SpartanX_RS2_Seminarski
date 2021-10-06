@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SpartanX.Services
 {
-    public interface IKomentarService: IReadService<Model.Komentar, object>
+    public interface IKomentarService: IReadService<ModelSpartanX.Komentar, object>
     {
     }
 }
