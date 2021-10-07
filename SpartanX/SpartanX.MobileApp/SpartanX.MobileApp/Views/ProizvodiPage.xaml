@@ -10,7 +10,7 @@
             <Label Text="Proozvodi"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Picker ItemsSource="{Binding ListaVrsteProizvoda}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+            <Picker ItemsSource="{Binding ListaVrsteProizvoda}" ItemDisplayBinding="{Binding Naziv}" SelectedItem="{Binding vrstaPro}"></Picker>
             <ListView ItemsSource="{Binding ListaProizvoda}">
                 <ListView.ItemTemplate>
                     <DataTemplate>

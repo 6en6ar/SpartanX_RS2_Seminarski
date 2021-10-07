@@ -40,11 +40,11 @@ namespace SpartanX.MobileApp.ViewModels
                 await service.Get<dynamic>(null);
                 App.Current.MainPage = new AppShell();
 
-            }
-            catch (Exception ex)
-            {
 
-                throw;
+            }
+            catch
+            {
+ 
             }
         }
     }
