@@ -14,15 +14,27 @@ namespace SpartanX.MobileApp.ViewModels
         {
             komanda = new Command(async () => await Init());
         }
-        private readonly APIService _service = new APIService("Proizvodi");
+        private readonly APIService _Pservice = new APIService("Proizvodi");
+        private readonly APIService _VPservice = new APIService("VrsteProizvoda");
         public ObservableCollection<ModelSpartanX.Proizvodi> ListaProizvoda { get; set; } = new ObservableCollection<ModelSpartanX.Proizvodi>();
+        public ObservableCollection<ModelSpartanX.VrstaProizvoda> ListaVrsteProizvoda { get; set; } = new ObservableCollection<ModelSpartanX.VrstaProizvoda>();
         public ICommand komanda { get; set; }
         public async Task Init()
         {
-            var lista = await _service.Get<IEnumerable<ModelSpartanX.Proizvodi>>(null);
+            if(ListaVrsteProizvoda.Count == 0)
+            {
+                var VPlista = await _VPservice.Get<IEnumerable<ModelSpartanX.VrstaProizvoda>>(null);
+
+                foreach (var item in VPlista)
+                {
+                    ListaVrsteProizvoda.Add(item);
+                }
+            }
+           
+            var Plista = await _Pservice.Get<IEnumerable<ModelSpartanX.Proizvodi>>(null);
             //prvo cistimo proizvode prije refresha
             ListaProizvoda.Clear();
-            foreach (var item in lista)
+            foreach (var item in Plista)
             {
                 ListaProizvoda.Add(item);
             }

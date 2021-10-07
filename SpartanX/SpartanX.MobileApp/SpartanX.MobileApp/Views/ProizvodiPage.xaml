@@ -10,12 +10,13 @@
             <Label Text="Proozvodi"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <Picker ItemsSource="{Binding ListaVrsteProizvoda}" ItemDisplayBinding="{Binding Naziv}"></Picker>
             <ListView ItemsSource="{Binding ListaProizvoda}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10" >
-                                <Label Text="{Binding Naziv}"
+                                <Label Text="{Binding Naziv}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16" />
