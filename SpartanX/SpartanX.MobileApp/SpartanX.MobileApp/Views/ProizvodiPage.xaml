@@ -21,8 +21,8 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10" Orientation="Horizontal">
-                                <StackLayout>
-                                    <Image WidthRequest="100" HeightRequest="100" Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                                <StackLayout WidthRequest="100" HeightRequest="100">
+                                    <Image  Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
                                 </StackLayout>
                                 <StackLayout Orientation="Vertical">
                                     <Label Text="{Binding Naziv}" 

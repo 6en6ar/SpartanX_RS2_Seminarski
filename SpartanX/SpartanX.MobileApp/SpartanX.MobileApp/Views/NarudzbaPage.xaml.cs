@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpartanX.MobileApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,12 @@ namespace SpartanX.MobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NarudzbaPage : ContentPage
     {
+        NarudzbaViewModel model = null;
         public NarudzbaPage()
         {
+           
             InitializeComponent();
+            //BindingContext = model = new NarudzbaViewModel() { Proizvod = proizvod };
         }
     }
 }
