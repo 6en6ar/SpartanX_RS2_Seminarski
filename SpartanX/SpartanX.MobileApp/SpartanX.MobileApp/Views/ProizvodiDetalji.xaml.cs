@@ -11,19 +11,13 @@ using Xamarin.Forms.Xaml;
 namespace SpartanX.MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NarudzbaPage : ContentPage
+    public partial class ProizvodiDetalji : ContentPage
     {
-        NarudzbaViewModel model = null;
-        public NarudzbaPage()
+        ProizvodiDetaljiViewModel model = null;
+        public ProizvodiDetalji( ModelSpartanX.Proizvodi _proizvod)
         {
-           
             InitializeComponent();
-            BindingContext = model = new NarudzbaViewModel();
-        }
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            model.Init();
+            BindingContext = model = new ProizvodiDetaljiViewModel() {proizvod = _proizvod };
         }
     }
 }

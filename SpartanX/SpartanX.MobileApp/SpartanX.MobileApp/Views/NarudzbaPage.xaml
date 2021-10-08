@@ -6,22 +6,28 @@
         <viewModels:NarudzbaViewModel></viewModels:NarudzbaViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding ProizvodiList}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout>
-                            <Label Text="{Binding Proizvod.Naziv}"></Label>
-                            <Label Text="{Binding Proizvod.Sifra}"></Label>
-                            <Label Text="{Binding Proizvod.Cijena, StringFormat='Cijena: {0:C}'}"></Label>
-                            <StackLayout Orientation="Horizontal">
-                                <Entry Text="{Binding Kolicina}" Keyboard="Numeric"></Entry>
-                                <Button Text="+1" Command="{Binding PovecajKolicinuCommand}"></Button>
+        <StackLayout>
+            <Label Text="Narudzbe"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" />
+            <ListView ItemsSource="{Binding ProizvodiLista}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Proizvod.Naziv}"></Label>
+                                <Label Text="{Binding Proizvod.Sifra}"></Label>
+                                <Label Text="{Binding Proizvod.Cijena, StringFormat='Cijena: {0:C}'}"></Label>
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry Text="{Binding Kolicina}" Keyboard="Numeric"></Entry>
+                                    <Button Text="+1" Command="{Binding PovecajKolicinuCommand}"></Button>
+                                </StackLayout>
                             </StackLayout>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
+    
 </ContentPage>

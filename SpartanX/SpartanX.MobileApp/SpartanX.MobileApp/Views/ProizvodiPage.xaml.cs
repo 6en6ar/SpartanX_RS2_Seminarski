@@ -26,7 +26,8 @@ namespace SpartanX.MobileApp.Views
         }
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            await Navigation.PushAsync(new NarudzbaPage());
+            var selectedItem = e.SelectedItem as ModelSpartanX.Proizvodi;
+            await Navigation.PushAsync(new ProizvodiDetalji(selectedItem));
         }
     }
    

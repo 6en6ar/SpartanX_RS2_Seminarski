@@ -12,7 +12,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Proozvodi"
+            <Label Text="Proizvodi"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <Picker ItemsSource="{Binding ListaVrsteProizvoda}" ItemDisplayBinding="{Binding Naziv}" SelectedItem="{Binding vrstaPro}"></Picker>
