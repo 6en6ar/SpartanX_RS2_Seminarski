@@ -22,7 +22,11 @@ namespace SpartanX.MobileApp.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            await model.Init();
+             await model.Init();
+        }
+        private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            await Navigation.PushAsync(new NarudzbaPage());
         }
     }
    

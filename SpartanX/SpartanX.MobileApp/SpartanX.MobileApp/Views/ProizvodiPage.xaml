@@ -1,33 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewModels="clr-namespace:SpartanX.MobileApp.ViewModels" xmlns:ModelSpartanX="clr-namespace:ModelSpartanX;assembly=ModelSpartanX"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewModels="clr-namespace:SpartanX.MobileApp.ViewModels" xmlns:ModelSpartanX="clr-namespace:ModelSpartanX;assembly=ModelSpartanX" xmlns:converters="clr-namespace:SpartanX.MobileApp.ImageConverters"
              x:Class="SpartanX.MobileApp.Views.ProizvodiPage">
     <ContentPage.BindingContext>
         <viewModels:ProizvodiViewModel></viewModels:ProizvodiViewModel>
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Proozvodi"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <Picker ItemsSource="{Binding ListaVrsteProizvoda}" ItemDisplayBinding="{Binding Naziv}" SelectedItem="{Binding vrstaPro}"></Picker>
-            <ListView ItemsSource="{Binding ListaProizvoda}">
+            <ListView ItemsSource="{Binding ListaProizvoda}" ItemSelected="ListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10" >
-                                <Label Text="{Binding Naziv}" 
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
-                                <Label Text="{Binding Kod}" 
-                                LineBreakMode="NoWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
-                                <Label Text="{Binding BodoviLojalnosti}" 
-                                LineBreakMode="NoWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout>
+                                    <Image WidthRequest="100" HeightRequest="100" Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Naziv}" 
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                                    <Label Text="{Binding Kod}" 
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    FontSize="13" />
+                                    <Label Text="{Binding BodoviLojalnosti}" 
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    FontSize="13" />
+                                </StackLayout>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
