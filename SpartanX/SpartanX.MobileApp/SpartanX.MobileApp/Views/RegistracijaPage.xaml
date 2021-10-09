@@ -4,9 +4,21 @@
              x:Class="SpartanX.MobileApp.Views.RegistracijaPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Registrujte se besplatno!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                <Label Padding="5" Text="Ime:"/>
+                <Entry  Text="{Binding Ime}"  Placeholder="Ime" BackgroundColor="DarkGray"></Entry>
+                <Label Padding="5" Text="Prezime:"/>
+                <Entry  Text="{Binding Prezime}"  Placeholder="Prezime" BackgroundColor="DarkGray"></Entry>
+                <Label Padding="5" Text="Email:"/>
+                <Entry  Text="{Binding Email}"  Placeholder="Email" BackgroundColor="DarkGray"></Entry>
+                <Label Padding="5" Text="Telefon:"/>
+                <Entry  Text="{Binding Telefon}"  Placeholder="Telefon" BackgroundColor="DarkGray"></Entry>
+                <Label Padding="5" Text="Korisnicko ime:"/>
+                <Entry  Text="{Binding Username}"  Placeholder="Username" BackgroundColor="DarkGray"></Entry>
+                <Label Padding="5" Text="Lozinka:"/>
+                <Entry Text="{Binding Password}" Placeholder="Lozinka" BackgroundColor="DarkGray" IsPassword="True"></Entry>
+                <Button Command="{Binding RegistrujCommand}" HorizontalOptions="FillAndExpand" Margin="15" Padding="5" CornerRadius="15" Text="Registruj" BackgroundColor="Red"></Button>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
