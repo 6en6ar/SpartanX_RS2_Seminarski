@@ -18,7 +18,7 @@ namespace SpartanX.Controllers
             _service = service;
         }
         [HttpGet]
-        public List<ModelSpartanX.Kupci> Get(ModelSpartanX.Search.KupciSearchObject request)
+        public List<ModelSpartanX.Kupci> Get([FromQuery] ModelSpartanX.Search.KupciSearchObject request)
         {
             return _service.Get(request);
         }

@@ -38,7 +38,7 @@ namespace SpartanX.Services
         }
         public List<ModelSpartanX.Kupci> Get(ModelSpartanX.Search.KupciSearchObject request)
         {
-            var query = _context.Korisnicis.AsQueryable();
+            var query = _context.Kupcis.AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(request?.Ime))
             {
@@ -52,7 +52,7 @@ namespace SpartanX.Services
 
         public ModelSpartanX.Kupci GetById(int id)
         {
-            var entity = _context.Korisnicis.Find(id);
+            var entity = _context.Kupcis.Find(id);
 
             return _mapper.Map<ModelSpartanX.Kupci>(entity);
         }
@@ -79,7 +79,7 @@ namespace SpartanX.Services
 
         public ModelSpartanX.Kupci Update(int id, ModelSpartanX.Requests.KupciInsertRequest req)
         {
-            var kupac = _context.Korisnicis.Find(id);
+            var kupac = _context.Kupcis.Find(id);
             _mapper.Map(req, kupac);
             _context.SaveChanges();
             return _mapper.Map<ModelSpartanX.Kupci>(kupac);

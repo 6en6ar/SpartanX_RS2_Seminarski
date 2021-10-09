@@ -14,6 +14,7 @@ namespace SpartanX.Mapping
             CreateMap<Database.Korisnici, ModelSpartanX.Requests.KorisniciInsertRequest>().ReverseMap();
             CreateMap<Database.Korisnici, ModelSpartanX.Requests.KorisniciUpdateRequest>().ReverseMap();
             CreateMap<Database.Proizvodi, ModelSpartanX.Proizvodi>();
+            CreateMap<Database.Kupci, ModelSpartanX.Requests.KupciInsertRequest>();
             CreateMap<Database.Skladistum, ModelSpartanX.Skladista>().ReverseMap();
             CreateMap<Database.Skladistum, ModelSpartanX.Requests.SkladisteInsertRequest>().ReverseMap();
             CreateMap<Database.Skladistum, ModelSpartanX.Requests.SkladisteUpdateRequest>().ReverseMap();
