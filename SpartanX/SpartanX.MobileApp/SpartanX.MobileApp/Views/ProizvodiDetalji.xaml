@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:SpartanX.MobileApp.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:SpartanX.MobileApp.ViewModels" xmlns:converters="clr-namespace:SpartanX.MobileApp.ImageConverters"
              x:Class="SpartanX.MobileApp.Views.ProizvodiDetalji">
     <ContentPage.BindingContext>
         <vm:ProizvodiDetaljiViewModel></vm:ProizvodiDetaljiViewModel>
@@ -14,6 +14,8 @@
             <StackLayout Grid.Row="0" Grid.Column="0">
                 <Label Text="{Binding proizvod.Naziv}"></Label>
                 <Label Text="{Binding proizvod.Kod}"></Label>
+                <Label Text="{Binding proizvod.VrstaNaziv}"></Label>
+                <Label Text="{Binding proizvod.BodoviLojalnosti}"></Label>
                 <Label Text="{Binding proizvod.Cijena, StringFormat='Cijena: {0:C}'}"></Label>
                 <StackLayout Orientation="Horizontal">
                     <Entry Text="{Binding Kolicina}" Keyboard="Numeric"></Entry>

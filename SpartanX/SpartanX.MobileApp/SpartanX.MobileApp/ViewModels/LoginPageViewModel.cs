@@ -31,6 +31,8 @@ namespace SpartanX.MobileApp.ViewModels
             set { SetProperty(ref password, value); }
         }
         public ICommand LoginCommand { get; set; }
+
+
         async Task Login()
         {
             APIService.username = username;
@@ -39,7 +41,6 @@ namespace SpartanX.MobileApp.ViewModels
             {
                 await service.Get<dynamic>(null);
                 App.Current.MainPage = new AppShell(); 
-
 
             }
             catch

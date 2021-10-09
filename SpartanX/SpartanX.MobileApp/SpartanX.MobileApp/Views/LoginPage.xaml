@@ -16,6 +16,7 @@
             <Label Padding="5" Text="Lozinka:"/>
             <Entry Text="{Binding Password}" Placeholder="Lozinka" BackgroundColor="DarkGray" IsPassword="True"></Entry>
             <Button Command="{Binding LoginCommand}" HorizontalOptions="FillAndExpand" Margin="15" Padding="5" CornerRadius="15" Text="Login" BackgroundColor="Red"></Button>
+            <Button Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" Margin="15" Padding="5" CornerRadius="15" Text="Registracija" BackgroundColor="LightSteelBlue"></Button>
         </StackLayout>  
     </ContentPage.Content>
 </ContentPage>
