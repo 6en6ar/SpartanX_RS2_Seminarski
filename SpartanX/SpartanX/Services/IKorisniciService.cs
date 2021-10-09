@@ -14,7 +14,7 @@ namespace SpartanX.Services
 
         ModelSpartanX.Korisnici Insert(ModelSpartanX.Requests.KorisniciInsertRequest request);
 
-        ModelSpartanX.Korisnici Update(int id, ModelSpartanX.Requests.KorisniciInsertRequest request);
+        ModelSpartanX.Korisnici Update(int id, ModelSpartanX.Requests.KorisniciUpdateRequest request);
         Task<ModelSpartanX.Korisnici> Authenticate(string username, string password);
 
     }

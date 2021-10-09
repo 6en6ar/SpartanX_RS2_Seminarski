@@ -38,7 +38,7 @@ namespace SpartanX.Controllers
         }
         [HttpPut("{id}")]
         //[Authorize(Roles = "Administrator")]
-        public ModelSpartanX.Korisnici Update(int id, [FromBody] ModelSpartanX.Requests.KorisniciInsertRequest request)
+        public ModelSpartanX.Korisnici Update(int id, [FromBody] ModelSpartanX.Requests.KorisniciUpdateRequest request)
         {
             return _service.Update(id, request);
         }

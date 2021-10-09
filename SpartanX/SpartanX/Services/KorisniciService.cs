@@ -70,7 +70,7 @@ namespace SpartanX.Services
             return _mapper.Map<ModelSpartanX.Korisnici>(korisnik);
         }
 
-        public ModelSpartanX.Korisnici Update(int id, ModelSpartanX.Requests.KorisniciInsertRequest req)
+        public ModelSpartanX.Korisnici Update(int id, ModelSpartanX.Requests.KorisniciUpdateRequest req)
         {
             var korisnik = _context.Korisnicis.Find(id);
             _mapper.Map(req, korisnik);

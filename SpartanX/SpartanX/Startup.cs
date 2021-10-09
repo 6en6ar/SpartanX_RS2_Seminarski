@@ -61,6 +61,7 @@ namespace SpartanX
             services.AddTransient<IUlogeService, UlogeService>();
             services.AddTransient<IDobavljaciService, DobavljaciService>();
             services.AddTransient<ISkladistaService, SkladistaService>();
+            services.AddTransient<IKupciService, KupciService>();
             services.AddTransient<IVrsteProizvodaService, VrsteProizvodaService>();
 
             services.AddAuthentication("BasicAuthentication")
