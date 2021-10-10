@@ -11,7 +11,7 @@ namespace SpartanX.MobileApp.ViewModels
     public class LoginPageViewModel :BaseViewModel
     {
         string username = string.Empty;
-        private readonly APIService service = new APIService("Korisnici");
+        private readonly APIService service = new APIService("Kupci");
         public LoginPageViewModel()
         {
             LoginCommand = new Command(async () =>
@@ -35,17 +35,25 @@ namespace SpartanX.MobileApp.ViewModels
 
         async Task Login()
         {
-            APIService.username = username;
-            APIService.password = password;
             try
             {
-                await service.Get<dynamic>(null);
-                App.Current.MainPage = new AppShell(); 
+                object klijent = await service.Authenticate<ModelSpartanX.Kupci>(username, password);
+                if(klijent != null)
+                {
+                    await App.Current.MainPage.DisplayAlert("Uspjeh!", "Dobrodosli ", "OK");
+                    App.Current.MainPage = new AppShell();
+                }
+                else
+                {
+                    await App.Current.MainPage.DisplayAlert("Greska!", "Pogresan username ili password", "OK");
+                }
+               
 
             }
-            catch
+            catch(Exception ex)
             {
- 
+                await App.Current.MainPage.DisplayAlert("Greska", ex.Message, "OK");
+
             }
         }
     }

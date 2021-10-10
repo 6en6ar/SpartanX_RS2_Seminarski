@@ -10,8 +10,8 @@ namespace SpartanX.MobileApp
     public class APIService
     {
         private string _controllerRoute = null;
-        public static string username { get; set; }
-        public static string password { get; set; }
+       // public static string username { get; set; }
+       // public static string password { get; set; }
 
 #if DEBUG 
         string Apiurl = "http://localhost:5000";
@@ -22,6 +22,12 @@ namespace SpartanX.MobileApp
         public APIService(string ControllerRoute)
         {
             _controllerRoute = ControllerRoute;
+        }
+        public async Task<T> Authenticate<T>(string username, string password)
+        {
+            var url = $"{Apiurl}/{_controllerRoute}/Authenticate/{username},{password}";
+
+            return await url.GetJsonAsync<T>();
         }
 
         public async Task<T> Get<T>(object search)
@@ -34,7 +40,7 @@ namespace SpartanX.MobileApp
                     url += "?";
                     url += await search.ToQueryString();
                 }
-                var result = await url.WithBasicAuth(username, password).GetJsonAsync<T>();
+                var result = await url.GetJsonAsync<T>();
                 return result;
             }
             catch(FlurlHttpException ex)
@@ -49,21 +55,21 @@ namespace SpartanX.MobileApp
         }
         public async Task<T> GetById<T>(object id)
         {
-            var url = await $"{ Apiurl}/{ _controllerRoute}/{id}".WithBasicAuth(username, password).GetJsonAsync<T>();
+            var url = await $"{ Apiurl}/{ _controllerRoute}/{id}".GetJsonAsync<T>();
             return url;
 
         }
         public async Task<T> Insert<T>(object req)
         {
             var url = $"{ Apiurl}/{ _controllerRoute}";
-            var result = await url.WithBasicAuth(username, password).PostJsonAsync(req).ReceiveJson<T>();
+            var result = await url.PostJsonAsync(req).ReceiveJson<T>();
             return result;
 
         }
         public async Task<T> Update<T>(object id, object req)
         {
             var url = $"{Apiurl}/{ _controllerRoute}/{id}";
-            var result = await url.WithBasicAuth(username, password).PutJsonAsync(req).ReceiveJson<T>();
+            var result = await url.PutJsonAsync(req).ReceiveJson<T>();
             return result;
 
         }
@@ -71,7 +77,7 @@ namespace SpartanX.MobileApp
         {
             //provjeriti delete
             var url = $"{ Apiurl}/{ _controllerRoute}/{id}";
-            var result = await url.WithBasicAuth(username, password).DeleteAsync();
+            var result = await url.DeleteAsync();
             return (T)result;
 
 
