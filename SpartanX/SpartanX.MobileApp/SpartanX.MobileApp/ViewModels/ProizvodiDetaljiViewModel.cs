@@ -21,7 +21,9 @@ namespace SpartanX.MobileApp.ViewModels
         {
             get { return kolicina; }
             set { SetProperty(ref kolicina, value); }
+        }       
+        private void Naruci()
+        {
         }
-        
     }
 }

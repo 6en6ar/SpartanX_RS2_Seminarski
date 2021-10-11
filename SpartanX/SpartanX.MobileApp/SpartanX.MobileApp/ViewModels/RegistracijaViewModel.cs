@@ -30,12 +30,7 @@ namespace SpartanX.MobileApp.ViewModels
             get { return _email; }
             set { SetProperty(ref _email, value); }
         }
-        string _telefon = string.Empty;
-        public string Telefon
-        {
-            get { return _telefon; }
-            set { SetProperty(ref _telefon, value); }
-        }
+
         string _korisnickoime = string.Empty;
         public string KorisnickoIme
         {
