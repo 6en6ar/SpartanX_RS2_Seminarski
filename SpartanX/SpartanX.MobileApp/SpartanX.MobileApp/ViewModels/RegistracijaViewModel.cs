@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace SpartanX.MobileApp.ViewModels
 {
@@ -10,8 +12,12 @@ namespace SpartanX.MobileApp.ViewModels
         private readonly APIService _service = new APIService("Kupci");
         public RegistracijaViewModel()
         {
-
+            RegistrujKomanda  = new Command(async () =>
+            {
+                await Registracija();
+            });
         }
+        public ICommand RegistrujKomanda { get; set; }
         string _ime = string.Empty;
         public string Ime
         {
@@ -54,22 +60,29 @@ namespace SpartanX.MobileApp.ViewModels
 
         public async Task Registracija()
         {
-            ModelSpartanX.Requests.KupciInsertRequest request = new ModelSpartanX.Requests.KupciInsertRequest();
-            request.DatumRegistracije = DateTime.Now;
-            request.Ime = Ime;
-            request.Prezime = Prezime;
-            request.KorisnickoIme = KorisnickoIme;
-            request.Email = Email;
-            request.Status = true;
-            request.Password = Password;
-            request.PasswordPotvrda = Potvrda;
+            try
+            {
+                ModelSpartanX.Requests.KupciInsertRequest request = new ModelSpartanX.Requests.KupciInsertRequest();
+                request.DatumRegistracije = DateTime.Now;
+                request.Ime = Ime;
+                request.Prezime = Prezime;
+                request.KorisnickoIme = KorisnickoIme;
+                request.Email = Email;
+                request.Status = true;
+                request.Password = Password;
+                request.PasswordPotvrda = Potvrda;
 
 
-            await _service.Insert<ModelSpartanX.Kupci>(request);
+                await _service.Insert<ModelSpartanX.Kupci>(request);
 
 
-            await App.Current.MainPage.Navigation.PopAsync();
-            await App.Current.MainPage.DisplayAlert("Uspjeh", "Uspjesna registracija", "OK");
+                await App.Current.MainPage.Navigation.PopAsync();
+                await App.Current.MainPage.DisplayAlert("Uspjeh", "Uspjesna registracija", "OK");
+            }
+            catch(Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Greška", ex.Message, "OK");
+            }
 
 
 

@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewModels="clr-namespace:SpartanX.MobileApp.ViewModels"
              x:Class="SpartanX.MobileApp.Views.RegistracijaPage">
+    <ContentPage.BindingContext>
+        <viewModels:RegistracijaViewModel></viewModels:RegistracijaViewModel>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
@@ -14,12 +17,12 @@
                 <Label Padding="5" Text="Telefon:"/>
                 <Entry  Text="{Binding Telefon}"  Placeholder="Telefon" BackgroundColor="DarkGray"></Entry>
                 <Label Padding="5" Text="Korisnicko ime:"/>
-                <Entry  Text="{Binding Username}"  Placeholder="Username" BackgroundColor="DarkGray"></Entry>
+                <Entry  Text="{Binding KorisnickoIme}"  Placeholder="Username" BackgroundColor="DarkGray"></Entry>
                 <Label Padding="5" Text="Lozinka:"/>
                 <Entry Text="{Binding Password}" Placeholder="Lozinka" BackgroundColor="DarkGray" IsPassword="True"></Entry>
                 <Label Padding="5" Text="Potvrda lozinke:"/>
                 <Entry Text="{Binding Potvrda}" Placeholder="Potvrda" BackgroundColor="DarkGray" IsPassword="True"></Entry>
-                <Button Command="{Binding RegistrujCommand}" HorizontalOptions="FillAndExpand" Margin="15" Padding="5" CornerRadius="15" Text="Registruj" BackgroundColor="Red"></Button>
+                <Button Command="{Binding RegistrujKomanda}" HorizontalOptions="FillAndExpand" Margin="15" Padding="5" CornerRadius="15" Text="Registruj" BackgroundColor="Red"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

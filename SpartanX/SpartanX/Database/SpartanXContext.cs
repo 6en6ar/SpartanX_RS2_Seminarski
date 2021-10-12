@@ -178,9 +178,7 @@ namespace SpartanX.Database
 
                 entity.ToTable("Kupci");
 
-                entity.Property(e => e.KupacId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("KupacID");
+                entity.Property(e => e.KupacId).HasColumnName("KupacID");
 
                 entity.Property(e => e.DatumRegistracije).HasColumnType("datetime");
 
