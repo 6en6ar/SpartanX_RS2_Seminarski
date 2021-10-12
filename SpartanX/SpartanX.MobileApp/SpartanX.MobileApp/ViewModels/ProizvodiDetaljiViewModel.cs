@@ -14,7 +14,7 @@ namespace SpartanX.MobileApp.ViewModels
         public ProizvodiDetaljiViewModel()
         {
             PovecajKolicinuKomanda = new Command(() => Kolicina += 1);
-            //NaruciKomanda = new Command(Naruci);
+            NaruciKomanda = new Command(Naruci);
         }
         decimal kolicina = 0;
         public decimal Kolicina
@@ -24,6 +24,18 @@ namespace SpartanX.MobileApp.ViewModels
         }       
         private void Naruci()
         {
+            if(Kolicina > 0)
+            {
+                if (Services.KosaricaService.Cart.ContainsKey(proizvod.ProizvodId))
+                {
+                    Services.KosaricaService.Cart.Remove(proizvod.ProizvodId);
+                }
+                Services.KosaricaService.Cart.Add(proizvod.ProizvodId, this);
+            }
+            else
+            {
+                App.Current.MainPage.DisplayAlert("Greška", "Molimo unesite validnu količinu", "OK");
+            }
         }
     }
 }

@@ -14,8 +14,6 @@
                 <Entry  Text="{Binding Prezime}"  Placeholder="Prezime" BackgroundColor="DarkGray"></Entry>
                 <Label Padding="5" Text="Email:"/>
                 <Entry  Text="{Binding Email}"  Placeholder="Email" BackgroundColor="DarkGray"></Entry>
-                <Label Padding="5" Text="Telefon:"/>
-                <Entry  Text="{Binding Telefon}"  Placeholder="Telefon" BackgroundColor="DarkGray"></Entry>
                 <Label Padding="5" Text="Korisnicko ime:"/>
                 <Entry  Text="{Binding KorisnickoIme}"  Placeholder="Username" BackgroundColor="DarkGray"></Entry>
                 <Label Padding="5" Text="Lozinka:"/>

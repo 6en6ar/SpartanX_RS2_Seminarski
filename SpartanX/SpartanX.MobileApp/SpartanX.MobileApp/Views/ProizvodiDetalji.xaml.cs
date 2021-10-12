@@ -13,11 +13,20 @@ namespace SpartanX.MobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProizvodiDetalji : ContentPage
     {
-        ProizvodiDetaljiViewModel model = null;
+        private ProizvodiDetaljiViewModel model = null;
         public ProizvodiDetalji( ModelSpartanX.Proizvodi _proizvod)
         {
             InitializeComponent();
             BindingContext = model = new ProizvodiDetaljiViewModel() {proizvod = _proizvod };
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            if(model.Kolicina > 0)
+            {
+                App.Current.MainPage.DisplayAlert("Uspjeh", "Uspješno ste dodali artikal u košaricu", "OK");
+            }
+
         }
     }
 }

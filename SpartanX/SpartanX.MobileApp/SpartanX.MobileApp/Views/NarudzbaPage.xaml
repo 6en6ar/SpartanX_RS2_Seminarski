@@ -7,26 +7,43 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Narudzbe"
+            <Label Text="Košarica:"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" />
-            <ListView ItemsSource="{Binding ProizvodiLista}">
+            <ListView ItemsSource="{Binding NarudzbaLista}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding Proizvod.Naziv}"></Label>
-                                <Label Text="{Binding Proizvod.Sifra}"></Label>
-                                <Label Text="{Binding Proizvod.Cijena, StringFormat='Cijena: {0:C}'}"></Label>
-                                <StackLayout Orientation="Horizontal">
-                                    <Entry Text="{Binding Kolicina}" Keyboard="Numeric"></Entry>
-                                    <Button Text="+1" Command="{Binding PovecajKolicinuCommand}"></Button>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding proizvod.Naziv}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16"  />
+                                    <Label Text="{Binding proizvod.Cijena,StringFormat='Cijena: {0} KM'}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Kolicina}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                        <Button Text="+" Command="{Binding PovecajKolicinuKomanda}"></Button>
+                                    </StackLayout>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <StackLayout>
+                <Button Text="Zaključi narudžbu" Command="{Binding ZakljuciNarudzbu}"></Button>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" Padding="10" Margin="0">
+                <Label  Text="{Binding BrojProizvoda,StringFormat='Broj artikala: {0}'}" FontSize="20"></Label>
+                <Label  Text="{Binding PuniIznos,StringFormat='Iznos: {0} KM'}" FontSize="20" FontAttributes="Italic"></Label>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
     
