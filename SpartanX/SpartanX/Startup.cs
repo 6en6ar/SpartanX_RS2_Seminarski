@@ -58,6 +58,7 @@ namespace SpartanX
             services.AddTransient<IKorisniciService, KorisniciService>();
             services.AddTransient<IProizvodjaciService, ProizvodjaciService>();
             services.AddTransient<IKomentarService, KomentarService>();
+            services.AddTransient<INarudzbeService, NarudzbeService>();
             services.AddTransient<IUlogeService, UlogeService>();
             services.AddTransient<IDobavljaciService, DobavljaciService>();
             services.AddTransient<ISkladistaService, SkladistaService>();

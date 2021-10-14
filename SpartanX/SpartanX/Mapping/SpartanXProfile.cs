@@ -19,6 +19,7 @@ namespace SpartanX.Mapping
             CreateMap<Database.Skladistum, ModelSpartanX.Requests.SkladisteInsertRequest>().ReverseMap();
             CreateMap<Database.Skladistum, ModelSpartanX.Requests.SkladisteUpdateRequest>().ReverseMap();
             CreateMap<Database.Dobavljaci, ModelSpartanX.Dobavljaci>();
+            CreateMap<Database.Narudzbe, ModelSpartanX.Narudzbe>();
             CreateMap<Database.Kupci, ModelSpartanX.Kupci>().ReverseMap();
             CreateMap<Database.VrstaProizvodum, ModelSpartanX.VrstaProizvoda>();
             CreateMap<Database.Proizvodjaci, ModelSpartanX.Proizvodjaci>();
@@ -29,6 +30,7 @@ namespace SpartanX.Mapping
             CreateMap<ModelSpartanX.Requests.ProizvodiInsertRequest, Database.Proizvodi>();
             CreateMap<ModelSpartanX.Requests.DobavljaciInsertRequest, Database.Dobavljaci>();
             CreateMap<ModelSpartanX.Requests.KupciInsertRequest, Database.Kupci>();
+            CreateMap<ModelSpartanX.Requests.NarudzbeInsertRequest, Database.Narudzbe>();
         }
     }
 }
