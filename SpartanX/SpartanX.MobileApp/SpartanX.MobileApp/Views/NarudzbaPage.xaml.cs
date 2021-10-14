@@ -14,6 +14,7 @@ namespace SpartanX.MobileApp.Views
     public partial class NarudzbaPage : ContentPage
     {
         NarudzbaViewModel model = null;
+        private APIService _NarudzbaService = new APIService("Narudzbe");
         public NarudzbaPage()
         {
            
@@ -24,6 +25,16 @@ namespace SpartanX.MobileApp.Views
         {
             base.OnAppearing();
             model.Init();
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            model.NarudzbaLista.Clear();
+            Services.KosaricaService.Cart.Clear();
+            App.Current.MainPage.DisplayAlert("Uspjeh", "Uspješno ste otkazali narudzbu", "OK");
+            BrArt.Text = "Broj artikala: 0";
+            Iznos.Text = "Iznos narudžbe: 0";
+
         }
     }
 }

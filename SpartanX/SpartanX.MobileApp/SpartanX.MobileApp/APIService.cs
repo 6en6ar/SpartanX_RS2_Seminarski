@@ -66,13 +66,14 @@ namespace SpartanX.MobileApp
             return result;
 
         }
-        public async Task<T> Update<T>(object id, object req)
+        public async Task<T> Recommend<T>(int id)
         {
-            var url = $"{Apiurl}/{ _controllerRoute}/{id}";
-            var result = await url.PutJsonAsync(req).ReceiveJson<T>();
-            return result;
+            var url = $"{Apiurl}/{ _controllerRoute}/Recommend/{id}";
+
+            return await url.GetJsonAsync<T>();
 
         }
+       
         public async Task<T> Delete<T>(object id)
         {
             //provjeriti delete

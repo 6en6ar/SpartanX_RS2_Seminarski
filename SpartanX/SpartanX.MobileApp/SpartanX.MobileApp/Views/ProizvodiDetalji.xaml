@@ -42,11 +42,45 @@
                         <Button Text="+1" Command="{Binding PovecajKolicinuKomanda}"></Button>
                     </StackLayout>
                     <Image Source="icon_feed.png" BackgroundColor="LightGreen" >
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"  Command="{Binding NaruciKomanda}"></TapGestureRecognizer>
-                    </Image.GestureRecognizers>
-                </Image>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"  Command="{Binding NaruciKomanda}"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
 
+                </StackLayout>
+                <Label HorizontalOptions="Start" VerticalOptions="EndAndExpand">Kupci su isto kupili:</Label>
+                <StackLayout>
+                    <Label Text="Proizvodi"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                    <ListView ItemsSource="{Binding PreporuceniProizvodi}" ItemSelected="preporuceniProizvodi_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="10" Orientation="Horizontal">
+                                        <StackLayout WidthRequest="100" HeightRequest="100">
+                                            <Image  Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical">
+                                            <Label Text="{Binding Naziv}" 
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                                            <Label Text="{Binding Kod}" 
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    FontSize="13" />
+                                            <Label Text="{Binding BodoviLojalnosti}" 
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    FontSize="13" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
                 </StackLayout>
             </Grid>
         </ScrollView>

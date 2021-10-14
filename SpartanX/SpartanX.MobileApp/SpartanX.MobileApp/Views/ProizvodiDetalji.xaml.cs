@@ -28,5 +28,10 @@ namespace SpartanX.MobileApp.Views
             }
 
         }
+
+        private void preporuceniProizvodi_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
+        }
     }
 }

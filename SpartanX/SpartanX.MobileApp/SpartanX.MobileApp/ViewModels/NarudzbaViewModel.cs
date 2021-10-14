@@ -38,10 +38,9 @@ namespace SpartanX.MobileApp.ViewModels
             {
                 NarudzbaLista.Add(item.Value);
             }
-            puniiznos = 0;
             foreach (var item in NarudzbaLista)
             {
-                puniiznos += item.Kolicina * item.proizvod.Cijena;
+                PuniIznos += item.Kolicina * item.proizvod.Cijena;
             }
             BrojProizvoda = NarudzbaLista.Count;
             KosaricaService.Cart.Clear();

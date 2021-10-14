@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -9,12 +10,14 @@ namespace SpartanX.MobileApp.ViewModels
     public class ProizvodiDetaljiViewModel : BaseViewModel
     {
         public ICommand PovecajKolicinuKomanda { get; set; }
+        public ICommand PreporuciKomanda { get; set; }
         public ICommand NaruciKomanda { get; set; }
         public ModelSpartanX.Proizvodi proizvod { get; set; }
         public ProizvodiDetaljiViewModel()
         {
             PovecajKolicinuKomanda = new Command(() => Kolicina += 1);
             NaruciKomanda = new Command(Naruci);
+            PreporuciKomanda = new Command(async () => await Recommend());
         }
         decimal kolicina = 0;
         public decimal Kolicina
@@ -36,6 +39,10 @@ namespace SpartanX.MobileApp.ViewModels
             {
                 App.Current.MainPage.DisplayAlert("Greška", "Molimo unesite validnu količinu", "OK");
             }
+        }
+        private async Task Recommend()
+        {
+
         }
     }
 }
