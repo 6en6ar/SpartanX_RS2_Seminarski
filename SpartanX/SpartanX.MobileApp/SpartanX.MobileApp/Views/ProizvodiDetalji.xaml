@@ -53,7 +53,7 @@
                     <Label Text="Proizvodi"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-                    <ListView ItemsSource="{Binding PreporuceniProizvodi}" ItemSelected="preporuceniProizvodi_ItemSelected">
+                    <ListView ItemsSource="{Binding PreporuceniProizvodiLista}" ItemSelected="preporuceniProizvodi_ItemSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>

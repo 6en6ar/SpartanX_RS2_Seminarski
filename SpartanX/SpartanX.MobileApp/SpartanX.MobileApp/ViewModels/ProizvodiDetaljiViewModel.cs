@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -12,6 +13,9 @@ namespace SpartanX.MobileApp.ViewModels
         public ICommand PovecajKolicinuKomanda { get; set; }
         public ICommand PreporuciKomanda { get; set; }
         public ICommand NaruciKomanda { get; set; }
+        private readonly APIService _Pservice = new APIService("Proizvodi");
+        public ObservableCollection<ModelSpartanX.Proizvodi> PreporuceniProizvodiLista { get; set; } = new ObservableCollection<ModelSpartanX.Proizvodi>();
+
         public ModelSpartanX.Proizvodi proizvod { get; set; }
         public ProizvodiDetaljiViewModel()
         {
@@ -42,6 +46,11 @@ namespace SpartanX.MobileApp.ViewModels
         }
         private async Task Recommend()
         {
+            var listaPreproucenih = await _Pservice.Recommend<IEnumerable<ModelSpartanX.Proizvodi>>(proizvod.ProizvodId);
+            foreach (var item in listaPreproucenih)
+            {
+                PreporuceniProizvodiLista.Add(item);
+            }
 
         }
     }
