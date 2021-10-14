@@ -48,7 +48,7 @@
                     </Image>
 
                 </StackLayout>
-                <Label HorizontalOptions="Start" VerticalOptions="EndAndExpand">Kupci su isto kupili:</Label>
+                <Label HorizontalOptions="Start" VerticalOptions="EndAndExpand" FontSize="16" TextColor="CadetBlue" FontAttributes="Italic">Kupci su isto kupili:</Label>
                 <StackLayout>
                     <Label Text="Proizvodi"
                 VerticalOptions="CenterAndExpand" 
