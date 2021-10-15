@@ -37,9 +37,11 @@ namespace SpartanX.MobileApp.ViewModels
         {
             try
             {
-                object klijent = await service.Authenticate<ModelSpartanX.Kupci>(username, password);
-                if(klijent != null)
+                ModelSpartanX.Kupci klijent = await service.Authenticate<ModelSpartanX.Kupci>(username, password);
+                if (klijent != null)
+                    
                 {
+                    GlobalKorisnik.GlobalKorisnik.Prijavljeni = klijent;
                     await App.Current.MainPage.DisplayAlert("Uspjeh!", "Dobrodosli ", "OK");
                     App.Current.MainPage = new AppShell();
                 }

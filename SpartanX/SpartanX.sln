@@ -24,7 +24,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpartanX.MobileApp", "Spart
 		{7F59F4BF-5748-4A4C-A3A6-C9510DE15D97} = {7F59F4BF-5748-4A4C-A3A6-C9510DE15D97}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelSpartanX", "ModelSpartanX\ModelSpartanX.csproj", "{99316182-4A49-419A-9948-CBE21EF492E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelSpartanX", "ModelSpartanX\ModelSpartanX.csproj", "{99316182-4A49-419A-9948-CBE21EF492E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

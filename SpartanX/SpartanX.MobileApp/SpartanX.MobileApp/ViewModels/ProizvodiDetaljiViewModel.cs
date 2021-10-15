@@ -23,8 +23,8 @@ namespace SpartanX.MobileApp.ViewModels
             NaruciKomanda = new Command(Naruci);
             PreporuciKomanda = new Command(async () => await Recommend());
         }
-        decimal kolicina = 0;
-        public decimal Kolicina
+        int kolicina = 0;
+        public int Kolicina
         {
             get { return kolicina; }
             set { SetProperty(ref kolicina, value); }

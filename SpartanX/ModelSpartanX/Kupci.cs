@@ -6,7 +6,7 @@ namespace ModelSpartanX
 {
     public partial class Kupci
     {
-        //public int KupacId { get; set; }
+        public int KupacId { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public DateTime DatumRegistracije { get; set; }

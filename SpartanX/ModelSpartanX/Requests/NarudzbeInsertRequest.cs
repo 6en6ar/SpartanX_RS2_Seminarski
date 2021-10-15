@@ -14,5 +14,6 @@ namespace ModelSpartanX.Requests
         public decimal IznosBezPdv { get; set; }
         public decimal IznosSaPdv { get; set; }
         public int SkladisteId { get; set; }
+        public List<NarudzbaStavkeInsertRequest> stavke { get; set; } = new List<NarudzbaStavkeInsertRequest>();
     }
 }
