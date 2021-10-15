@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-#nullable disable
-
-namespace SpartanX.Database
+namespace ModelSpartanX
 {
     public partial class NarudzbaStavke
     {
@@ -14,7 +13,5 @@ namespace SpartanX.Database
         public decimal Cijena { get; set; }
         public decimal? Popust { get; set; }
 
-        public virtual Narudzbe Narudzba { get; set; }
-        public virtual Proizvodi Proizvod { get; set; }
     }
 }

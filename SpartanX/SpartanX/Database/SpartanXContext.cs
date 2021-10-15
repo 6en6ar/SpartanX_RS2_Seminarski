@@ -291,7 +291,11 @@ namespace SpartanX.Database
                     .ValueGeneratedNever()
                     .HasColumnName("NarudzbaStavkaID");
 
+                entity.Property(e => e.Cijena).HasColumnType("decimal(18, 0)");
+
                 entity.Property(e => e.NarudzbaId).HasColumnName("NarudzbaID");
+
+                entity.Property(e => e.Popust).HasColumnType("decimal(18, 0)");
 
                 entity.Property(e => e.ProizvodId).HasColumnName("ProizvodID");
 

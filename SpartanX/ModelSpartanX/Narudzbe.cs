@@ -24,7 +24,7 @@ namespace ModelSpartanX
 
         public virtual Kupci Kupac { get; set; }
         //public virtual Skladistum Skladiste { get; set; }
-        //public virtual ICollection<NarudzbaStavke> NarudzbaStavkes { get; set; }
+        public virtual ICollection<NarudzbaStavke> NarudzbaStavkes { get; set; }
         //public virtual ICollection<Racun> Racuns { get; set; }
 
     }

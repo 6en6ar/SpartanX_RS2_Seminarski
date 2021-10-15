@@ -38,10 +38,10 @@
                 </ListView.ItemTemplate>
             </ListView>
             <StackLayout>
-                <Button BackgroundColor="Green" Text="Zaključi narudžbu" Command="{Binding ZakljuciNarudzbu}"></Button>
+                <Button BackgroundColor="Green" Text="Zaključi narudžbu" Clicked="Zakljuci_Clicked"></Button>
             </StackLayout>
             <StackLayout>
-                <Button BackgroundColor="Red" Text="Otkazi narudžbu" Clicked="Button_Clicked"></Button>
+                <Button BackgroundColor="Red" Text="Otkazi narudžbu" Clicked="Otkazi_Clicked"></Button>
             </StackLayout>
             <StackLayout Orientation="Vertical" Padding="10" Margin="0">
                 <Label  x:Name="BrArt" Text="{Binding BrojProizvoda,StringFormat='Broj artikala: {0}'}" FontSize="20"></Label>
