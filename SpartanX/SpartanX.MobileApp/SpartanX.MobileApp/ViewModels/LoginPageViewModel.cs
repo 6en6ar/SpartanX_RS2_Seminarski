@@ -42,6 +42,8 @@ namespace SpartanX.MobileApp.ViewModels
                     
                 {
                     GlobalKorisnik.GlobalKorisnik.Prijavljeni = klijent;
+                    APIService.username = username;
+                    APIService.password = password;
                     await App.Current.MainPage.DisplayAlert("Uspjeh!", "Dobrodosli ", "OK");
                     App.Current.MainPage = new AppShell();
                 }

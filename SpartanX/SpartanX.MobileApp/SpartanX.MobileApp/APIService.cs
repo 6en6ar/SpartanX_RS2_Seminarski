@@ -10,8 +10,8 @@ namespace SpartanX.MobileApp
     public class APIService
     {
         private string _controllerRoute = null;
-       // public static string username { get; set; }
-       // public static string password { get; set; }
+       public static string username { get; set; }
+       public static string password { get; set; }
 
 #if DEBUG 
         string Apiurl = "http://localhost:5000";
