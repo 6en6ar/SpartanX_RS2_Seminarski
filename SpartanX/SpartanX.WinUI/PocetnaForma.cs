@@ -160,5 +160,12 @@ namespace SpartanX.WinUI
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void pregledNarudzbiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Narudzbe.NarudzbePrikaz frm = new Narudzbe.NarudzbePrikaz();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

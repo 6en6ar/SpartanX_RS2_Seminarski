@@ -7,6 +7,7 @@ namespace ModelSpartanX.Requests
     public class ProizvodiUpdateRequest
     {
         public string Naziv { get; set; }
+        public string Kod { get; set; }
         public decimal Cijena { get; set; }
         public int VrstaId { get; set; }
         public byte[] Slika { get; set; }

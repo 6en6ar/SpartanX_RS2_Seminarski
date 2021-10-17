@@ -87,7 +87,7 @@ namespace SpartanX.WinUI.Proizvodi
 
         private void dgvProizvodi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var proizvod = dgvProizvodi.SelectedRows[0].DataBoundItem as ModelSpartanX.Proizvodi;// grab a user
+            var proizvod = dgvProizvodi.SelectedRows[0].DataBoundItem as ModelSpartanX.Proizvodi;
             frmProizvodiDetalji forma = new frmProizvodiDetalji(proizvod);
             forma.ShowDialog();
         }

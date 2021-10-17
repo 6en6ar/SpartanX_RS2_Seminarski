@@ -46,6 +46,7 @@
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"  Command="{Binding NaruciKomanda}"></TapGestureRecognizer>
                         </Image.GestureRecognizers>
                     </Image>
+                    <Button Text="Vidi košaricu" Clicked="Button_Clicked"></Button>
 
                 </StackLayout>
                 <Label HorizontalOptions="Start" VerticalOptions="EndAndExpand" FontSize="16" TextColor="CadetBlue" FontAttributes="Italic">Kupci su isto kupili:</Label>

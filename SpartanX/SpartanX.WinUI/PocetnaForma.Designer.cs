@@ -39,6 +39,7 @@ namespace SpartanX.WinUI
             this.dodajNoviProizvodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skladistaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prikazProizvodaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajSkladisteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dobavljaciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prikazDobavljacaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.klijentiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +47,7 @@ namespace SpartanX.WinUI
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.dodajSkladisteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pregledNarudzbiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +61,8 @@ namespace SpartanX.WinUI
             this.proizvodiToolStripMenuItem,
             this.skladistaToolStripMenuItem,
             this.dobavljaciToolStripMenuItem,
-            this.klijentiToolStripMenuItem});
+            this.klijentiToolStripMenuItem,
+            this.pregledNarudzbiToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(13, 5, 0, 5);
@@ -126,9 +128,16 @@ namespace SpartanX.WinUI
             // prikazProizvodaToolStripMenuItem1
             // 
             this.prikazProizvodaToolStripMenuItem1.Name = "prikazProizvodaToolStripMenuItem1";
-            this.prikazProizvodaToolStripMenuItem1.Size = new System.Drawing.Size(359, 44);
+            this.prikazProizvodaToolStripMenuItem1.Size = new System.Drawing.Size(308, 44);
             this.prikazProizvodaToolStripMenuItem1.Text = "Prikaz skladista";
             this.prikazProizvodaToolStripMenuItem1.Click += new System.EventHandler(this.prikazProizvodaToolStripMenuItem1_Click);
+            // 
+            // dodajSkladisteToolStripMenuItem
+            // 
+            this.dodajSkladisteToolStripMenuItem.Name = "dodajSkladisteToolStripMenuItem";
+            this.dodajSkladisteToolStripMenuItem.Size = new System.Drawing.Size(308, 44);
+            this.dodajSkladisteToolStripMenuItem.Text = "Dodaj skladiste";
+            this.dodajSkladisteToolStripMenuItem.Click += new System.EventHandler(this.dodajSkladisteToolStripMenuItem_Click);
             // 
             // dobavljaciToolStripMenuItem
             // 
@@ -178,12 +187,12 @@ namespace SpartanX.WinUI
             this.toolStripStatusLabel.Size = new System.Drawing.Size(78, 32);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // dodajSkladisteToolStripMenuItem
+            // pregledNarudzbiToolStripMenuItem
             // 
-            this.dodajSkladisteToolStripMenuItem.Name = "dodajSkladisteToolStripMenuItem";
-            this.dodajSkladisteToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
-            this.dodajSkladisteToolStripMenuItem.Text = "Dodaj skladiste";
-            this.dodajSkladisteToolStripMenuItem.Click += new System.EventHandler(this.dodajSkladisteToolStripMenuItem_Click);
+            this.pregledNarudzbiToolStripMenuItem.Name = "pregledNarudzbiToolStripMenuItem";
+            this.pregledNarudzbiToolStripMenuItem.Size = new System.Drawing.Size(215, 38);
+            this.pregledNarudzbiToolStripMenuItem.Text = "Pregled narudzbi";
+            this.pregledNarudzbiToolStripMenuItem.Click += new System.EventHandler(this.pregledNarudzbiToolStripMenuItem_Click);
             // 
             // PocetnaForma
             // 
@@ -227,6 +236,7 @@ namespace SpartanX.WinUI
         private System.Windows.Forms.ToolStripMenuItem dodajNovogKorisnikaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajNoviProizvodToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajSkladisteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pregledNarudzbiToolStripMenuItem;
     }
 }
 

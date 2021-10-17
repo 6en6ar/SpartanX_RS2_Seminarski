@@ -109,6 +109,10 @@ namespace SpartanX.WinUI.Proizvodi
                 }
                 insertPro.Kod = txtKod.Text;
                 insertPro.Naziv = txtNaziv.Text;
+                if (int.TryParse(txtBodovi.Text, out int bodovi))
+                {
+                    insertPro.BodoviLojalnosti = bodovi;
+                }
 
                 if (decimal.TryParse(txtCijena.Text, out decimal cijena))
                 {
@@ -137,12 +141,24 @@ namespace SpartanX.WinUI.Proizvodi
                     updatePro.ProizvodjacId = ProizvodjacId;
                 }
                 updatePro.Naziv = txtNaziv.Text;
-
+                if (int.TryParse(txtBodovi.Text, out int bodovi))
+                {
+                    updatePro.BodoviLojalnosti = bodovi;
+                }
+                updatePro.Kod = txtKod.Text;
                 if (decimal.TryParse(txtCijena.Text, out decimal cijena))
                 {
                     updatePro.Cijena = cijena;
                 }
-                await _servicePro.Insert<ModelSpartanX.Proizvodi>(updatePro);
+                if (pbSlika.Image != null)
+                {
+                    Image i = pbSlika.Image;
+                    updatePro.Slika = ImageToByteArray(i);
+                    Image thumb = i.GetThumbnailImage(120, 120, () => false, IntPtr.Zero);
+                    updatePro.SlikaThumb = ImageToByteArray(thumb);
+
+                }
+                await _servicePro.Update<ModelSpartanX.Proizvodi>(_proizvod.ProizvodId,updatePro);
             }
         }
     }
