@@ -97,6 +97,7 @@ namespace SpartanX.MobileApp.Views
                     BrArt.Text = "Broj artikala: 0";
                     Iznos.Text = "Iznos narudžbe: 0";
                     //preusmjeri na stripe
+                    await Navigation.PushAsync(new StripePaymentGatewayPage(model.PuniIznos));
 
                 }
             }
