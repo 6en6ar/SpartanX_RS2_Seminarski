@@ -11,24 +11,24 @@ using Xamarin.Forms.Xaml;
 namespace SpartanX.MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProizvodiPage : ContentPage
+    public partial class StatusNarudzbiPage : ContentPage
     {
-        private ProizvodiViewModel model;
-        public ProizvodiPage()
+        private StatusNarudzbiViewModle model;
+        public StatusNarudzbiPage()
         {
             InitializeComponent();
-            BindingContext = model = new ProizvodiViewModel();
+            BindingContext = model = new StatusNarudzbiViewModle();
         }
         protected async override void OnAppearing()
         {
+            
             base.OnAppearing();
             await model.Init();
         }
-        private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+
+        private void Button_Clicked(object sender, EventArgs e)
         {
-            var selectedItem = e.SelectedItem as ModelSpartanX.Proizvodi;
-            await Navigation.PushAsync(new ProizvodiDetalji(selectedItem));
+            
         }
     }
-   
 }

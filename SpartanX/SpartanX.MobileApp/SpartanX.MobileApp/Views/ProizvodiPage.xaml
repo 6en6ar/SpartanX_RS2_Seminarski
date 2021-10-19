@@ -37,6 +37,10 @@
                                     LineBreakMode="NoWrap"
                                     Style="{DynamicResource ListItemDetailTextStyle}"
                                     FontSize="13" />
+                                    <Label Text="{Binding Cijena, StringFormat='Cijena: {0} KM'}" 
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    FontSize="13" />
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

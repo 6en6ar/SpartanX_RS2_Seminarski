@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewModels="clr-namespace:SpartanX.MobileApp.ViewModels"
+             x:Class="SpartanX.MobileApp.Views.StatusNarudzbiPage">
+    <ContentPage.BindingContext>
+        <viewModels:StatusNarudzbiViewModle></viewModels:StatusNarudzbiViewModle>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Prethodne narudžbe"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <ListView ItemsSource="{Binding ListaNarudzbi}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="Broj narudzbe:" FontSize="18" FontAttributes="Bold"></Label>
+                                    <Label Text="{Binding BrojNarudzbe}" 
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    FontSize="13" />
+                                    <Label Text="Datum narudzbe:" FontSize="18" FontAttributes="Bold"></Label>
+                                    <Label Text="{Binding DatumNarudzbe}" 
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    FontSize="13" />
+                                    <Label Text="Ukupni iznos narudzbe:" FontSize="18" FontAttributes="Bold"></Label>
+                                    <Label Text="{Binding IznosSaPdv, StringFormat='Cijena: {0} KM'}"
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    FontSize="13" />
+                                    <Label Text="Status pošiljke:" FontSize="18" FontAttributes="Bold" TextColor="Red"></Label>
+                                    <Label Text="{Binding Status}"
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    FontSize="13" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
