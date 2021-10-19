@@ -13,16 +13,11 @@ namespace SpartanX.MobileApp.ViewModels
         public StatusNarudzbiViewModle()
         {
             InitCommand = new Command(async () => await Init());
-            StatusKomanda = new Command(Status);
         }
         private readonly APIService _NarudzbeSer = new APIService("Narudzbe");
         public ObservableCollection<ModelSpartanX.Narudzbe> ListaNarudzbi { get; set; } = new ObservableCollection<ModelSpartanX.Narudzbe>();
         public ICommand InitCommand { get; set; }
-        public ICommand StatusKomanda { get; set; }
-        public void Status()
-        {
-            
-        }
+
         public async Task Init()
         {
            List<ModelSpartanX.Narudzbe> lista = await  _NarudzbeSer.Get<List<ModelSpartanX.Narudzbe>>(null);
@@ -32,8 +27,16 @@ namespace SpartanX.MobileApp.ViewModels
                 //za logiranog korisnika narudzbe
                 if(item.KupacId == GlobalKorisnik.GlobalKorisnik.Prijavljeni.KupacId)
                 {
-
+                    if (!item.Status)
+                    {
+                        item.PosiljkaOpis = "Posiljka je na putu";
+                    }
+                    else
+                    {
+                        item.PosiljkaOpis = "Posiljka je još u obradi!";
+                    }
                     ListaNarudzbi.Add(item);
+                    
                 }
               
             }

@@ -21,6 +21,7 @@ namespace ModelSpartanX
         public decimal IznosBezPdv { get; set; }
         public decimal IznosSaPdv { get; set; }
         public int SkladisteId { get; set; }
+        public string PosiljkaOpis { get; set; }
 
         public virtual Kupci Kupac { get; set; }
         //public virtual Skladistum Skladiste { get; set; }

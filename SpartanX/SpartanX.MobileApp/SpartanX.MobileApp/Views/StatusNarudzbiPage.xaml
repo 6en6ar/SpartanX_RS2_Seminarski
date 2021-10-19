@@ -32,7 +32,7 @@
                                     Style="{DynamicResource ListItemDetailTextStyle}"
                                     FontSize="13" />
                                     <Label Text="Status pošiljke:" FontSize="18" FontAttributes="Bold" TextColor="Red"></Label>
-                                    <Label Text="{Binding Status}"
+                                    <Label  Text="{Binding PosiljkaOpis}"
                                     LineBreakMode="NoWrap"
                                     Style="{DynamicResource ListItemDetailTextStyle}"
                                     FontSize="13" />

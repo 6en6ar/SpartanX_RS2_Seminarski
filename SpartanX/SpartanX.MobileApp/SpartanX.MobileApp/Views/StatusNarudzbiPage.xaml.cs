@@ -14,10 +14,12 @@ namespace SpartanX.MobileApp.Views
     public partial class StatusNarudzbiPage : ContentPage
     {
         private StatusNarudzbiViewModle model;
+
         public StatusNarudzbiPage()
         {
             InitializeComponent();
             BindingContext = model = new StatusNarudzbiViewModle();
+            
         }
         protected async override void OnAppearing()
         {
