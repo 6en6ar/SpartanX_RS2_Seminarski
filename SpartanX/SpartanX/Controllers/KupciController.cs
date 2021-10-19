@@ -38,10 +38,10 @@ namespace SpartanX.Controllers
         {
             return _service.Insert(request);
         }
-        [HttpPut("{id}")]
-        public ModelSpartanX.Kupci Update(int id, [FromBody] ModelSpartanX.Requests.KupciInsertRequest request)
+        [HttpPut("{id}/{username},{password}")]
+        public ModelSpartanX.Kupci Update(int id,[FromBody] ModelSpartanX.Requests.KupciUpdateRequest request, string username, string password)
         {
-            return _service.Update(id, request);
+            return _service.Update(id, request, username, password);
         }
     }
 }

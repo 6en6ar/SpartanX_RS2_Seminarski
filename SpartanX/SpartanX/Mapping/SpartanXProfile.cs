@@ -30,6 +30,7 @@ namespace SpartanX.Mapping
             CreateMap<ModelSpartanX.Requests.ProizvodiInsertRequest, Database.Proizvodi>();
             CreateMap<ModelSpartanX.Requests.DobavljaciInsertRequest, Database.Dobavljaci>();
             CreateMap<ModelSpartanX.Requests.KupciInsertRequest, Database.Kupci>();
+            CreateMap<ModelSpartanX.Requests.KupciUpdateRequest, Database.Kupci>();
             CreateMap<ModelSpartanX.Requests.NarudzbeInsertRequest, Database.Narudzbe>();
         }
     }

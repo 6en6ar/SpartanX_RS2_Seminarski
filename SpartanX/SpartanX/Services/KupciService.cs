@@ -77,12 +77,26 @@ namespace SpartanX.Services
             return _mapper.Map<ModelSpartanX.Kupci>(kupac);
         }
 
-        public ModelSpartanX.Kupci Update(int id, ModelSpartanX.Requests.KupciInsertRequest req)
+        public ModelSpartanX.Kupci Update(int id, ModelSpartanX.Requests.KupciUpdateRequest req, string username,string password)
         {
-            var kupac = _context.Kupcis.Find(id);
-            _mapper.Map(req, kupac);
-            _context.SaveChanges();
-            return _mapper.Map<ModelSpartanX.Kupci>(kupac);
+            var user = _context.Kupcis.FirstOrDefault(x => x.KorisnickoIme == username);
+
+            if (user != null)
+            {
+                var hashedPass = GenerateHash(user.LozinkaSalt, password);
+
+                if (hashedPass == user.LozinkaHash)
+                {
+                    user.LozinkaSalt = GenerateSalt();
+                    user.LozinkaHash = GenerateHash(user.LozinkaSalt, req.Password);
+                    _mapper.Map(req, user);
+                    _context.SaveChanges();
+                    return _mapper.Map<ModelSpartanX.Kupci>(user);
+                }
+            }
+
+            return null;
+           
         }
         public static string GenerateSalt()
         {

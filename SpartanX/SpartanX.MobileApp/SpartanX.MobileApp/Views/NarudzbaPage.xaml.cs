@@ -46,7 +46,7 @@ namespace SpartanX.MobileApp.Views
                 ModelSpartanX.Kupci kupac = await _KupciService.Authenticate<ModelSpartanX.Kupci>(APIService.username, APIService.password);
                 if (kupac == null)
                 {
-                    await App.Current.MainPage.DisplayAlert("Greska!", "Niste autentifikovani", "OK");
+                    await Application.Current.MainPage.DisplayAlert("Greska!", "Niste autentifikovani", "OK");
                 }
                 else
                 {

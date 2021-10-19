@@ -14,7 +14,7 @@ namespace SpartanX.Services
 
         ModelSpartanX.Kupci Insert(ModelSpartanX.Requests.KupciInsertRequest request);
 
-        ModelSpartanX.Kupci Update(int id, ModelSpartanX.Requests.KupciInsertRequest request);
+        ModelSpartanX.Kupci Update(int id, ModelSpartanX.Requests.KupciUpdateRequest request, string username, string password);
         ModelSpartanX.Kupci Authenticate(string username, string password);
     }
 }
