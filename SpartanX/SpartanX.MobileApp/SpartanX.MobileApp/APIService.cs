@@ -69,7 +69,7 @@ namespace SpartanX.MobileApp
         public async Task<T> Update<T>(int id, object req, string username, string password)
         {
             var url = $"{ Apiurl}/{ _controllerRoute}/{id}/{username},{password}";
-            var result = await url.PutJsonAsync(req).ReceiveJson<T>();
+            var result = await url.PostJsonAsync(req).ReceiveJson<T>();
             return result;
 
         }
