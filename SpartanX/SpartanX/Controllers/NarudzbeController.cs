@@ -10,7 +10,7 @@ namespace SpartanX.Controllers
     [ApiController]
     [Route("[controller]")]
     //[Authorize]
-    public class NarudzbeController : BaseCRUDController<ModelSpartanX.Narudzbe, object, ModelSpartanX.Requests.NarudzbeInsertRequest, object>
+    public class NarudzbeController : BaseCRUDController<ModelSpartanX.Narudzbe, object, ModelSpartanX.Requests.NarudzbeInsertRequest, ModelSpartanX.Requests.NarudzbeUpdateRequest>
     {
         public NarudzbeController(INarudzbeService _service) : base(_service)
         {

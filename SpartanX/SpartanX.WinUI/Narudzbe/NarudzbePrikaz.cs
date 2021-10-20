@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpartanX.WinUI.Proizvodi;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,18 @@ namespace SpartanX.WinUI.Narudzbe
         private async void NarudzbePrikaz_Load(object sender, EventArgs e)
         {
             dgvNarudzbe.DataSource = await _service.Get<List<ModelSpartanX.Narudzbe>>(null);
+        }
+
+        private void dgvNarudzbe_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvNarudzbe_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var narudzba = dgvNarudzbe.SelectedRows[0].DataBoundItem as ModelSpartanX.Narudzbe;
+            NarudzbaStatusFrm forma = new NarudzbaStatusFrm(narudzba);
+            forma.ShowDialog();
         }
     }
 }

@@ -32,6 +32,7 @@ namespace SpartanX.Mapping
             CreateMap<ModelSpartanX.Requests.KupciInsertRequest, Database.Kupci>();
             CreateMap<ModelSpartanX.Requests.KupciUpdateRequest, Database.Kupci>();
             CreateMap<ModelSpartanX.Requests.NarudzbeInsertRequest, Database.Narudzbe>();
+            CreateMap<ModelSpartanX.Requests.NarudzbeUpdateRequest, Database.Narudzbe>().ReverseMap();
         }
     }
 }

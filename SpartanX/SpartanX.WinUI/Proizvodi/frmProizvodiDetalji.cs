@@ -127,6 +127,7 @@ namespace SpartanX.WinUI.Proizvodi
 
                 }
                 await _servicePro.Insert<ModelSpartanX.Proizvodi>(insertPro);
+                MessageBox.Show("Uspješno ste dodali proizvod!");
             }
             else
             {
@@ -159,6 +160,7 @@ namespace SpartanX.WinUI.Proizvodi
 
                 }
                 await _servicePro.Update<ModelSpartanX.Proizvodi>(_proizvod.ProizvodId,updatePro);
+                MessageBox.Show("Uspješno ste uredili proizvod!");
             }
         }
     }

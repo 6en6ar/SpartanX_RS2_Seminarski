@@ -42,8 +42,11 @@ namespace SpartanX.WinUI.Narudzbe
             this.dgvNarudzbe.Name = "dgvNarudzbe";
             this.dgvNarudzbe.RowHeadersWidth = 82;
             this.dgvNarudzbe.RowTemplate.Height = 41;
+            this.dgvNarudzbe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNarudzbe.Size = new System.Drawing.Size(1338, 350);
             this.dgvNarudzbe.TabIndex = 0;
+            this.dgvNarudzbe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNarudzbe_CellContentClick);
+            this.dgvNarudzbe.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNarudzbe_CellDoubleClick);
             // 
             // PrikazNarudzbi
             // 

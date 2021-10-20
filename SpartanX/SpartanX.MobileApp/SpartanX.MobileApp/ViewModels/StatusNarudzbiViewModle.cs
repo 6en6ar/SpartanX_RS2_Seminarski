@@ -27,7 +27,7 @@ namespace SpartanX.MobileApp.ViewModels
                 //za logiranog korisnika narudzbe
                 if(item.KupacId == GlobalKorisnik.GlobalKorisnik.Prijavljeni.KupacId)
                 {
-                    if (!item.Status)
+                    if (item.Status)
                     {
                         item.PosiljkaOpis = "Posiljka je na putu";
                     }

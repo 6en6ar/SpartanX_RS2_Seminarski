@@ -70,7 +70,7 @@ namespace SpartanX.MobileApp.Views
                     req.KupacId = GlobalKorisnik.GlobalKorisnik.Prijavljeni.KupacId;
                     req.SkladisteId = 1;
                     req.Otkazano = false;
-                    req.Status = true;
+                    req.Status = false;
                     foreach (var item in model.NarudzbaLista)
                     {
                         ModelSpartanX.Requests.NarudzbaStavkeInsertRequest requestStavka = new ModelSpartanX.Requests.NarudzbaStavkeInsertRequest();
