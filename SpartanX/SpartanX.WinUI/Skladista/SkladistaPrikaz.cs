@@ -23,6 +23,7 @@ namespace SpartanX.WinUI.Skladista
             try
             {
                 dgvSkladista.DataSource = await _apiservice.Get<List<ModelSpartanX.Skladista>>(null);
+                dgvSkladista.Columns["SkladisteId"].Visible = false;
             }
             catch
             {

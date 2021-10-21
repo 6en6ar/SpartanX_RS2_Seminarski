@@ -47,6 +47,11 @@ namespace SpartanX.WinUI.Proizvodi
             //dgvProizvodi.AutoGenerateColumns = false;
             
             dgvProizvodi.DataSource = await _proizvodi.Get<List<ModelSpartanX.Proizvodi>>(req);
+            dgvProizvodi.Columns["ProizvodId"].Visible = false;
+            dgvProizvodi.Columns["VrstaId"].Visible = false;
+            dgvProizvodi.Columns["Vrsta"].Visible = false;
+            dgvProizvodi.Columns["ProizvodjacId"].Visible = false;
+            dgvProizvodi.Columns["Proizvodjac"].Visible = false;
             //var result = await _proizvodi.Get<List<Model.Proizvodi>>(null);
             //dgvProizvodi.DataSource = result;
         }

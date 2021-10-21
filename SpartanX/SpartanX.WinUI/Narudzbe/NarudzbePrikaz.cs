@@ -25,6 +25,12 @@ namespace SpartanX.WinUI.Narudzbe
         private async void NarudzbePrikaz_Load(object sender, EventArgs e)
         {
             dgvNarudzbe.DataSource = await _service.Get<List<ModelSpartanX.Narudzbe>>(null);
+            dgvNarudzbe.Columns["NarudzbaId"].Visible = false;
+            dgvNarudzbe.Columns["KupacId"].Visible = false;
+            dgvNarudzbe.Columns["SkladisteId"].Visible = false;
+            dgvNarudzbe.Columns["PosiljkaOpis"].Visible = false;
+            dgvNarudzbe.Columns["Kupac"].Visible = false;
+            dgvNarudzbe.Columns["NArudzbaStavkes"].Visible = false;
         }
 
         private void dgvNarudzbe_CellContentClick(object sender, DataGridViewCellEventArgs e)
