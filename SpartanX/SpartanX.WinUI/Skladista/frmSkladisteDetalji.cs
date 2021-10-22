@@ -40,6 +40,7 @@ namespace SpartanX.WinUI.Skladista
                    Opis = txtOpis.Text
                 };
                 var result = await _skladisteService.Insert<ModelSpartanX.Skladista>(req);
+                MessageBox.Show("Uspješno ste dodali skladište!");
             }
             else
             {
@@ -50,6 +51,7 @@ namespace SpartanX.WinUI.Skladista
                     Opis = txtOpis.Text
                 };
                 var result = await _skladisteService.Update<ModelSpartanX.Skladista>(_skladiste.SkladisteId, req);
+                MessageBox.Show("Uspješno ste editovali skladište!");
             }
         }
     }

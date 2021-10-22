@@ -97,6 +97,7 @@ namespace SpartanX.WinUI.Korisnici
                     //Telefon = txtTelefon.Text
                 };
                 var result = await service.Insert<ModelSpartanX.Korisnici>(req);
+                MessageBox.Show("Uspješno ste dodali korisnika!");
             }
             else
             {
@@ -108,6 +109,7 @@ namespace SpartanX.WinUI.Korisnici
                     KorisnickoIme = txtUsername.Text
                 };
                 var result = await service.Update<ModelSpartanX.Korisnici>(_korisnik.KorisnikId,req);
+                MessageBox.Show("Uspješno ste editovali korisnika!");
             }
         }
 
