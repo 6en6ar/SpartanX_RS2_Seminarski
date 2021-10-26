@@ -1,0 +1,33 @@
+version: '3'
+services:
+#mssql docker
+  spartanx-sql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=rs2sem2021!
+      - MSSQL_PID=Developer
+    ports:
+      - 1401:1433
+    networks:
+      - spartanxnet
+
+  spartanx.api:
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      - ConnectionStrings:DefaultConnection=Server=spartanx-sql,1433;Database=SpartanX;User=sa;Password=rs2sem2021!;ConnectRetryCount=0
+    ports:
+      - 5050:5050
+    networks:
+      - spartanxnet
+    links:
+      - spartanx-sql
+    depends_on:
+      - spartanx-sql
+      
+networks:
+  spartanxnet:
+    driver: bridge    
