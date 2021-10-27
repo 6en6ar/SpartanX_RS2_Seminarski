@@ -29,9 +29,10 @@ namespace SpartanX.MobileApp.Views
 
         }
 
-        private void preporuceniProizvodi_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void preporuceniProizvodi_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
+            var selectedItem = e.SelectedItem as ModelSpartanX.Proizvodi;
+            await Navigation.PushAsync(new ProizvodiDetalji(selectedItem));
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
