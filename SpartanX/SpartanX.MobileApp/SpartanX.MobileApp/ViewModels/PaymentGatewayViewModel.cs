@@ -30,8 +30,8 @@ namespace SpartanX.MobileApp.ViewModels
         #endregion Variable
 
         #region Public Property
-        private string StripeTestApiKey = "";
-        private string StripeSecretApiKey = "";
+        private string StripeTestApiKey = "pk_test_51Jpd6SLeLPvznSdYgqnpTOUZ4bJbt2c7M6ooGYWrrsvLd6VSj7uym5Ck7WwLEInYwbIB0tn7kyDOTJHSyn3HVZCz005kDO0Bmt";
+        private string StripeSecretApiKey = "sk_test_51Jpd6SLeLPvznSdYpmnKoZbws9XU1d4AGQyz9s9s9NYGLmAIG1xhh9Rr9wd7n0rneHHLF6pFZzy65PnPxdQKaw3D00d7WNohn8";
         public string ExpMonth
         {
             get { return _expMonth; }
