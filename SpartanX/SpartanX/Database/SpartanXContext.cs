@@ -52,9 +52,7 @@ namespace SpartanX.Database
 
                 entity.ToTable("Dobavljaci");
 
-                entity.Property(e => e.DobavljacId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("DobavljacID");
+                entity.Property(e => e.DobavljacId).HasColumnName("DobavljacID");
 
                 entity.Property(e => e.Adresa)
                     .IsRequired()
@@ -87,9 +85,7 @@ namespace SpartanX.Database
             {
                 entity.ToTable("Komentar");
 
-                entity.Property(e => e.KomentarId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("KomentarID");
+                entity.Property(e => e.KomentarId).HasColumnName("KomentarID");
 
                 entity.Property(e => e.Datum).HasColumnType("datetime");
 
@@ -211,9 +207,7 @@ namespace SpartanX.Database
             {
                 entity.ToTable("Nabavka");
 
-                entity.Property(e => e.NabavkaId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("NabavkaID");
+                entity.Property(e => e.NabavkaId).HasColumnName("NabavkaID");
 
                 entity.Property(e => e.BrojNabavke)
                     .IsRequired()
@@ -258,9 +252,7 @@ namespace SpartanX.Database
             {
                 entity.ToTable("NabavkaStavke");
 
-                entity.Property(e => e.NabavkaStavkeId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("NabavkaStavkeID");
+                entity.Property(e => e.NabavkaStavkeId).HasColumnName("NabavkaStavkeID");
 
                 entity.Property(e => e.Cijena).HasColumnType("decimal(18, 2)");
 

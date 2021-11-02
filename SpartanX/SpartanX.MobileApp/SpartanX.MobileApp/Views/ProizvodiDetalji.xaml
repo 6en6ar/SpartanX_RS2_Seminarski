@@ -41,7 +41,7 @@
                         <Entry Text="{Binding Kolicina}" Placeholder="1" HorizontalTextAlignment="Center" Keyboard="Numeric"></Entry>
                         <Button Text="+1" Command="{Binding PovecajKolicinuKomanda}"></Button>
                     </StackLayout>
-                    <Image Source="icon_feed.png" BackgroundColor="LightGreen" >
+                    <Image Source="cart-icon.png" BackgroundColor="LightGreen" >
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"  Command="{Binding NaruciKomanda}"></TapGestureRecognizer>
                         </Image.GestureRecognizers>

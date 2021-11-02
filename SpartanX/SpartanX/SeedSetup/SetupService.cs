@@ -10,8 +10,62 @@ namespace SpartanX.SeedSetup
     {
         public void Init(SpartanX.Database.SpartanXContext context)
         {
-            //context.Database.Migrate();
+            context.Database.Migrate();
             //dodavanje podataka
+            if (!context.Skladista.Any(x=>x.Naziv == "Sarajevo"))
+            {
+                context.Skladista.Add(new Database.Skladistum { Naziv = "Sarajevo", Adresa = "Ložionička 17", Opis = "Skladište za elite opremu" });
+            }
+            if (!context.Skladista.Any(x => x.Naziv == "Zenica"))
+            {
+                context.Skladista.Add(new Database.Skladistum { Naziv = "Zenica", Adresa = "Industrijska zona 12", Opis = "Skladište fitnes opreme" });
+            }
+            if (!context.Skladista.Any(x => x.Naziv == "Tuzla"))
+            {
+                context.Skladista.Add(new Database.Skladistum { Naziv = "Tuzla", Adresa = "Industrijska zona 10", Opis = "Skladište spartan nutrition prehrambenih proizvoda" });
+            }
+            if (!context.Uloges.Any(x => x.Naziv == "Administrator"))
+            {
+                context.Uloges.Add(new Database.Uloge { Naziv = "Administrator", Opis = "Administratorske privilegije"});
+            }
+            if (!context.Uloges.Any(x => x.Naziv == "Menadžer"))
+            {
+                context.Uloges.Add(new Database.Uloge { Naziv = "Menadžer", Opis = "Upravljanje desktp aplikacijom" });
+            }
+            if (!context.VrstaProizvoda.Any(x => x.Naziv == "Ostalo"))
+            {
+                context.VrstaProizvoda.Add(new Database.VrstaProizvodum { Naziv = "Ostalo"});
+            }
+            if (!context.VrstaProizvoda.Any(x => x.Naziv == "Bjelancevine"))
+            {
+                context.VrstaProizvoda.Add(new Database.VrstaProizvodum { Naziv = "Bjelancevine" });
+            }
+            if (!context.VrstaProizvoda.Any(x => x.Naziv == "Fitness oprema"))
+            {
+                context.VrstaProizvoda.Add(new Database.VrstaProizvodum { Naziv = "Fitness oprema" });
+            }
+            if (!context.VrstaProizvoda.Any(x => x.Naziv == "Vitamini i dodaci"))
+            {
+                context.VrstaProizvoda.Add(new Database.VrstaProizvodum { Naziv = "Vitamini i dodaci" });
+            }
+            if (!context.Proizvodjacis.Any(x => x.Naziv == "SpartanX"))
+            {
+                context.Proizvodjacis.Add(new Database.Proizvodjaci { Naziv = "SpartanX" });
+            }
+            if (!context.Proizvodjacis.Any(x => x.Naziv == "Elite nutrition"))
+            {
+                context.Proizvodjacis.Add(new Database.Proizvodjaci { Naziv = "Elite nutrition" });
+            }
+            if (!context.Proizvodjacis.Any(x => x.Naziv == "Impact"))
+            {
+                context.Proizvodjacis.Add(new Database.Proizvodjaci { Naziv = "Impact" });
+            }
+            if (!context.Proizvodjacis.Any(x => x.Naziv == "Mammut"))
+            {
+                context.Proizvodjacis.Add(new Database.Proizvodjaci { Naziv = "Mammut" });
+            }
+            context.SaveChanges();
+
         }
     }
 }
