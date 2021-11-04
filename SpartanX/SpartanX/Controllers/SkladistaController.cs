@@ -19,21 +19,25 @@ namespace SpartanX.Controllers
             _service = service;
         }
         [HttpGet]
+        [Authorize]
         public List<ModelSpartanX.Skladista> Get([FromQuery] ModelSpartanX.Search.SkladistaSearchObject request)
         {
             return _service.Get(request);
         }
         [HttpGet("{id}")]
+        [Authorize]
         public ModelSpartanX.Skladista GetById(int id)
         {
             return _service.GetById(id);
         }
         [HttpPost]
+        [Authorize]
         public void Insert(ModelSpartanX.Requests.SkladisteInsertRequest request)
         {
             _service.Insert(request);
         }
         [HttpPut("{id}")]
+        [Authorize]
         public ModelSpartanX.Skladista Update(int id, [FromBody] ModelSpartanX.Requests.SkladisteUpdateRequest request)
         {
             return _service.Update(id, request);

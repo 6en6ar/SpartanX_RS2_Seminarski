@@ -14,16 +14,19 @@ using System.Threading.Tasks;
 
 namespace SpartanX.Services
 {
-    public class ProizvodiService : BaseCRUDService<ModelSpartanX.Proizvodi, Database.Proizvodi, ModelSpartanX.Search.ProizvodiSearchObject, ModelSpartanX.Requests.ProizvodiInsertRequest, ModelSpartanX.Requests.ProizvodiUpdateRequest>, IProizvodiService
+    public class ProizvodiService : IProizvodiService
     {
-        public ProizvodiService(SpartanXContext _context, IMapper _mapper)
-            : base(_context, _mapper)
+        private readonly SpartanXContext _context;
+        private readonly IMapper _mapper;
+        public ProizvodiService(SpartanXContext context, IMapper mapper)
         {
-
+            _context = context;
+            _mapper = mapper;
         }
-        public override IEnumerable<ModelSpartanX.Proizvodi> Get(ModelSpartanX.Search.ProizvodiSearchObject search = null)
+
+        public List<ModelSpartanX.Proizvodi> Get(ModelSpartanX.Search.ProizvodiSearchObject search = null)
         {
-            var DBset = context.Set<Database.Proizvodi>().AsQueryable();
+            var DBset = _context.Set<Database.Proizvodi>().AsQueryable();
             if (!string.IsNullOrWhiteSpace(search?.Naziv))
             {
                 DBset = DBset.Where(x => x.Naziv.Contains(search.Naziv));
@@ -42,8 +45,30 @@ namespace SpartanX.Services
             }
 
             var lista = DBset.ToList();
-            var modeli = mapper.Map<List<ModelSpartanX.Proizvodi>>(lista);
+            var modeli = _mapper.Map<List<ModelSpartanX.Proizvodi>>(lista);
             return modeli;
+        }
+        public ModelSpartanX.Proizvodi GetById(int id)
+        {
+            var entity = _context.Proizvodis.Find(id);
+
+            return _mapper.Map<ModelSpartanX.Proizvodi>(entity);
+        }
+        public ModelSpartanX.Proizvodi Update(int id, ModelSpartanX.Requests.ProizvodiUpdateRequest req)
+        {
+            var proizvodi = _context.Proizvodis.Find(id);
+            _mapper.Map(req, proizvodi);
+            _context.SaveChanges();
+            return _mapper.Map<ModelSpartanX.Proizvodi>(proizvodi);
+        }
+        public ModelSpartanX.Proizvodi Insert(ModelSpartanX.Requests.ProizvodiInsertRequest request)
+        {
+            var proizvod = _mapper.Map<Database.Proizvodi>(request);
+
+            _context.Proizvodis.Add(proizvod);
+            _context.SaveChanges();
+            return _mapper.Map<ModelSpartanX.Proizvodi>(proizvod);
+
         }
         public class Copurchase_prediction
         {
@@ -66,7 +91,7 @@ namespace SpartanX.Services
             if(_MLcontext == null)
             {
                 _MLcontext = new MLContext();
-                var narudzbaStavke = context.Narudzbes.Include("NarudzbaStavkes").ToList();
+                var narudzbaStavke = _context.Narudzbes.Include("NarudzbaStavkes").ToList();
                 var data = new List<ProductEntry>();
                 foreach (var nS in narudzbaStavke)
                 {
@@ -107,7 +132,7 @@ namespace SpartanX.Services
 
                 model = est.Fit(dataToTrain);
             }
-            var sviProizvodi = context.Proizvodis.Where(x => x.ProizvodId != id);
+            var sviProizvodi = _context.Proizvodis.Where(x => x.ProizvodId != id);
 
             var predictionResult = new List<Tuple<Database.Proizvodi, float>>();
 
@@ -126,7 +151,7 @@ namespace SpartanX.Services
             }
 
             var final = predictionResult.OrderByDescending(x => x.Item2).Select(x => x.Item1).Take(3).ToList();
-            return mapper.Map<List<ModelSpartanX.Proizvodi>>(final);
+            return _mapper.Map<List<ModelSpartanX.Proizvodi>>(final);
         }
 
     }
