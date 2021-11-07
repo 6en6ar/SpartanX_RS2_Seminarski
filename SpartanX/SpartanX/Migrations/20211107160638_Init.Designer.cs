@@ -10,8 +10,8 @@ using SpartanX.Database;
 namespace SpartanX.Migrations
 {
     [DbContext(typeof(SpartanXContext))]
-    [Migration("20211028191130_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20211107160638_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,8 +25,10 @@ namespace SpartanX.Migrations
             modelBuilder.Entity("SpartanX.Database.Dobavljaci", b =>
                 {
                     b.Property<int>("DobavljacId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("DobavljacID");
+                        .HasColumnName("DobavljacID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Adresa")
                         .IsRequired()
@@ -79,8 +81,10 @@ namespace SpartanX.Migrations
             modelBuilder.Entity("SpartanX.Database.Komentar", b =>
                 {
                     b.Property<int>("KomentarId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("KomentarID");
+                        .HasColumnName("KomentarID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("Datum")
                         .HasColumnType("datetime");
@@ -239,8 +243,10 @@ namespace SpartanX.Migrations
             modelBuilder.Entity("SpartanX.Database.Nabavka", b =>
                 {
                     b.Property<int>("NabavkaId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("NabavkaID");
+                        .HasColumnName("NabavkaID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("BrojNabavke")
                         .IsRequired()
@@ -287,8 +293,10 @@ namespace SpartanX.Migrations
             modelBuilder.Entity("SpartanX.Database.NabavkaStavke", b =>
                 {
                     b.Property<int>("NabavkaStavkeId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("NabavkaStavkeID");
+                        .HasColumnName("NabavkaStavkeID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<decimal>("Cijena")
                         .HasColumnType("decimal(18,2)");

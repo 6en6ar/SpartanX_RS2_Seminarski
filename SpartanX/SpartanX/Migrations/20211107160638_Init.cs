@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SpartanX.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,8 @@ namespace SpartanX.Migrations
                 name: "Dobavljaci",
                 columns: table => new
                 {
-                    DobavljacID = table.Column<int>(type: "int", nullable: false),
+                    DobavljacID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Naziv = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     KontaktOsoba = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Adresa = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
@@ -127,7 +128,8 @@ namespace SpartanX.Migrations
                 name: "Nabavka",
                 columns: table => new
                 {
-                    NabavkaID = table.Column<int>(type: "int", nullable: false),
+                    NabavkaID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     BrojNabavke = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     DatumNabavke = table.Column<DateTime>(type: "datetime", nullable: false),
                     IznosRacuna = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -292,7 +294,8 @@ namespace SpartanX.Migrations
                 name: "Komentar",
                 columns: table => new
                 {
-                    KomentarID = table.Column<int>(type: "int", nullable: false),
+                    KomentarID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ProizvodID = table.Column<int>(type: "int", nullable: false),
                     KupacID = table.Column<int>(type: "int", nullable: false),
                     Datum = table.Column<DateTime>(type: "datetime", nullable: false),
@@ -320,7 +323,8 @@ namespace SpartanX.Migrations
                 name: "NabavkaStavke",
                 columns: table => new
                 {
-                    NabavkaStavkeID = table.Column<int>(type: "int", nullable: false),
+                    NabavkaStavkeID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     NabavkaID = table.Column<int>(type: "int", nullable: false),
                     ProizvodID = table.Column<int>(type: "int", nullable: false),
                     Kolicina = table.Column<int>(type: "int", nullable: false),
