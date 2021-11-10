@@ -16,13 +16,13 @@ namespace SpartanX
         public static void Main(string[] args)
         {
 
-            var host =CreateHostBuilder(args).Build();
-            using(var scope = host.Services.CreateScope())
-            {
-                var db = scope.ServiceProvider.GetService<SpartanXContext>();
-                new SeedSetup.SetupService().Init(db);
+            var host = CreateHostBuilder(args).Build();
+            //using(var scope = host.Services.CreateScope())
+            //{
+            //    var db = scope.ServiceProvider.GetService<SpartanXContext>();
+            //    new SeedSetup.SetupService().Init(db);
  
-            }
+            //}
             host.Run();
         }
 
