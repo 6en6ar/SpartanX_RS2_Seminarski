@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SpartanX.Database;
+using SpartanX.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +32,7 @@ namespace SpartanX.SeedSetup
             }
             if (!context.Uloges.Any(x => x.Naziv == "Menadžer"))
             {
-                context.Uloges.Add(new Database.Uloge { Naziv = "Menadžer", Opis = "Upravljanje desktp aplikacijom" });
+                context.Uloges.Add(new Database.Uloge { Naziv = "Menadžer", Opis = "Upravljanje desktop aplikacijom" });
             }
             if (!context.VrstaProizvoda.Any(x => x.Naziv == "Ostalo"))
             {
@@ -63,6 +65,34 @@ namespace SpartanX.SeedSetup
             if (!context.Proizvodjacis.Any(x => x.Naziv == "Mammut"))
             {
                 context.Proizvodjacis.Add(new Database.Proizvodjaci { Naziv = "Mammut" });
+            }
+            if (context.Korisnicis.Count() == 0)
+            {
+                var salt = KorisniciService.GenerateSalt();
+                var passHash = KorisniciService.GenerateHash(salt, "admin123");
+                var tip = new List<Korisnici>
+                {
+                    new Korisnici { Ime="Admin", Prezime="Admin",  KorisnickoIme="admin", LozinkaHash =passHash ,LozinkaSalt = salt },
+                    new Korisnici { Ime="Gengar", Prezime="Pokemon",  KorisnickoIme="6en6ar", LozinkaHash =passHash ,LozinkaSalt = salt },
+                };
+
+                foreach (var item in tip)
+                {
+                    context.Korisnicis.Add(item);
+                }
+                context.SaveChanges();
+            }
+            if (context.KorisnikUloges.Count() == 0)
+            {
+                var tip = new List<KorisnikUloge>
+                {
+                    new KorisnikUloge {KorisnikId=1, Datum=DateTime.Now, UlogaId=1}
+                };
+                foreach (var item in tip)
+                {
+                    context.KorisnikUloges.Add(item);
+                }
+                context.SaveChanges();
             }
             context.SaveChanges();
 
