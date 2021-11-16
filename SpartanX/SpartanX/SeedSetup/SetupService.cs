@@ -72,13 +72,28 @@ namespace SpartanX.SeedSetup
                 var passHash = KorisniciService.GenerateHash(salt, "admin123");
                 var tip = new List<Korisnici>
                 {
-                    new Korisnici { Ime="Admin", Prezime="Admin",  KorisnickoIme="admin", LozinkaHash =passHash ,LozinkaSalt = salt },
-                    new Korisnici { Ime="Gengar", Prezime="Pokemon",  KorisnickoIme="6en6ar", LozinkaHash =passHash ,LozinkaSalt = salt },
+                    new Korisnici { Ime="Admin", Prezime="Admin",Email="admin@leet.com"  ,KorisnickoIme="admin", LozinkaHash =passHash ,LozinkaSalt = salt },
+                    new Korisnici { Ime="Gengar", Prezime="Pokemon",Email="gengar@leet.com",  KorisnickoIme="6en6ar", LozinkaHash =passHash ,LozinkaSalt = salt },
                 };
 
                 foreach (var item in tip)
                 {
                     context.Korisnicis.Add(item);
+                }
+                context.SaveChanges();
+            }
+            if (context.Kupcis.Count() == 0)
+            {
+                var salt = KupciService.GenerateSalt();
+                var passHash = KupciService.GenerateHash(salt, "johndoe123");
+                var tip = new List<Kupci>
+                {
+                    new Kupci { Ime="John", Prezime="Doe",Email="johndoe@leet.com",DatumRegistracije=DateTime.Now,  KorisnickoIme="john", LozinkaHash =passHash ,LozinkaSalt = salt },
+                };
+
+                foreach (var item in tip)
+                {
+                    context.Kupcis.Add(item);
                 }
                 context.SaveChanges();
             }

@@ -36,5 +36,10 @@ namespace SpartanX.WinUI.Dobavljaci
             };
             dgvDobavljaci.DataSource = await _apiservice.Get<List<ModelSpartanX.Dobavljaci>>(req);
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -34,6 +34,7 @@ namespace SpartanX.WinUI.Skladista
             this.btnPrikaziSkl = new System.Windows.Forms.Button();
             this.txtSkladista = new System.Windows.Forms.TextBox();
             this.btnNovoSkladiste = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladista)).BeginInit();
             this.SuspendLayout();
@@ -63,16 +64,19 @@ namespace SpartanX.WinUI.Skladista
             // 
             // btnPrikaziSkl
             // 
+            this.btnPrikaziSkl.BackColor = System.Drawing.SystemColors.ControlText;
+            this.btnPrikaziSkl.ForeColor = System.Drawing.SystemColors.Control;
             this.btnPrikaziSkl.Location = new System.Drawing.Point(966, 124);
             this.btnPrikaziSkl.Name = "btnPrikaziSkl";
             this.btnPrikaziSkl.Size = new System.Drawing.Size(318, 46);
             this.btnPrikaziSkl.TabIndex = 1;
             this.btnPrikaziSkl.Text = "Prikazi";
-            this.btnPrikaziSkl.UseVisualStyleBackColor = true;
+            this.btnPrikaziSkl.UseVisualStyleBackColor = false;
             this.btnPrikaziSkl.Click += new System.EventHandler(this.btnPrikaziSkl_Click);
             // 
             // txtSkladista
             // 
+            this.txtSkladista.BackColor = System.Drawing.SystemColors.Info;
             this.txtSkladista.Location = new System.Drawing.Point(16, 131);
             this.txtSkladista.Name = "txtSkladista";
             this.txtSkladista.Size = new System.Drawing.Size(933, 39);
@@ -80,19 +84,31 @@ namespace SpartanX.WinUI.Skladista
             // 
             // btnNovoSkladiste
             // 
+            this.btnNovoSkladiste.BackColor = System.Drawing.Color.Black;
+            this.btnNovoSkladiste.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnNovoSkladiste.Location = new System.Drawing.Point(966, 544);
             this.btnNovoSkladiste.Name = "btnNovoSkladiste";
             this.btnNovoSkladiste.Size = new System.Drawing.Size(321, 46);
             this.btnNovoSkladiste.TabIndex = 3;
             this.btnNovoSkladiste.Text = "Novo skladiste";
-            this.btnNovoSkladiste.UseVisualStyleBackColor = true;
+            this.btnNovoSkladiste.UseVisualStyleBackColor = false;
             this.btnNovoSkladiste.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 32);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Traži:";
             // 
             // SkladistaPrikaz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1302, 602);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNovoSkladiste);
             this.Controls.Add(this.txtSkladista);
             this.Controls.Add(this.btnPrikaziSkl);
@@ -114,5 +130,6 @@ namespace SpartanX.WinUI.Skladista
         private System.Windows.Forms.Button btnPrikaziSkl;
         private System.Windows.Forms.TextBox txtSkladista;
         private System.Windows.Forms.Button btnNovoSkladiste;
+        private System.Windows.Forms.Label label1;
     }
 }

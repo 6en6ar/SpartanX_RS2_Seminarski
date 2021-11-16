@@ -55,6 +55,7 @@ namespace SpartanX.WinUI.Korisnici
             // 
             this.dgvKorisniciPrikaz.AllowUserToAddRows = false;
             this.dgvKorisniciPrikaz.AllowUserToDeleteRows = false;
+            this.dgvKorisniciPrikaz.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvKorisniciPrikaz.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKorisniciPrikaz.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvKorisniciPrikaz.Location = new System.Drawing.Point(3, 35);
@@ -91,16 +92,19 @@ namespace SpartanX.WinUI.Korisnici
             // 
             // btnPrikaziKorisnike
             // 
+            this.btnPrikaziKorisnike.BackColor = System.Drawing.Color.Black;
+            this.btnPrikaziKorisnike.ForeColor = System.Drawing.SystemColors.Control;
             this.btnPrikaziKorisnike.Location = new System.Drawing.Point(973, 105);
             this.btnPrikaziKorisnike.Name = "btnPrikaziKorisnike";
             this.btnPrikaziKorisnike.Size = new System.Drawing.Size(344, 46);
             this.btnPrikaziKorisnike.TabIndex = 1;
             this.btnPrikaziKorisnike.Text = "Prikazi";
-            this.btnPrikaziKorisnike.UseVisualStyleBackColor = true;
+            this.btnPrikaziKorisnike.UseVisualStyleBackColor = false;
             this.btnPrikaziKorisnike.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtIme
             // 
+            this.txtIme.BackColor = System.Drawing.SystemColors.Info;
             this.txtIme.Location = new System.Drawing.Point(6, 109);
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(897, 39);
@@ -122,7 +126,7 @@ namespace SpartanX.WinUI.Korisnici
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Snow;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1341, 615);
             this.Controls.Add(this.Dodajbutton);
             this.Controls.Add(this.groupBox2);
