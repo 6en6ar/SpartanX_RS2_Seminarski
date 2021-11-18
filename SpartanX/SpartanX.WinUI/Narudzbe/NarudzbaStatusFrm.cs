@@ -30,6 +30,7 @@ namespace SpartanX.WinUI.Narudzbe
             updateNar.Status = cbStatus.Checked;
             await _service.Update<ModelSpartanX.Narudzbe>(narudzba.NarudzbaId,updateNar);
             MessageBox.Show("Uspješno ste promjenili status pošiljke!");
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -38,7 +39,7 @@ namespace SpartanX.WinUI.Narudzbe
             frm.Hide();
             frm.lblBrojN.Text = narudzba.BrojNarudzbe.ToString();
             frm.lblDatum.Text = narudzba.DatumNarudzbe.ToString();
-            if (narudzba.Otkazano == true)
+            if (!narudzba.Status)
             {
                 frm.lblStatus.Text = "Otkazano";
             }
@@ -46,8 +47,7 @@ namespace SpartanX.WinUI.Narudzbe
             {
                 frm.lblStatus.Text = "U obradi";
             }
-            frm.lblIznosSPdv.Text = narudzba.IznosSaPdv.ToString();
-            
+            frm.lblIznosSPdv.Text = narudzba.IznosSaPdv.ToString() + " KM";
             frm.Show();
         }
     }

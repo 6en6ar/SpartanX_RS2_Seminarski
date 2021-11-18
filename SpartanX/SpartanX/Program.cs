@@ -20,7 +20,7 @@ namespace SpartanX
             //using(var scope = host.Services.CreateScope())
             //{
               //  var db = scope.ServiceProvider.GetService<SpartanXContext>();
-                //new SeedSetup.SetupService().Init(db);
+              //  new SeedSetup.SetupService().Init(db);
  
             //}
             host.Run();

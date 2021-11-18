@@ -30,7 +30,7 @@ namespace SpartanX.WinUI.Narudzbe
             dgvNarudzbe.Columns["SkladisteId"].Visible = false;
             dgvNarudzbe.Columns["PosiljkaOpis"].Visible = false;
             dgvNarudzbe.Columns["Kupac"].Visible = false;
-            dgvNarudzbe.Columns["NArudzbaStavkes"].Visible = false;
+            dgvNarudzbe.Columns["NarudzbaStavkes"].Visible = false;
         }
 
         private void dgvNarudzbe_CellContentClick(object sender, DataGridViewCellEventArgs e)
