@@ -21,7 +21,8 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <ScrollView Grid.Row="1">
-            
+            <Label Text="Welcome !" FontSize="Title"/>
+            <Label Text="This is our application made to make your lives easier and healthier !" FontSize="16"/>
         </ScrollView>
     </Grid>
 
