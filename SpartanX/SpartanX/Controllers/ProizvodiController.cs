@@ -36,13 +36,14 @@ namespace SpartanX.Controllers
             return _service.GetById(id);
         }
         [HttpPost]
-        [Authorize(Roles ="Menadzer")]
+        [Authorize]
         public ModelSpartanX.Proizvodi Insert(ModelSpartanX.Requests.ProizvodiInsertRequest request)
         {
             return _service.Insert(request);
         }
         [HttpPut("{id}")]
-        [Authorize(Roles = "Menadzer")]
+        //[Authorize(Roles = "Menadzer")]
+        [Authorize]
         public ModelSpartanX.Proizvodi Update(int id, [FromBody] ModelSpartanX.Requests.ProizvodiUpdateRequest request)
         {
             return _service.Update(id, request);
