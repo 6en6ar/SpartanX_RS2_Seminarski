@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SpartanX.Services;
 using System;
 using System.Collections.Generic;
@@ -24,11 +25,13 @@ namespace SpartanX.Controllers
             return _service.Authenticate(username, password);
         }
         [HttpGet]
+        [Authorize]
         public List<ModelSpartanX.Kupci> Get([FromQuery] ModelSpartanX.Search.KupciSearchObject request)
         {
             return _service.Get(request);
         }
         [HttpGet("{id}")]
+        [Authorize]
         public ModelSpartanX.Kupci GetById(int id)
         {
             return _service.GetById(id);
