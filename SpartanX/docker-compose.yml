@@ -20,7 +20,7 @@ services:
     environment:
       - ConnectionStrings:DefaultConnection=Server=spartanx-sql,1433;Database=SpartanX;User=sa;Password=rs2sem2021!;ConnectRetryCount=0
     ports:
-      - 5050:5050
+      - 5000:5000
     networks:
       - spartanxnet
     links:
