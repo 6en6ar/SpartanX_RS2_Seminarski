@@ -29,6 +29,7 @@ namespace SpartanX.WinUI.Korisnici
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtPotvrdiPass = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -46,7 +47,9 @@ namespace SpartanX.WinUI.Korisnici
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.clbUloge = new System.Windows.Forms.CheckedListBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -209,6 +212,10 @@ namespace SpartanX.WinUI.Korisnici
             this.clbUloge.Size = new System.Drawing.Size(581, 184);
             this.clbUloge.TabIndex = 6;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // KorisnikDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
@@ -224,6 +231,7 @@ namespace SpartanX.WinUI.Korisnici
             this.Load += new System.EventHandler(this.KorisnikDetalji_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,5 +256,6 @@ namespace SpartanX.WinUI.Korisnici
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckedListBox clbUloge;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
