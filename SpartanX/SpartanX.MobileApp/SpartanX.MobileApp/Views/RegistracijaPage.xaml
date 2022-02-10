@@ -8,19 +8,26 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
-                <Label Padding="5" Text="Ime:"/>
-                <Entry  Text="{Binding Ime}"  Placeholder="Ime" BackgroundColor="DarkGray"></Entry>
-                <Label Padding="5" Text="Prezime:"/>
-                <Entry  Text="{Binding Prezime}"  Placeholder="Prezime" BackgroundColor="DarkGray"></Entry>
-                <Label Padding="5" Text="Email:"/>
-                <Entry  Text="{Binding Email}"  Placeholder="Email" BackgroundColor="DarkGray"></Entry>
-                <Label Padding="5" Text="Korisnicko ime:"/>
-                <Entry  Text="{Binding KorisnickoIme}"  Placeholder="Username" BackgroundColor="DarkGray"></Entry>
-                <Label Padding="5" Text="Lozinka:"/>
-                <Entry Text="{Binding Password}" Placeholder="Lozinka" BackgroundColor="DarkGray" IsPassword="True"></Entry>
-                <Label Padding="5" Text="Potvrda lozinke:"/>
-                <Entry Text="{Binding Potvrda}" Placeholder="Potvrda" BackgroundColor="DarkGray" IsPassword="True"></Entry>
-                <Button Command="{Binding RegistrujKomanda}" HorizontalOptions="FillAndExpand" Margin="15" Padding="5" CornerRadius="15" Text="Registruj" BackgroundColor="Red"></Button>
+                <Label x:Name="imeError"  Padding="5" Text="Ime:"/>
+                <Entry  x:Name="inputIme" Text="{Binding Ime}"  Placeholder="Ime" BackgroundColor="DarkGray"></Entry>
+                
+                <Label x:Name="prezimeError"  Padding="5" Text="Prezime:"/>
+                <Entry  x:Name="inputPrezime" Text="{Binding Prezime}"  Placeholder="Prezime" BackgroundColor="DarkGray"></Entry>
+                
+                <Label x:Name="mailError"  Padding="5" Text="Email:"/>
+                <Entry  x:Name="inputMail" Text="{Binding Email}"  Placeholder="Email" BackgroundColor="DarkGray"></Entry>
+                
+                <Label x:Name="KimeError"  Padding="5" Text="Korisnicko ime:"/>
+                <Entry  x:Name="inputKIme" Text="{Binding KorisnickoIme}"  Placeholder="Username" BackgroundColor="DarkGray"></Entry>
+                
+                <Label x:Name="lozinkaError" Padding="5" Text="Lozinka:"/>
+                <Entry x:Name="inputPassword" Text="{Binding Password}" Placeholder="Lozinka" BackgroundColor="DarkGray" IsPassword="True"></Entry>
+                
+                <Label x:Name="potvrdaError" Padding="5" Text="Potvrda lozinke:"/>
+                <Entry x:Name="inputPotvrda" Text="{Binding Potvrda}" Placeholder="Potvrda" BackgroundColor="DarkGray" IsPassword="True"></Entry>
+
+                <Button Command="{Binding RegistrujKomanda}" HorizontalOptions="FillAndExpand" Margin="15" Padding="5" CornerRadius="15" Text="Registruj" BackgroundColor="Red"
+                        Clicked="RegistracijaClicked"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

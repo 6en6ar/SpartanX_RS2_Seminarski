@@ -12,10 +12,10 @@ namespace SpartanX.MobileApp.ViewModels
         private readonly APIService _service = new APIService("Kupci");
         public RegistracijaViewModel()
         {
-            RegistrujKomanda  = new Command(async () =>
-            {
-                await Registracija();
-            });
+            //RegistrujKomanda  = new Command(async () =>
+            //{
+            //    await Registracija();
+            //});
         }
         public ICommand RegistrujKomanda { get; set; }
         string _ime = string.Empty;

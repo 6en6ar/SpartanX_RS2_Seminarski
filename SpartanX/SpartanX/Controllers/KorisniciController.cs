@@ -21,25 +21,25 @@ namespace SpartanX.Controllers
             _service = service;
         }
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public List<ModelSpartanX.Korisnici> Get([FromQuery] ModelSpartanX.Search.KorisniciSearchObject request)
         {
             return _service.Get(request);
         }
         [HttpGet("{id}")]
-        [Authorize]
+        //[Authorize]
         public ModelSpartanX.Korisnici GetById(int id)
         {
             return _service.GetById(id);
         }
         [HttpPost]
-        [Authorize(Roles ="Administrator")]
+        //[Authorize(Roles ="Administrator")]
         public ModelSpartanX.Korisnici Insert(ModelSpartanX.Requests.KorisniciInsertRequest request)
         {
             return _service.Insert(request);
         }
         [HttpPut("{id}")]
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         public ModelSpartanX.Korisnici Update(int id, [FromBody] ModelSpartanX.Requests.KorisniciUpdateRequest request)
         {
             return _service.Update(id, request);

@@ -105,11 +105,22 @@ namespace SpartanX.WinUI.Korisnici
                 {
                     Ime = txtIme.Text,
                     Prezime = txtPrezime.Text,
-                    Status=cbStatus.Checked,
-                    KorisnickoIme = txtUsername.Text
+                    Status = cbStatus.Checked,
+                    KorisnickoIme = txtUsername.Text,
+                    Email = txtEmail.Text
+                    
                 };
-                var result = await service.Update<ModelSpartanX.Korisnici>(_korisnik.KorisnikId,req);
-                MessageBox.Show("Uspješno ste editovali korisnika!");
+                try
+                {
+                    var result = await service.Update<ModelSpartanX.Korisnici>(_korisnik.KorisnikId, req);
+                    MessageBox.Show("Uspješno ste editovali korisnika!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Došlo je do greške!");
+                    throw ex;
+                }
+                
             }
         }
 

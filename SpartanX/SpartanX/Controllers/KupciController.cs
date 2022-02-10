@@ -25,13 +25,13 @@ namespace SpartanX.Controllers
             return _service.Authenticate(username, password);
         }
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public List<ModelSpartanX.Kupci> Get([FromQuery] ModelSpartanX.Search.KupciSearchObject request)
         {
             return _service.Get(request);
         }
         [HttpGet("{id}")]
-        [Authorize]
+        //[Authorize]
         public ModelSpartanX.Kupci GetById(int id)
         {
             return _service.GetById(id);
@@ -42,6 +42,7 @@ namespace SpartanX.Controllers
             return _service.Insert(request);
         }
         [HttpPost("{id}/{username},{password}")]
+        //[Authorize]
         public ModelSpartanX.Kupci Update(int id,[FromBody] ModelSpartanX.Requests.KupciUpdateRequest request, string username, string password)
         {
             return _service.Update(id, request, username, password);

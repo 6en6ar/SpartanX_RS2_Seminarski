@@ -10,7 +10,7 @@ namespace SpartanX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [Authorize]
+    //[Authorize]
     public class UlogeController : BaseReadController<ModelSpartanX.Uloge, object>
     {
         
