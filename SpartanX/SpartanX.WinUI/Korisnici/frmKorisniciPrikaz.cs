@@ -31,6 +31,8 @@ namespace SpartanX.WinUI.Korisnici
         private async void frmKorisniciPrikaz_Load(object sender, EventArgs e)
         {
             dgvKorisniciPrikaz.DataSource = await _apiservice.Get<List<ModelSpartanX.Korisnici>>(null);
+            dgvKorisniciPrikaz.Columns["KorisnikId"].Visible = false;
+            dgvKorisniciPrikaz.Columns["KorisnikUloges"].Visible = false;
         }
 
         private void dgvKorisniciPrikaz_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
