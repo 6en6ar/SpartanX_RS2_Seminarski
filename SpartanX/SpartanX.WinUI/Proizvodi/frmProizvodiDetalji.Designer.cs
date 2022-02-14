@@ -29,6 +29,7 @@ namespace SpartanX.WinUI.Proizvodi
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cmbVrsta = new System.Windows.Forms.ComboBox();
             this.txtKod = new System.Windows.Forms.TextBox();
             this.txtNaziv = new System.Windows.Forms.TextBox();
@@ -47,7 +48,9 @@ namespace SpartanX.WinUI.Proizvodi
             this.cmbProizvodjaci = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.ofdSlika = new System.Windows.Forms.OpenFileDialog();
+            this.errProv = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbSlika)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errProv)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbVrsta
@@ -196,6 +199,10 @@ namespace SpartanX.WinUI.Proizvodi
             // 
             this.ofdSlika.FileName = "openFileDialog1";
             // 
+            // errProv
+            // 
+            this.errProv.ContainerControl = this;
+            // 
             // frmProizvodiDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
@@ -222,6 +229,7 @@ namespace SpartanX.WinUI.Proizvodi
             this.Text = "frmProizvodiDetalji";
             this.Load += new System.EventHandler(this.frmProizvodiDetalji_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbSlika)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errProv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +255,6 @@ namespace SpartanX.WinUI.Proizvodi
         private System.Windows.Forms.ComboBox cmbProizvodjaci;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.OpenFileDialog ofdSlika;
+        private System.Windows.Forms.ErrorProvider errProv;
     }
 }

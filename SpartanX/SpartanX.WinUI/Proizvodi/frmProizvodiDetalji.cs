@@ -93,74 +93,137 @@ namespace SpartanX.WinUI.Proizvodi
             return xByte;
 
         }
-        private async void btnSave_Click(object sender, EventArgs e)
+
+        private bool Kod_Validating()
         {
-            if (_proizvod == null)
+            if (string.IsNullOrWhiteSpace(txtKod.Text))
             {
-                var vrstaPro = cmbVrsta.SelectedValue;
-                if (int.TryParse(vrstaPro.ToString(), out int VrstaId))
-                {
-                    insertPro.VrstaId = VrstaId;
-                }
-                var proizvodjac = cmbVrsta.SelectedValue;
-                if (int.TryParse(proizvodjac.ToString(), out int ProizvodjacId))
-                {
-                    insertPro.ProizvodjacId = ProizvodjacId;
-                }
-                insertPro.Kod = txtKod.Text;
-                insertPro.Naziv = txtNaziv.Text;
-                if (int.TryParse(txtBodovi.Text, out int bodovi))
-                {
-                    insertPro.BodoviLojalnosti = bodovi;
-                }
 
-                if (decimal.TryParse(txtCijena.Text, out decimal cijena))
-                {
-                    insertPro.Cijena = cijena;
-                }
-                if (pbSlika.Image != null)
-                {
-                    Image i = pbSlika.Image;
-                    insertPro.Slika = ImageToByteArray(i);
-                    Image thumb = i.GetThumbnailImage(120, 120, () => false, IntPtr.Zero);
-                    insertPro.SlikaThumb = ImageToByteArray(thumb);
-
-                }
-                await _servicePro.Insert<ModelSpartanX.Proizvodi>(insertPro);
-                MessageBox.Show("Uspješno ste dodali proizvod!");
+                errProv.SetError(txtKod, "Obavezno polje");
+                return false;
             }
             else
             {
-                var vrstaPro = cmbVrsta.SelectedValue;
-                if (int.TryParse(vrstaPro.ToString(), out int VrstaId))
-                {
-                    updatePro.VrstaId = VrstaId;
-                }
-                var proizvodjac = cmbVrsta.SelectedValue;
-                if (int.TryParse(proizvodjac.ToString(), out int ProizvodjacId))
-                {
-                    updatePro.ProizvodjacId = ProizvodjacId;
-                }
-                updatePro.Naziv = txtNaziv.Text;
-                if (int.TryParse(txtBodovi.Text, out int bodovi))
-                {
-                    updatePro.BodoviLojalnosti = bodovi;
-                }
-                updatePro.Kod = txtKod.Text;
-                if (decimal.TryParse(txtCijena.Text, out decimal cijena))
-                {
-                    updatePro.Cijena = cijena;
-                }
-                if (pbSlika.Image != null)
-                {
-                    Image i = pbSlika.Image;
-                    updatePro.Slika = ImageToByteArray(i);
-                    Image thumb = i.GetThumbnailImage(120, 120, () => false, IntPtr.Zero);
-                    updatePro.SlikaThumb = ImageToByteArray(thumb);
+                errProv.SetError(txtKod, null);
+                return true;
+            }
+        }
+        private bool Naziv_Validating()
+        {
+            if (string.IsNullOrWhiteSpace(txtNaziv.Text))
+            {
 
+                errProv.SetError(txtNaziv, "Obavezno polje");
+                return false;
+            }
+            else
+            {
+                errProv.SetError(txtNaziv, null);
+                return true;
+            }
+        }
+        private bool Validiraj()
+        {
+            bool provjeri = true;
+            if (Naziv_Validating() == false)
+            {
+                provjeri = false;
+            }
+            if (Kod_Validating() == false)
+            {
+                provjeri = false;
+            }
+
+            if (provjeri == false)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        private async void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Validiraj())
+                {
+
+
+                    if (_proizvod == null)
+                    {
+                        var vrstaPro = cmbVrsta.SelectedValue;
+                        if (int.TryParse(vrstaPro.ToString(), out int VrstaId))
+                        {
+                            insertPro.VrstaId = VrstaId;
+                        }
+                        var proizvodjac = cmbVrsta.SelectedValue;
+                        if (int.TryParse(proizvodjac.ToString(), out int ProizvodjacId))
+                        {
+                            insertPro.ProizvodjacId = ProizvodjacId;
+                        }
+                        insertPro.Kod = txtKod.Text;
+                        insertPro.Naziv = txtNaziv.Text;
+                        if (int.TryParse(txtBodovi.Text, out int bodovi))
+                        {
+                            insertPro.BodoviLojalnosti = bodovi;
+                        }
+
+                        if (decimal.TryParse(txtCijena.Text, out decimal cijena))
+                        {
+                            insertPro.Cijena = cijena;
+                        }
+                        if (pbSlika.Image != null)
+                        {
+                            Image i = pbSlika.Image;
+                            insertPro.Slika = ImageToByteArray(i);
+                            Image thumb = i.GetThumbnailImage(120, 120, () => false, IntPtr.Zero);
+                            insertPro.SlikaThumb = ImageToByteArray(thumb);
+
+                        }
+                        await _servicePro.Insert<ModelSpartanX.Proizvodi>(insertPro);
+                        MessageBox.Show("Uspješno ste dodali proizvod!");
+                    }
+                    else
+                    {
+                        var vrstaPro = cmbVrsta.SelectedValue;
+                        if (int.TryParse(vrstaPro.ToString(), out int VrstaId))
+                        {
+                            updatePro.VrstaId = VrstaId;
+                        }
+                        var proizvodjac = cmbVrsta.SelectedValue;
+                        if (int.TryParse(proizvodjac.ToString(), out int ProizvodjacId))
+                        {
+                            updatePro.ProizvodjacId = ProizvodjacId;
+                        }
+                        updatePro.Naziv = txtNaziv.Text;
+                        if (int.TryParse(txtBodovi.Text, out int bodovi))
+                        {
+                            updatePro.BodoviLojalnosti = bodovi;
+                        }
+                        updatePro.Kod = txtKod.Text;
+                        if (decimal.TryParse(txtCijena.Text, out decimal cijena))
+                        {
+                            updatePro.Cijena = cijena;
+                        }
+                        if (pbSlika.Image != null)
+                        {
+                            Image i = pbSlika.Image;
+                            updatePro.Slika = ImageToByteArray(i);
+                            Image thumb = i.GetThumbnailImage(120, 120, () => false, IntPtr.Zero);
+                            updatePro.SlikaThumb = ImageToByteArray(thumb);
+
+                        }
+                        await _servicePro.Update<ModelSpartanX.Proizvodi>(_proizvod.ProizvodId, updatePro);
+                        MessageBox.Show("Uspješno ste uredili proizvod!");
+                    }
                 }
-                await _servicePro.Update<ModelSpartanX.Proizvodi>(_proizvod.ProizvodId,updatePro);
-                MessageBox.Show("Uspješno ste uredili proizvod!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Došlo je do greške!");
+                throw ex;
             }
         }
     }
