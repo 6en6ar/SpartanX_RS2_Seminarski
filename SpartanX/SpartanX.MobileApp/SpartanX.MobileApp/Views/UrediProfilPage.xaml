@@ -9,15 +9,19 @@
         <StackLayout>
             <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
                 <Label Padding="5" Text="Uredi korisnički profil"/>
-                <Label Padding="5" Text="Email:"/>
-                <Entry  Text="{Binding Email}"  Placeholder="Email" BackgroundColor="DarkGray"></Entry>
-                <Label Padding="5" Text="Korisnicko ime:"/>
-                <Entry  Text="{Binding KorisnickoIme}"  Placeholder="Username" BackgroundColor="DarkGray"></Entry>
+                <Label x:Name="erroMail" Padding="5" Text="Email:"/>
+                <Entry  x:Name="inputMail" Text="{Binding Email}"  Placeholder="Email" BackgroundColor="DarkGray"></Entry>
+                
+                <Label x:Name="KImeError" Padding="5" Text="Korisnicko ime:"/>
+                <Entry  x:Name="inputKorIme" Text="{Binding KorisnickoIme}"  Placeholder="Username" BackgroundColor="DarkGray"></Entry>
+                
                 <Label Padding="5" Text="Lozinka:"/>
                 <Entry Text="{Binding Password}" Placeholder="Lozinka" BackgroundColor="DarkGray" IsPassword="True"></Entry>
+                
                 <Label Padding="5" Text="Potvrda lozinke:"/>
                 <Entry Text="{Binding Potvrda}" Placeholder="Potvrda" BackgroundColor="DarkGray" IsPassword="True"></Entry>
-                <Button Command="{Binding UrediKomanda}" HorizontalOptions="FillAndExpand" Margin="15" Padding="5" CornerRadius="15" Text="Update" BackgroundColor="DeepSkyBlue"></Button>
+                
+                <Button Command="{Binding UrediKomanda}" HorizontalOptions="FillAndExpand" Margin="15" Padding="5" CornerRadius="15" Text="Update" Clicked="Update_Clicked" BackgroundColor="DeepSkyBlue"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
