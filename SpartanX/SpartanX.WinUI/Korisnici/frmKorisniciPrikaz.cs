@@ -22,9 +22,12 @@ namespace SpartanX.WinUI.Korisnici
         {
             ModelSpartanX.Search.KorisniciSearchObject req = new ModelSpartanX.Search.KorisniciSearchObject()
             {
-                Ime = txtIme.Text
+                Ime = txtIme.Text,
+               
+                
             };
             dgvKorisniciPrikaz.DataSource = await _apiservice.Get<List<ModelSpartanX.Korisnici>>(req);
+            dgvKorisniciPrikaz.Columns["KorisnikId"].Visible = false;
 
         }
 
@@ -32,7 +35,7 @@ namespace SpartanX.WinUI.Korisnici
         {
             dgvKorisniciPrikaz.DataSource = await _apiservice.Get<List<ModelSpartanX.Korisnici>>(null);
             dgvKorisniciPrikaz.Columns["KorisnikId"].Visible = false;
-            dgvKorisniciPrikaz.Columns["KorisnikUloges"].Visible = false;
+            //dgvKorisniciPrikaz.Columns["KorisnikUloges"].Visible = false;
         }
 
         private void dgvKorisniciPrikaz_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

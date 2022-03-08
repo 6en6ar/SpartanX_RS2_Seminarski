@@ -20,7 +20,7 @@ namespace ModelSpartanX
         public string KorisnickoIme { get; set; }
         public bool? Status { get; set; }
 
-        public virtual ICollection<KorisniciUloge> KorisnikUloges { get; set; }
+        public List<KorisniciUloge> KorisnikUloges { get; set; } // change to ICollection virtual
  
 
 

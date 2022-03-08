@@ -30,6 +30,10 @@ namespace SpartanX.Services
             {
                 query = query.Where(x => x.Ime.StartsWith(request.Ime));
             }
+            ////if (request?.LoadUloge == true)
+            ////{
+            ////    query = query.Include(x => x.KorisnikUloges);
+            ////}
 
             var list = query.ToList();
 

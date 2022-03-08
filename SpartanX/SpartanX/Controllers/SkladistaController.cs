@@ -11,7 +11,7 @@ namespace SpartanX.Controllers
     [ApiController]
     [Route("[controller]")]
     //[Authorize]
-    public class SkladistaController :ControllerBase
+    public class SkladistaController : ControllerBase
     {
         private readonly ISkladistaService _service;
         public SkladistaController(ISkladistaService service)
