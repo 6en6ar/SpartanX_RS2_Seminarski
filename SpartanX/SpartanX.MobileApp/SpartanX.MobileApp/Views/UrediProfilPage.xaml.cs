@@ -24,38 +24,38 @@ namespace SpartanX.MobileApp.Views
 
         private async void Update_Clicked(object sender, EventArgs e)
         {
-            List<ModelSpartanX.Kupci> lista = await service.Get<List<ModelSpartanX.Kupci>>(null);
-            bool vecPostojiIme = false;
-            bool vecPostojiMail = false;
-            foreach (var item in lista)
-            {
-                if (item.KorisnickoIme.Equals(inputKorIme.Text) == true)
-                {
-                    vecPostojiIme = true;
-                }
-                if (item.Email.Equals(inputMail.Text) == true)
-                {
-                    vecPostojiMail = true;
-                }
-            }
-            if (vecPostojiIme)
-            {
-                await DisplayAlert("Greska", "Korisnik sa tim korisnickim imenom vec postoji", "OK");
-                KImeError.Text = "Korisnicko ime je vec registrovano!";
-                KImeError.IsVisible = true;
-            }
-            else if (vecPostojiMail)
-            {
-                await DisplayAlert("Greska", "Korisnik sa tim emailom vec postoji", "OK");
-                erroMail.Text = "Email vec registrovan!";
-                erroMail.IsVisible = true;
+            //List<ModelSpartanX.Kupci> lista = await service.Get<List<ModelSpartanX.Kupci>>(null);
+            //bool vecPostojiIme = false;
+            //bool vecPostojiMail = false;
+            //foreach (var item in lista)
+            //{
+            //    if (item.KorisnickoIme.Equals(inputKorIme.Text) == true && APIService.username != inputKorIme.Text)
+            //    {
+            //        vecPostojiIme = true;
+            //    }
+            //    if (item.Email.Equals(inputMail.Text) == true)
+            //    {
+            //        vecPostojiMail = true;
+            //    }
+            //}
+            //if (vecPostojiIme || vecPostojiMail)
+            //{
+            //    await DisplayAlert("Greska", "Korisnik sa tim korisnickim imenom ili mailom vec postoji", "OK");
+            //    KImeError.Text = "Korisnicko ime je vec registrovano!";
+            //    KImeError.IsVisible = true;
+            //}
+            ////else if (vecPostojiMail)
+            ////{
+            ////    await DisplayAlert("Greska", "Korisnik sa tim emailom vec postoji", "OK");
+            ////    erroMail.Text = "Email vec registrovan!";
+            ////    erroMail.IsVisible = true;
 
-            }
-            else
-            {
+            ////}
+            //else
+            //{
 
                 await model.Uredi();
-            }
+            //}
         }
     }
 }

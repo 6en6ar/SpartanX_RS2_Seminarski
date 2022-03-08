@@ -48,6 +48,10 @@ namespace SpartanX.MobileApp.ViewModels
                 request.Email = Email;
                 request.Password = Password;
                 request.PasswordPotvrda = Potvrda;
+                if(Password != Potvrda)
+                {
+                    throw new Exception("Passwordi se ne poklapaju");
+                }
 
 
                 await _service.Update<ModelSpartanX.Kupci>(GlobalKorisnik.GlobalKorisnik.Prijavljeni.KupacId, request, APIService.username,APIService.password);

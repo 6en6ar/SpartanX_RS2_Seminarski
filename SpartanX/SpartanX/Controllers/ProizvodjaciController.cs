@@ -12,6 +12,7 @@ namespace SpartanX.Controllers
 
     [ApiController]
     [Route("[controller]")]
+
     public class ProizvodjaciController : BaseReadController<ModelSpartanX.Proizvodjaci, ModelSpartanX.Search.ProizvodjaciSearchObject>
     {
         public ProizvodjaciController(IProizvodjaciService _service) : base(_service)

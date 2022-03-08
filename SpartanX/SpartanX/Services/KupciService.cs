@@ -77,9 +77,13 @@ namespace SpartanX.Services
             return _mapper.Map<ModelSpartanX.Kupci>(kupac);
         }
 
-        public ModelSpartanX.Kupci Update(int id, ModelSpartanX.Requests.KupciUpdateRequest req, string username,string password)
+        public ModelSpartanX.Kupci Update(int id, ModelSpartanX.Requests.KupciUpdateRequest req, string username, string password)
         {
-            var user = _context.Kupcis.FirstOrDefault(x => x.KorisnickoIme == username);
+            var user = _context.Kupcis.FirstOrDefault(x => x.KupacId == id && x.KorisnickoIme == username);
+            if(req.Password != req.PasswordPotvrda)
+            {
+                throw new Exception("Lozinke se ne podudaraju !");
+            }
 
             if (user != null)
             {
