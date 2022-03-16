@@ -11,11 +11,34 @@ namespace SpartanX.Controllers
     [ApiController]
     [Route("[controller]")]
     //[Authorize]
-    public class NarudzbeController : BaseCRUDController<ModelSpartanX.Narudzbe, object, ModelSpartanX.Requests.NarudzbeInsertRequest, ModelSpartanX.Requests.NarudzbeUpdateRequest>
+    public class NarudzbeController : ControllerBase
     {
-        public NarudzbeController(INarudzbeService _service) : base(_service)
+        private readonly INarudzbeService _service;
+        public NarudzbeController(INarudzbeService service)
         {
-
+            _service = service;
+        }      
+        [HttpGet]
+        public List<ModelSpartanX.Narudzbe> Get([FromQuery] object search = null)
+        {
+            return _service.Get(search);
+        }
+        [HttpGet("{id}")]
+        public ModelSpartanX.Narudzbe GetById(int id)
+        {
+            return _service.GetById(id);
+        }
+        [HttpPost]
+        //[Authorize]
+        public ModelSpartanX.Narudzbe Insert(ModelSpartanX.Requests.NarudzbeInsertRequest request)
+        {
+            return _service.Insert(request);
+        }
+        [HttpPut("{id}")]
+        //[Authorize]
+        public ModelSpartanX.Narudzbe Update(int id, [FromBody] ModelSpartanX.Requests.NarudzbeUpdateRequest request)
+        {
+            return _service.Update(id, request);
         }
     }
 }

@@ -72,7 +72,7 @@ namespace SpartanX.SeedSetup
                 var passHash = KorisniciService.GenerateHash(salt, "admin123");
                 var tip = new List<Korisnici>
                 {
-                    new Korisnici { Ime="Admin", Prezime="Admin",Email="admin@leet.com"  ,KorisnickoIme="admin", LozinkaHash =passHash ,LozinkaSalt = salt },
+                    //new Korisnici { Ime="Admin", Prezime="Admin",Email="admin@leet.com"  ,KorisnickoIme="admin", LozinkaHash =passHash ,LozinkaSalt = salt },
                     new Korisnici { Ime="Gengar", Prezime="Pokemon",Email="gengar@leet.com",  KorisnickoIme="6en6ar", LozinkaHash =passHash ,LozinkaSalt = salt },
                 };
 
