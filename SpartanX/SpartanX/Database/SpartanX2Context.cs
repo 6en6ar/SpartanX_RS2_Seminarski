@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace SpartanX.Database
 {
-    public partial class SpartanXContext : DbContext
+    public partial class SpartanX2Context : DbContext
     {
-        public SpartanXContext()
+        public SpartanX2Context()
         {
         }
 
-        public SpartanXContext(DbContextOptions<SpartanXContext> options)
+        public SpartanX2Context(DbContextOptions<SpartanX2Context> options)
             : base(options)
         {
         }
@@ -38,7 +38,7 @@ namespace SpartanX.Database
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=localhost, 1433;Initial Catalog=SpartanX; user=sa; Password=rs2sem2021!");
+                optionsBuilder.UseSqlServer("Data Source=localhost, 1433;Initial Catalog=SpartanX2; user=sa; Password=rs2sem2021!");
             }
         }
 
@@ -84,6 +84,10 @@ namespace SpartanX.Database
             modelBuilder.Entity<Komentar>(entity =>
             {
                 entity.ToTable("Komentar");
+
+                entity.HasIndex(e => e.KupacId, "IX_Komentar_KupacID");
+
+                entity.HasIndex(e => e.ProizvodId, "IX_Komentar_ProizvodID");
 
                 entity.Property(e => e.KomentarId).HasColumnName("KomentarID");
 
@@ -149,6 +153,10 @@ namespace SpartanX.Database
 
                 entity.ToTable("KorisnikUloge");
 
+                entity.HasIndex(e => e.KorisnikId, "IX_KorisnikUloge_KorisnikID");
+
+                entity.HasIndex(e => e.UlogaId, "IX_KorisnikUloge_UlogaID");
+
                 entity.Property(e => e.KorisnikUlogaId).HasColumnName("KorisnikUlogaID");
 
                 entity.Property(e => e.Datum).HasColumnType("datetime");
@@ -207,6 +215,12 @@ namespace SpartanX.Database
             {
                 entity.ToTable("Nabavka");
 
+                entity.HasIndex(e => e.DobavljacId, "IX_Nabavka_DobavljacID");
+
+                entity.HasIndex(e => e.KorisnikId, "IX_Nabavka_KorisnikID");
+
+                entity.HasIndex(e => e.SkladisteId, "IX_Nabavka_SkladisteID");
+
                 entity.Property(e => e.NabavkaId).HasColumnName("NabavkaID");
 
                 entity.Property(e => e.BrojNabavke)
@@ -252,6 +266,10 @@ namespace SpartanX.Database
             {
                 entity.ToTable("NabavkaStavke");
 
+                entity.HasIndex(e => e.NabavkaId, "IX_NabavkaStavke_NabavkaID");
+
+                entity.HasIndex(e => e.ProizvodId, "IX_NabavkaStavke_ProizvodID");
+
                 entity.Property(e => e.NabavkaStavkeId).HasColumnName("NabavkaStavkeID");
 
                 entity.Property(e => e.Cijena).HasColumnType("decimal(18, 2)");
@@ -278,6 +296,10 @@ namespace SpartanX.Database
                 entity.HasKey(e => e.NarudzbaStavkaId);
 
                 entity.ToTable("NarudzbaStavke");
+
+                entity.HasIndex(e => e.NarudzbaId, "IX_NarudzbaStavke_NarudzbaID");
+
+                entity.HasIndex(e => e.ProizvodId, "IX_NarudzbaStavke_ProizvodID");
 
                 entity.Property(e => e.NarudzbaStavkaId).HasColumnName("NarudzbaStavkaID");
 
@@ -307,6 +329,10 @@ namespace SpartanX.Database
                 entity.HasKey(e => e.NarudzbaId);
 
                 entity.ToTable("Narudzbe");
+
+                entity.HasIndex(e => e.KupacId, "IX_Narudzbe_KupacID");
+
+                entity.HasIndex(e => e.SkladisteId, "IX_Narudzbe_SkladisteID");
 
                 entity.Property(e => e.NarudzbaId).HasColumnName("NarudzbaID");
 
@@ -342,6 +368,10 @@ namespace SpartanX.Database
                 entity.HasKey(e => e.ProizvodId);
 
                 entity.ToTable("Proizvodi");
+
+                entity.HasIndex(e => e.ProizvodjacId, "IX_Proizvodi_ProizvodjacID");
+
+                entity.HasIndex(e => e.VrstaId, "IX_Proizvodi_VrstaID");
 
                 entity.Property(e => e.ProizvodId).HasColumnName("ProizvodID");
 
@@ -389,6 +419,12 @@ namespace SpartanX.Database
             modelBuilder.Entity<Racun>(entity =>
             {
                 entity.ToTable("Racun");
+
+                entity.HasIndex(e => e.KorisnikId, "IX_Racun_KorisnikID");
+
+                entity.HasIndex(e => e.KupacId, "IX_Racun_KupacID");
+
+                entity.HasIndex(e => e.NarudzbaId, "IX_Racun_NarudzbaID");
 
                 entity.Property(e => e.RacunId)
                     .HasMaxLength(10)

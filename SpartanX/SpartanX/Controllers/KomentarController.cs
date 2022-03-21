@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SpartanX.Services;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ namespace SpartanX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class KomentarController : BaseReadController<ModelSpartanX.Komentar, object>
     {
         public KomentarController(IKomentarService _service) : base(_service)

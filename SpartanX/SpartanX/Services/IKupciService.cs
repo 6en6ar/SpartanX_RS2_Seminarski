@@ -9,6 +9,7 @@ namespace SpartanX.Services
     {
 
         List<ModelSpartanX.Kupci> Get(ModelSpartanX.Search.KupciSearchObject request);
+        List<ModelSpartanX.Kupci> GetKupce(ModelSpartanX.Search.KupciSearchObject request, string username, string password);
 
         ModelSpartanX.Kupci GetById(int id);
 

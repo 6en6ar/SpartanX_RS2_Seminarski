@@ -41,69 +41,78 @@ namespace SpartanX.MobileApp.Views
 
         private async void Zakljuci_Clicked(object sender, EventArgs e)
         {
-            try
+            if (model.NarudzbaLista.Count() != 0)
             {
-                ModelSpartanX.Kupci kupac = await _KupciService.Authenticate<ModelSpartanX.Kupci>(APIService.username, APIService.password);
-                if (kupac == null)
+                try
                 {
-                    await Application.Current.MainPage.DisplayAlert("Greska!", "Niste autentifikovani", "OK");
-                }
-                else
-                {
-                    //get sve narudzbe
-                    var lista = await _NarudzbaService.Get<List<ModelSpartanX.Narudzbe>>(null);
-                    int najveci = int.MinValue;
-                    foreach (var item in lista)
+                    ModelSpartanX.Kupci kupac = await _KupciService.Authenticate<ModelSpartanX.Kupci>(APIService.username, APIService.password);
+                    if (kupac == null)
                     {
-
-                        if (item.NarudzbaId > najveci)
+                        await Application.Current.MainPage.DisplayAlert("Greska!", "Niste autentifikovani", "OK");
+                    }
+                    else
+                    {
+                        //get sve narudzbe
+                        //var lista = await _NarudzbaService.Get<List<ModelSpartanX.Narudzbe>>(null);
+                        var lista = await _NarudzbaService.GetNarudzbe<List<ModelSpartanX.Narudzbe>>(null, APIService.username,APIService.password);
+                        int najveci = int.MinValue;
+                        foreach (var item in lista)
                         {
-                            najveci = item.NarudzbaId;
+
+                            if (item.NarudzbaId > najveci)
+                            {
+                                najveci = item.NarudzbaId;
+                            }
                         }
+                        int BrojN = najveci + 1;
+                        string novaNarudzba = Helper.NarudzbaGenerator.Generator(BrojN);
+                        // kreirati narudzbu
+                        ModelSpartanX.Requests.NarudzbeInsertRequest req = new ModelSpartanX.Requests.NarudzbeInsertRequest();
+                        req.BrojNarudzbe = novaNarudzba;
+                        req.DatumNarudzbe = DateTime.Now;
+                        req.KupacId = GlobalKorisnik.GlobalKorisnik.Prijavljeni.KupacId;
+                        req.SkladisteId = 1;
+                        req.Otkazano = false;
+                        req.Status = false;
+                        foreach (var item in model.NarudzbaLista)
+                        {
+                            ModelSpartanX.Requests.NarudzbaStavkeInsertRequest requestStavka = new ModelSpartanX.Requests.NarudzbaStavkeInsertRequest();
+
+                            requestStavka.Cijena = item.proizvod.Cijena;
+                            requestStavka.ProizvodId = item.proizvod.ProizvodId;
+                            requestStavka.Kolicina = item.Kolicina;
+                            //dodati bodove lojalnosti
+                            requestStavka.Popust = 0;
+                            req.IznosBezPdv += requestStavka.Cijena * requestStavka.Kolicina;
+                            req.IznosSaPdv += req.IznosBezPdv + req.IznosBezPdv * PDV;
+
+                            req.stavke.Add(requestStavka);
+
+                        }
+                        //insert narudzbu
+                        //await _NarudzbaService.Insert<ModelSpartanX.Narudzbe>(req);
+                        await _NarudzbaService.InsertNarudzba<ModelSpartanX.Narudzbe>(req, APIService.username,APIService.password);
+
+
+                        //display success
+                        model.NarudzbaLista.Clear();
+                        Services.KosaricaService.Cart.Clear();
+                        await App.Current.MainPage.DisplayAlert("Uspjeh", "Uspješno ste napravili narudzbu", "OK");
+                        BrArt.Text = "Broj artikala: 0";
+                        Iznos.Text = "Iznos narudžbe: 0";
+                        //preusmjeri na stripe
+                        await Navigation.PushAsync(new StripePaymentGatewayPage(model.PuniIznos));
+
                     }
-                    int BrojN = najveci + 1;
-                    string novaNarudzba = Helper.NarudzbaGenerator.Generator(BrojN);
-                    // kreirati narudzbu
-                    ModelSpartanX.Requests.NarudzbeInsertRequest req = new ModelSpartanX.Requests.NarudzbeInsertRequest();
-                    req.BrojNarudzbe = novaNarudzba;
-                    req.DatumNarudzbe = DateTime.Now;
-                    req.KupacId = GlobalKorisnik.GlobalKorisnik.Prijavljeni.KupacId;
-                    req.SkladisteId = 1;
-                    req.Otkazano = false;
-                    req.Status = false;
-                    foreach (var item in model.NarudzbaLista)
-                    {
-                        ModelSpartanX.Requests.NarudzbaStavkeInsertRequest requestStavka = new ModelSpartanX.Requests.NarudzbaStavkeInsertRequest();
-
-                        requestStavka.Cijena = item.proizvod.Cijena;
-                        requestStavka.ProizvodId = item.proizvod.ProizvodId;
-                        requestStavka.Kolicina = item.Kolicina;
-                        //dodati bodove lojalnosti
-                        requestStavka.Popust = 0;
-                        req.IznosBezPdv += requestStavka.Cijena * requestStavka.Kolicina;
-                        req.IznosSaPdv += req.IznosBezPdv + req.IznosBezPdv * PDV;
-
-                        req.stavke.Add(requestStavka);
-
-                    }
-                    //insert narudzbu
-                    await _NarudzbaService.Insert<ModelSpartanX.Narudzbe>(req);
-
-
-                    //display success
-                    model.NarudzbaLista.Clear();
-                    Services.KosaricaService.Cart.Clear();
-                    await App.Current.MainPage.DisplayAlert("Uspjeh", "Uspješno ste napravili narudzbu", "OK");
-                    BrArt.Text = "Broj artikala: 0";
-                    Iznos.Text = "Iznos narudžbe: 0";
-                    //preusmjeri na stripe
-                    await Navigation.PushAsync(new StripePaymentGatewayPage(model.PuniIznos));
-
+                }
+                catch
+                {
+                    throw new Exception("Doslo je do greske molim pokusajte ponovo");
                 }
             }
-            catch
+            else
             {
-
+                await App.Current.MainPage.DisplayAlert("Greška", "Kosarica je prazna!", "OK");
             }
            
         }

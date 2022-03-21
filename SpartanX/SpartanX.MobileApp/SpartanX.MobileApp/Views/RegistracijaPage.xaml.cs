@@ -22,48 +22,54 @@ namespace SpartanX.MobileApp.Views
         }
         private async void RegistracijaClicked(object sender, EventArgs e)
         {
+            //List<ModelSpartanX.Kupci> lista = await service.GetKupce<List<ModelSpartanX.Kupci>>(null, APIService.username, APIService.password);
             List<ModelSpartanX.Kupci> lista = await service.Get<List<ModelSpartanX.Kupci>>(null);
-            bool vecPostojiIme = false;
-            bool vecPostojiMail = false;
-            foreach (var item in lista)
+            if(lista != null)
             {
-                if(item.KorisnickoIme.Equals(inputKIme.Text) == true)
+                bool vecPostojiIme = false;
+                bool vecPostojiMail = false;
+                foreach (var item in lista)
                 {
-                    vecPostojiIme = true;
-                }
-                if (item.Email.Equals(inputMail.Text) == true)
-                {
-                    vecPostojiMail = true;
+                    if (item.KorisnickoIme.Equals(inputKIme.Text) == true)
+                    {
+                        vecPostojiIme = true;
+                    }
+                    if (item.Email.Equals(inputMail.Text) == true)
+                    {
+                        vecPostojiMail = true;
+                    }
                 }
 
                 if (ProvjeriRegistraciju())
-                {
-                    if (vecPostojiIme)
                     {
-                        await DisplayAlert("Greska", "Korisnik sa tim korisnickim imenom vec postoji", "OK");
-                        KimeError.Text = "Korisnicko ime je vec registrovano!";
-                        KimeError.IsVisible = true;
-                    }
-                    else if (vecPostojiMail)
-                    {
-                        await DisplayAlert("Greska", "Korisnik sa tim emailom vec postoji", "OK");
-                        mailError.Text = "Email vec registrovan!";
-                        mailError.IsVisible = true;
+                        if (vecPostojiIme)
+                        {
+                            await DisplayAlert("Greska", "Korisnik sa tim korisnickim imenom vec postoji", "OK");
+                            KimeError.Text = "Korisnicko ime je vec registrovano!";
+                            KimeError.IsVisible = true;
+                        }
+                        else if (vecPostojiMail)
+                        {
+                            await DisplayAlert("Greska", "Korisnik sa tim emailom vec postoji", "OK");
+                            mailError.Text = "Email vec registrovan!";
+                            mailError.IsVisible = true;
 
+                        }
+                        else
+                        {
+
+                            await model.Registracija();
+                        }
                     }
                     else
                     {
+                        await DisplayAlert("Greska", "Podaci nisu ispravni", "OK");
 
-                        await model.Registracija();
                     }
-                }
-                else
-                {
-                    await DisplayAlert("Greska", "Podaci nisu ispravni", "OK");
 
-                }
-
+                
             }
+
         }
         private bool ProvjeriRegistraciju()
         {

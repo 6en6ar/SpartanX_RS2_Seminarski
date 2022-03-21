@@ -8,10 +8,12 @@ namespace SpartanX.Services
     public interface INarudzbeService
     {
         List<ModelSpartanX.Narudzbe> Get(object search);
+        List<ModelSpartanX.Narudzbe> GetNarudzbe(string username, string password, object search);
 
         ModelSpartanX.Narudzbe GetById(int id);
 
-        public ModelSpartanX.Narudzbe Insert(ModelSpartanX.Requests.NarudzbeInsertRequest request);
+        void Insert(ModelSpartanX.Requests.NarudzbeInsertRequest request);
+        void InsertNarudzba(ModelSpartanX.Requests.NarudzbeInsertRequest request, string username, string password);
 
         ModelSpartanX.Narudzbe Update(int id, ModelSpartanX.Requests.NarudzbeUpdateRequest request);
 

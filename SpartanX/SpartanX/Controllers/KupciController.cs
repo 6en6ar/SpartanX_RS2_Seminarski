@@ -30,6 +30,11 @@ namespace SpartanX.Controllers
         {
             return _service.Get(request);
         }
+        [HttpGet("{username},{password}")]
+        public List<ModelSpartanX.Kupci> GetKupce([FromQuery] ModelSpartanX.Search.KupciSearchObject request, string username, string password)
+        {
+            return _service.GetKupce(request, username, password);
+        }
         [HttpGet("{id}")]
         [Authorize]
         public ModelSpartanX.Kupci GetById(int id)

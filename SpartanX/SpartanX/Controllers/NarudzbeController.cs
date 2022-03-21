@@ -4,6 +4,7 @@ using SpartanX.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace SpartanX.Controllers
@@ -19,23 +20,43 @@ namespace SpartanX.Controllers
             _service = service;
         }      
         [HttpGet]
+        [Authorize]
         public List<ModelSpartanX.Narudzbe> Get([FromQuery] object search = null)
         {
             return _service.Get(search);
         }
+        [HttpGet("{username},{password}")]
+        public List<ModelSpartanX.Narudzbe> GetNarudzbe(string username, string password, [FromQuery] object search = null)
+        {
+            if( _service.GetNarudzbe(username, password, search) == null)
+            {
+                return null;
+            }
+            else
+            {
+                return _service.GetNarudzbe(username, password, search);
+            }
+        }
         [HttpGet("{id}")]
+        [Authorize]
         public ModelSpartanX.Narudzbe GetById(int id)
         {
             return _service.GetById(id);
         }
         [HttpPost]
-        //[Authorize]
-        public ModelSpartanX.Narudzbe Insert(ModelSpartanX.Requests.NarudzbeInsertRequest request)
+        [Authorize]
+        public void Insert(ModelSpartanX.Requests.NarudzbeInsertRequest request)
         {
-            return _service.Insert(request);
+           _service.Insert(request);
+        }
+        [HttpPost("{username},{password}")]
+        //[Authorize]
+        public void InsertNarudzba(ModelSpartanX.Requests.NarudzbeInsertRequest request, string username, string password)
+        {
+            _service.InsertNarudzba(request, username, password);
         }
         [HttpPut("{id}")]
-        //[Authorize]
+        [Authorize]
         public ModelSpartanX.Narudzbe Update(int id, [FromBody] ModelSpartanX.Requests.NarudzbeUpdateRequest request)
         {
             return _service.Update(id, request);

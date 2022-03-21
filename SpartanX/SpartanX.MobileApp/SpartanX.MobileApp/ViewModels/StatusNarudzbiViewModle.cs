@@ -20,7 +20,8 @@ namespace SpartanX.MobileApp.ViewModels
 
         public async Task Init()
         {
-           List<ModelSpartanX.Narudzbe> lista = await  _NarudzbeSer.Get<List<ModelSpartanX.Narudzbe>>(null);
+           //List<ModelSpartanX.Narudzbe> lista = await  _NarudzbeSer.Get<List<ModelSpartanX.Narudzbe>>(null);
+            List<ModelSpartanX.Narudzbe> lista = await  _NarudzbeSer.GetNarudzbe<List<ModelSpartanX.Narudzbe>>(null,APIService.username,APIService.password);
             ListaNarudzbi.Clear();
             foreach (var item in lista)
             {

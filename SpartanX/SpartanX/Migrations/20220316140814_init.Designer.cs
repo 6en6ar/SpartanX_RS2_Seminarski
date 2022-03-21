@@ -10,8 +10,8 @@ using SpartanX.Database;
 namespace SpartanX.Migrations
 {
     [DbContext(typeof(SpartanXContext))]
-    [Migration("20211107160638_Init")]
-    partial class Init
+    [Migration("20220316140814_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

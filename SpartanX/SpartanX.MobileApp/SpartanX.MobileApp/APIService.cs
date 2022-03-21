@@ -53,6 +53,52 @@ namespace SpartanX.MobileApp
             }
 
         }
+        public async Task<T> GetKupce<T>(object search, string username, string password)
+        {
+            var url = $"{Apiurl}/{ _controllerRoute}/{username},{password}";
+            try
+            {
+                if (search != null)
+                {
+                    url += "?";
+                    url += await search.ToQueryString();
+                }
+                var result = await url.GetJsonAsync<T>();
+                return result;
+            }
+            catch (FlurlHttpException ex)
+            {
+                if (ex.Call.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    await App.Current.MainPage.DisplayAlert("Greska", "Username ili lozinka nisu validni!", "OK");
+                }
+                throw;
+            }
+
+        }
+        public async Task<T> GetNarudzbe<T>(object search, string username, string password)
+        {
+            var url = $"{Apiurl}/{ _controllerRoute}/{username},{password}";
+            try
+            {
+                //if (search != null)
+                //{
+                //    url += "?";
+                //    url += await search.ToQueryString();
+                //}
+                var result = await url.GetJsonAsync<T>();
+                return result;
+            }
+            catch (FlurlHttpException ex)
+            {
+                if (ex.Call.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    await App.Current.MainPage.DisplayAlert("Greska", "Username ili lozinka nisu validni!", "OK");
+                }
+                throw;
+            }
+
+        }
         public async Task<T> GetById<T>(object id)
         {
             var url = await $"{ Apiurl}/{ _controllerRoute}/{id}".GetJsonAsync<T>();
@@ -62,6 +108,13 @@ namespace SpartanX.MobileApp
         public async Task<T> Insert<T>(object req)
         {
             var url = $"{ Apiurl}/{ _controllerRoute}";
+            var result = await url.PostJsonAsync(req).ReceiveJson<T>();
+            return result;
+
+        }
+        public async Task<T> InsertNarudzba<T>(object req, string username, string password)
+        {
+            var url = $"{ Apiurl}/{ _controllerRoute}/{username},{password}";
             var result = await url.PostJsonAsync(req).ReceiveJson<T>();
             return result;
 

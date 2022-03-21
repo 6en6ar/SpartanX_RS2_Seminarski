@@ -49,6 +49,32 @@ namespace SpartanX.Services
 
             return _mapper.Map<List<ModelSpartanX.Kupci>>(list);
         }
+        public List<ModelSpartanX.Kupci> GetKupce(ModelSpartanX.Search.KupciSearchObject request, string username, string password)
+        {
+            var user = _context.Kupcis.FirstOrDefault(x => x.KorisnickoIme == username);
+
+            if (user != null)
+            {
+                var hashedPass = GenerateHash(user.LozinkaSalt, password);
+
+                if (hashedPass == user.LozinkaHash)
+                {
+                    var query = _context.Kupcis.AsQueryable();
+
+                    if (!string.IsNullOrWhiteSpace(request?.Ime))
+                    {
+                        query = query.Where(x => x.Ime.StartsWith(request.Ime));
+                    }
+
+                    var list = query.ToList();
+
+                    return _mapper.Map<List<ModelSpartanX.Kupci>>(list);
+                }
+            }
+
+            return null;
+            
+        }
 
         public ModelSpartanX.Kupci GetById(int id)
         {
