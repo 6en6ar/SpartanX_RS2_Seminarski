@@ -167,9 +167,10 @@ namespace SpartanX.WinUI.Korisnici
             {
 
 
-                var listauloga = clbUloge.CheckedItems.Cast<ModelSpartanX.Uloge>().Select(x => x.UlogaId).ToList();
+                
                 if (_korisnik == null)
                 {
+                    var listauloga = clbUloge.CheckedItems.Cast<ModelSpartanX.Uloge>().Select(x => x.UlogaId).ToList();
                     ModelSpartanX.Requests.KorisniciInsertRequest req = new ModelSpartanX.Requests.KorisniciInsertRequest()
                     {
                         Ime = txtIme.Text,

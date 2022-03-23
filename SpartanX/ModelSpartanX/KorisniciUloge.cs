@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,8 +11,7 @@ namespace ModelSpartanX
         public int KorisnikId { get; set; }
         public int UlogaId { get; set; }
         public DateTime DatumIzmjene { get; set; }
-
-        public Korisnici Korisnik { get; set; }
+       // public Korisnici Korisnik { get; set; }
         public Uloge Uloga { get; set; }
     }
 }
