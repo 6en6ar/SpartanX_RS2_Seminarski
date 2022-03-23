@@ -11,7 +11,7 @@ namespace SpartanX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    //[Authorize]
+    [Authorize]
     
     public class KorisniciController : ControllerBase
     {
