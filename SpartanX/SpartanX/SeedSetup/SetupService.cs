@@ -14,7 +14,7 @@ namespace SpartanX.SeedSetup
         {
             context.Database.Migrate();
             //dodavanje podataka
-            if (!context.Skladista.Any(x=>x.Naziv == "Sarajevo"))
+            if (!context.Skladista.Any(x => x.Naziv == "Sarajevo"))
             {
                 context.Skladista.Add(new Database.Skladistum { Naziv = "Sarajevo", Adresa = "Ložionička 17", Opis = "Skladište za elite opremu" });
             }
